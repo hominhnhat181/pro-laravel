@@ -9,7 +9,7 @@
 			<thead>
 				<tr>
 					<th>ID</th>
-					<th>Tên Danh Mục</th>
+					<th>Categories Name</th>
 					<th>Tùy Chỉnh</th>
 
 

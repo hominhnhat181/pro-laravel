@@ -27,7 +27,7 @@
 
 
 
-                            <li><a href="{{url('logout')}}">Logout</a></li>
+                            <li><a href="{{url('luis')}}">Logout</a></li>
                         </ul>
                     </div>
                 </div>

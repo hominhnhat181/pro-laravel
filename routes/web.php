@@ -15,29 +15,31 @@ use Illuminate\Support\Facades\Route;
 
 
 
-// Route::get('login', 'AdminLogin@loginPage');
+// -------------------------PAGES-------------------------
+Route::get('luis', 'PageController@getIndex');
+Route::get('luis', 'PageController@getMenu');
 
-
-// login
+// -------------------------LOGIN-------------------------
 Route::get('login', 'AdminLogin@getLoginAdmin');
 Route::get('logout', 'AdminLogin@getLogoutAdmin');
 Route::post('login', 'AdminLogin@postLoginAdmin');
 
-// admin
-// Route::get('admin', 'adminController@categoryColum');
+// -------------------------ADMIN-------------------------
+
 Route::get('admin', 'adminController@getIndexAdmin');
 Route::get('admin', 'adminController@categoryColum');
 
+// -------------------------CATEGORY----------------------
 
-// -------------------------CATEGORY-------------------------
 Route::get('list-category','CategoryController@listCategory');
 Route::get('add-category','CategoryController@addCategory');
 Route::post('save-category','CategoryController@saveCategory');
-
 Route::get('edit-category/{category_id}','CategoryController@editCategory');
 Route::get('delete-category/{category_id}','CategoryController@deleteCategory');
 Route::post('update-category/{category_id}','CategoryController@updateCategory');
-// -------------------------TYPE-------------------------
+
+// -------------------------TYPE--------------------------
+
 Route::get('list-type','TypeController@listType');
 Route::get('add-type','TypeController@addType');
 Route::post('save-type','TypeController@saveType');
@@ -49,11 +51,8 @@ Route::post('update-type/{type_id}','TypeController@updateType');
 // -------------------------OBJECT-------------------------
 
 Route::get('list-object/{category_name}/{category_id}','ObjectController@listObject');
-
-
 Route::get('add-object/{category_name}/{category_id}','ObjectController@addObject');
 Route::post('save-object/{category_name}/{category_id}','ObjectController@saveObject');
-
 Route::get('edit-object/{category_id}/{categories_id}','ObjectController@editObject');
 Route::get('delete-object/{object_id}/{categories_id}','ObjectController@deleteObject');
 Route::post('update-object/{category_name}/{category_id}','ObjectController@updateObject');

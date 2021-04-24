@@ -12,6 +12,5 @@ class AdminController extends Controller
     public function categoryColum(){
         $data = DB::table('categories')->get() ;
         return view('admin.layouts.indexAdmin', compact('data'));
-       
     }
 }

@@ -9,8 +9,8 @@
 			<thead>
 				<tr>
 					<th>ID</th>
-					<th>Tên Danh Mục</th>
-					<th>Tùy Chỉnh</th>
+					<th>Types Name</th>
+					<th>Custom</th>
 
 
 				</tr>
