@@ -8,9 +8,12 @@ class App extends Model
 {
     protected $table ='apps';
     protected $fillable =[
-        'appName', 'categories_id'
+        'name', 'title','desc'
     ] ;
     protected function categories(){
         return $this->belongsTo(Category::class);
+    }
+    protected function types(){
+        return $this->belongsToMany(Type::class);
     }
 }

@@ -3,15 +3,17 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Notifications\Notifiable;
 
-class Post extends Model
+class Game extends Model
 {
-    protected $table ='posts';
+    protected $table ='games';
     protected $fillable =[
-        'title', 'author', 'desc', 'text', 'categories_id'
+        'name','title','desc' 
     ] ;
     protected function categories(){
         return $this->belongsTo(Category::class);
+    }
+    protected function types(){
+        return $this->belongsToMany(Type::class);
     }
 }

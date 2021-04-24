@@ -41,6 +41,9 @@
 
 
 {{-- endHeader -- begin -- content --}}
+
+{{-- category --}}
+
     @section('content_add_category')
     @yield('content_add_category')
     
@@ -50,6 +53,25 @@
     @section('content_list_category')
     @yield('content_list_category')
 
+{{-- type --}}
+
+    @section('content_add_type')
+    @yield('content_add_type')
+
+    @section('content_edit_type')
+    @yield('content_edit_type')
+
+    @section('content_list_type')
+    @yield('content_list_type')
+
+{{-- object --}}
+
+    @section('content_add_object')   
+    @yield('content_add_object')   
+
+    @section('content_edit_object')
+    @yield('content_edit_object')   
+  
     @section('content_list_object')
     @yield('content_list_object')
     

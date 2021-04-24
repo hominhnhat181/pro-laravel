@@ -37,12 +37,23 @@ Route::post('save-category','CategoryController@saveCategory');
 Route::get('edit-category/{category_id}','CategoryController@editCategory');
 Route::get('delete-category/{category_id}','CategoryController@deleteCategory');
 Route::post('update-category/{category_id}','CategoryController@updateCategory');
+// -------------------------TYPE-------------------------
+Route::get('list-type','TypeController@listType');
+Route::get('add-type','TypeController@addType');
+Route::post('save-type','TypeController@saveType');
+
+Route::get('edit-type/{type_id}','TypeController@editType');
+Route::get('delete-type/{type_id}','TypeController@deleteType');
+Route::post('update-type/{type_id}','TypeController@updateType');
 
 // -------------------------OBJECT-------------------------
-Route::get('list-object','ObjectController@listObject');
-Route::get('add-object','ObjectController@addObject');
-Route::post('save-object','ObjectController@saveObject');
 
-// Route::get('edit-object/{object_id}','CategoryController@editCategory');
-// Route::get('delete-object/{object_id}','CategoryController@deleteCategory');
-// Route::post('update-object/{object_id}','CategoryController@updateCategory');
+Route::get('list-object/{category_name}/{category_id}','ObjectController@listObject');
+
+
+Route::get('add-object/{category_name}/{category_id}','ObjectController@addObject');
+Route::post('save-object/{category_name}/{category_id}','ObjectController@saveObject');
+
+Route::get('edit-object/{category_id}/{categories_id}','ObjectController@editObject');
+Route::get('delete-object/{object_id}/{categories_id}','ObjectController@deleteObject');
+Route::post('update-object/{category_name}/{category_id}','ObjectController@updateObject');

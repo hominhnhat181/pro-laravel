@@ -12,23 +12,23 @@ class Category extends Model
      * The attributes that are mass assignable.
      *
      * @var array
-     */    
+     */
     protected $table ='categories';
     protected $fillable = [
          'catName'
     ];
 
-protected function posts(){
-    return $this->belongsToMany(Post::class);
+    // protected function posts(){
+//     return $this->belongsToMany(Post::class);
+// }
+//     /**
+//      * The attributes that should be cast to native types.
+//      *
+//      * @var array
+//      */
+//     protected $casts = [
+//         'category_verified_at' => 'datetime',
+//     ];
+// }
 }
-    /**
-     * The attributes that should be cast to native types.
-     *
-     * @var array
-     */
-    protected $casts = [
-        'category_verified_at' => 'datetime',
-    ];
-}
-
 

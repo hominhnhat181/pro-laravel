@@ -1,5 +1,5 @@
 @extends('admin/layouts/adMaster')
-@section('content_list_object')
+@section('content_list_type')
 <div class="grid_10">
     <div class="box round first grid">
         <h2>Danh sách sản phẩm</h2>
@@ -11,17 +11,16 @@
 					<th>ID</th>
 					<th>Tên Danh Mục</th>
 					<th>Tùy Chỉnh</th>
+
+
 				</tr>
 			</thead>
 			<tbody>
-				@foreach($oj as $key=>$oj)
+				@foreach($data1 as $key=>$type)
 				<tr class="odd gradeX" style="text-align: center">
-					<td>{{$oj->id}}</td>
-					<td>{{$oj->name}}</td>
-					<td>{{$oj->types_id}}</td>
-						
-				
-					<td><a href="{{URL('edit-object/'.$oj->id.'/'.$oj->categories_id)}}">Edit</a> || <a href="{{URL('delete-object/'.$oj->id.'/'.$oj->categories_id)}}">Delete</a></td>
+					<td>{{$type->id}}</td>
+					<td>{{$type->typeName}}</td>
+					<td><a href="{{URL('edit-type/'.$type->id)}}">Edit</a> || <a href="{{URL('delete-type/'.$type->id)}}">Delete</a></td>
 				</tr>
 				@endforeach
 			</tbody>
