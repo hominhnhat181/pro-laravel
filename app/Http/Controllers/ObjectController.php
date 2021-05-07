@@ -11,8 +11,14 @@ class ObjectController extends Controller
     // view list
     public function listObject($categori_name, $categori_id){
         $data = DB::table('categories')->get();
-        $oj = DB::table($categori_name)->where('categories_id', $categori_id)->get();
-        return view('admin.object.list_object', compact('oj'), compact('data'));
+        // $oj = DB::table($categori_name)->where('categories_id', $categori_id)->get();
+        
+        $test1 = DB::table($categori_name)
+        ->join('types', $categori_name.'.types_id', '=', 'types.id')
+        ->select( 'types.typeName', $categori_name.'.name',$categori_name.'.image', $categori_name.'.link', $categori_name.'.title',  $categori_name.'.types_id', $categori_name.'.id', $categori_name.'.categories_id')
+        ->limit(12)
+        ->get();
+        return view('admin.object.list_object', compact('data','test1'));
     }
 
 
@@ -28,36 +34,76 @@ class ObjectController extends Controller
         $data = array();
         $data['name'] = $request->object_name;
         $data['categories_id'] = $categori_id;
+        $data['title'] = 'joker';
+        $data['desc'] = 'joker';
+        $data['image'] = 'joker';
+        $data['link'] = 'joker';
         $typeId = rand(1,5);
         $data['types_id'] = $typeId;
+
         DB::table($categori_name)->where('categories_id', $categori_id)->insert($data);
         $data = DB::table('categories')->get();
-        $oj = DB::table($categori_name)->where('categories_id', $categori_id)->get();
-        return view('admin.object.list_object', compact('oj'), compact('data'));
+        $test1 = DB::table($categori_name)
+        ->join('types', $categori_name.'.types_id', '=', 'types.id')
+        ->select( 'types.typeName', $categori_name.'.name',$categori_name.'.image', $categori_name.'.link', $categori_name.'.title',  $categori_name.'.types_id', $categori_name.'.id', $categori_name.'.categories_id')
+        ->limit(12)
+        ->get();
+        return view('admin.object.list_object', compact('oj','data','test1'));
     }
 
+// 100% overload
 
-    public function editObject($object_id, $categories_id){
+    // edit
+    public function editObject( $object_id, $categories_id){
         $data = DB::table('categories')->get();
-        $catname = DB::table('categories')->where('id', $categories_id)->value('catName');
-        $s=DB::table($catname)->where('id', $object_id)->get();
-        return view('admin.object.edit_object', compact('s'), compact('data'));
-    }
+        $categori_name = DB::table('categories')->where('id', $categories_id)->value('catName');
 
+        // call object
+        // can call cate and type
+        $super = DB::table($categori_name)
+        ->join('types', $categori_name.'.types_id', '=', 'types.id')
+        ->join('categories', $categori_name.'.categories_id', '=','categories.id')
+        ->select( 'types.typeName','types.id', $categori_name.'.name',$categori_name.'.image', $categori_name.'.link', $categori_name.'.title',  $categori_name.'.types_id', $categori_name.'.id', $categori_name.'.categories_id','categories.catName')->where($categori_name.'.id', $object_id) ->limit(12)->get();
+
+
+        // catch types oj id
+        $typeId = DB::table($categori_name)->where($categori_name.'.id','=',$object_id)->value('types_id');
+    
+        // fill type name not have which 
+        $typeList = DB::table($categori_name)
+        ->join('types', $categori_name.'.types_id', '=', 'types.id')
+        ->select('types.typeName')->DISTINCT()
+        ->where('types.id','!=', $typeId)
+        ->where($categori_name.'.id','!=', $super.'.types_id')->get();
+       
+        
+        return view('admin.object.edit_object', compact('super','data','categori_name','typeList'));
+    }
 
     public function updateObject(Request $request, $object_id, $categories_id){
         $data = array();
         $data['name'] = $request->object_name;
+        $data_type = $request->object_type;
+
+        // get type id
+        $typeId =DB::table('types')->where('typeName', $data_type)->value('id');
+        
+        $data['types_id'] = $typeId;
         $catname = DB::table('categories')->where('id', $categories_id)->value('catName');
-        DB::table( $catname)->where('id', $object_id)->update($data);
+        // update
+        DB::table($catname)
+        ->join('types', $catname.'.types_id','=','types.id')
+        ->where($catname.'.id', $object_id)
+        ->update($data);
         return Redirect('list-object/'.$catname.'/'.$categories_id);
     }
 
-
+    // delete
     public function deleteObject($object_id, $categories_id){
         $catname = DB::table('categories')->where('id', $categories_id)->value('catName');
         
         DB::table($catname)->where('id', $object_id)->delete();
         return Redirect('list-object/'.$catname.'/'.$categories_id);
     }
+
 }

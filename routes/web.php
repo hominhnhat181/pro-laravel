@@ -18,6 +18,14 @@ use Illuminate\Support\Facades\Route;
 // -------------------------PAGES-------------------------
 Route::get('luis', 'PageController@getIndex');
 Route::get('luis', 'PageController@getMenu');
+Route::get('contact','PageController@getContact');
+Route::get('games', 'PageController@getGame');
+Route::get('apps', 'PageController@getApp');
+Route::get('types-{id}', 'PageController@getType');
+Route::get('detail-{types_id}-{id}', 'PageController@getDetail');
+
+
+
 
 // -------------------------LOGIN-------------------------
 Route::get('login', 'AdminLogin@getLoginAdmin');

@@ -18,6 +18,8 @@ class CreateAppsTable extends Migration
             $table->string('name');
             $table->string('title');
             $table->string('desc');
+            $table->string('image');
+            $table->string('link');
             $table->unsignedBigInteger('types_id');
             $table->foreign('types_id')->references('id')->on('types')->onDelete('cascade');
             $table->unsignedBigInteger('categories_id');

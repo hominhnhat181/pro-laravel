@@ -15,5 +15,7 @@ $factory->define(App\Game::class, function (Faker $faker) {
         // 'categories_id'=> Category::all()->random()->id,
         'categories_id'=>1,
         'types_id'=>Type::all()->random()->id,
+        'image' => $faker->image('public/layout/images',640,480, null, false),
+        'link'=>$faker->text(100)
     ];
 });

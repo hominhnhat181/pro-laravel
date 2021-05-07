@@ -8,7 +8,7 @@ class App extends Model
 {
     protected $table ='apps';
     protected $fillable =[
-        'name', 'title','desc'
+        'name', 'title','desc','image','link'
     ] ;
     protected function categories(){
         return $this->belongsTo(Category::class);

@@ -11,6 +11,6 @@ class AppTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(App\App::class, 4)->create();
+        factory(App\App::class, 1)->create();
     }
 }

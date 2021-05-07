@@ -9,14 +9,14 @@
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
-    <link rel="stylesheet" href="nhat/css/animate.css">
+    <link rel="stylesheet" href="layout/css/animate.css">
     
-    <link rel="stylesheet" href="nhat/css/owl.carousel.min.css">
-    <link rel="stylesheet" href="nhat/css/owl.theme.default.min.css">
-    <link rel="stylesheet" href="nhat/css/magnific-popup.css">
+    <link rel="stylesheet" href="layout/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="layout/css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="layout/css/magnific-popup.css">
     
-    <link rel="stylesheet" href="nhat/css/flaticon.css">
-    <link rel="stylesheet" href="nhat/css/style.css">
+    <link rel="stylesheet" href="layout/css/flaticon.css">
+    <link rel="stylesheet" href="layout/css/style.css">
   </head>
   <body>
 
@@ -29,8 +29,21 @@
     @section('content')
     @yield('content')
 
+    @section('contact')
+    @yield('contact')
 
+    @section('game')
+    @yield('game')
 
+    @section('app')
+    @yield('app')
+
+    @section('type')
+    @yield('type')
+
+    @section('detail')
+    @yield('detail')
+    
     @include('layouts/footer')
 
 {{-- endFotter --}}
