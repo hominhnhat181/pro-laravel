@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@yield('title','ADMIN PAGE')</title>
+    
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 
@@ -37,6 +38,8 @@
     <script src="{{url('js/table/jquery.dataTables.min.js')}}" type="text/javascript"></script>
     <script src="{{url('js/table/table.js')}}" type="text/javascript"></script>
     <script src="{{url('js/setup.js')}}" type="text/javascript"></script>
+  
+
 {{-- bootraps --}}
     
 
@@ -48,10 +51,21 @@
 
     @include('admin/layouts/headerAdmin')
     @include('admin/layouts/sidebarAdmin')
-    
+  
 
 
 {{-- endHeader -- begin -- content --}}
+
+{{-- admin --}}
+
+    @section('content_add_admin')
+    @yield('content_add_admin')
+
+    @section('content_edit_admin')
+    @yield('content_edit_admin')
+
+    @section('content_list_admin')
+    @yield('content_list_admin')
 
 {{-- category --}}
 

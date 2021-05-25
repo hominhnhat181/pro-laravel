@@ -2,17 +2,28 @@
 
 namespace App\Http\Controllers;
 
+use App\Repositories\ObjectRepository;
+use App\Repositories\interfaces\ObjectRepositoryInterface as ObjectInterface;; 
 use Illuminate\Http\Request;
+use Carbon\Carbon;
 use DB;
+
 class ObjectController extends Controller
-{
+{   
+
+    // protected $objectRepository;
+
+    // public function __construct(ObjectInterface $objectRepository){
+
+    //     $this->objectRepository = $objectRepository;
+
+    // }
 
 
     // view list
     public function listObject($categori_name, $categori_id){
         $data = DB::table('categories')->get();
-        // $oj = DB::table($categori_name)->where('categories_id', $categori_id)->get();
-        
+
         $test1 = DB::table($categori_name)
         ->join('types', $categori_name.'.types_id', '=', 'types.id')
         ->select( 'types.typeName', $categori_name.'.name',$categori_name.'.image', $categori_name.'.link', $categori_name.'.title',  $categori_name.'.types_id', $categori_name.'.id', $categori_name.'.categories_id')
@@ -63,7 +74,7 @@ class ObjectController extends Controller
         $super = DB::table($categori_name)
         ->join('types', $categori_name.'.types_id', '=', 'types.id')
         ->join('categories', $categori_name.'.categories_id', '=','categories.id')
-        ->select( 'types.typeName','types.id', $categori_name.'.name',$categori_name.'.image', $categori_name.'.link', $categori_name.'.title',  $categori_name.'.types_id', $categori_name.'.id', $categori_name.'.categories_id','categories.catName')->where($categori_name.'.id', $object_id) ->limit(12)->get();
+        ->select( $categori_name.'.desc',$categori_name.'.image',$categori_name.'.link','types.typeName','types.id', $categori_name.'.name',$categori_name.'.image', $categori_name.'.link', $categori_name.'.title',  $categori_name.'.types_id', $categori_name.'.id', $categori_name.'.categories_id','categories.catName')->where($categori_name.'.id', $object_id) ->limit(12)->get();
 
 
         // catch types oj id
@@ -83,6 +94,10 @@ class ObjectController extends Controller
     public function updateObject(Request $request, $object_id, $categories_id){
         $data = array();
         $data['name'] = $request->object_name;
+        $data['title'] = $request->object_status;
+        $data['desc'] = $request->object_desc;
+        $data['image'] = $request->object_image;
+        $data['link'] = $request->object_link;
         $data_type = $request->object_type;
 
         // get type id

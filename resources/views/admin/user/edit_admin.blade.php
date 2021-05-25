@@ -1,8 +1,8 @@
 @extends('admin/layouts/adMaster')
-@section('content_edit_category')
+@section('content_edit_admin')
 <div class="grid_10">
     <div class="box round first grid">
-        <h2>Edit Category</h2>
+        <h2>Edit Admin</h2>
         <div class="block">     
             @if (session('error'))
                 <div class="alert alert-danger" role="alert">
@@ -13,15 +13,16 @@
         @foreach ($data_ed as $key)
             
         
-         <form action="{{URL('update-category/'.$key->id)}}" method="post" enctype="multipart/form-data">
+         <form action="{{URL('update-admin/'.$key->id)}}" method="post" enctype="multipart/form-data">
             {{ csrf_field() }}
             <table class="form">
                 <tr>
                     <td>
-                        <label>Tên Danh Muc Moi</label>
+                        <label>Tên ADMIN</label>
                     </td>
                     <td>
-                        <input type="text" name="category_name" value="{{$key->catName}}" placeholder="Nhập tên Danh mục Moi..." class="medium" />
+                        <input type="text" name="email" value="{{$key->email}}" placeholder="New Name..." class="medium" />
+                        <input type="password" name="password" value="" placeholder="New Password..." class="medium" />
                     </td>
                 </tr>
 				<tr>

@@ -2,7 +2,14 @@
     <div class="box sidemenu">
         <div class="block" id="section-menu">
             <ul class="section menu">
-                <li><a  href="{{URL('admin')}}">Home</a> </li>
+                <li><a  href="{{URL('admin')}}">Home</a> </li>  
+                
+                <li><a class="menuitem">Admin</a>
+                    <ul class="submenu">
+                        <li><a href="{{URL('add-admin')}}">New Admin</a> </li>
+                        <li><a href="{{URL('list-admin')}}">List Admin</a> </li>
+                    </ul>
+                </li>
                 <li><a class="menuitem">Categories</a>
                     <ul class="submenu">
                         <li><a href="{{URL('add-category')}}">New Category</a> </li>
@@ -15,6 +22,7 @@
                         <li><a href="{{URL('list-type')}}">List Type</a> </li>
                     </ul>
                 </li>
+                
                 @foreach ($data as $key)
                     <li><a class="menuitem">{{$key->catName}}</a>
                         <ul class="submenu">
@@ -23,6 +31,7 @@
                         </ul>
                     </li>
                 @endforeach
+
             </ul>
         </div>
     </div>

@@ -37,4 +37,21 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+    public function getAll()
+    {
+        return static::all();
+    }
+
+
+    public function findUser($id)
+    {
+        return static::find($id);
+    }
+
+
+    public function deleteUser($id)
+    {
+        return static::find($id)->delete();
+    }
 }
+

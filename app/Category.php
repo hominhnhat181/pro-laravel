@@ -18,17 +18,21 @@ class Category extends Model
          'catName'
     ];
 
-    // protected function posts(){
-//     return $this->belongsToMany(Post::class);
-// }
-//     /**
-//      * The attributes that should be cast to native types.
-//      *
-//      * @var array
-//      */
-//     protected $casts = [
-//         'category_verified_at' => 'datetime',
-//     ];
-// }
+    // public function getAll()
+    // {
+    //     return static::all();
+    // }
+
+
+    // public function findUser($id)
+    // {
+    //     return static::find($id);
+    // }
+
+
+    // public function deleteUser($id)
+    // {
+    //     return static::find($id)->delete();
+    // }
 }
 

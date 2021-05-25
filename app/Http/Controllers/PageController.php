@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
 class PageController extends Controller
 {
+    
     public function getIndex(){
         return view('layouts.index');
     }
@@ -14,17 +15,22 @@ class PageController extends Controller
         $typeGame = DB::table('types')->where('id', '<', 5)->get();
         $catApp = DB::table('categories')->where('id','=', 2)->get() ;
         $typeApp = DB::table('types')->where('id', '>', 4)->get();
-        $gameRing = DB::table('games')->limit(6)->get();
 
+        $gameRing = DB::table('games')
+        ->join('types', 'games.types_id', '=', 'types.id')
+        ->select( 'types.typeName', 'games.name','games.image', 'games.link','games.title', 'games.types_id','games.id')
+        ->limit(6)
+        ->get();
+       
         $bestGame = DB::table('games')
         ->join('types', 'games.types_id', '=', 'types.id')
-        ->select( 'games.desc', 'games.name','games.image')
-        ->where('games.id', 6)
+        ->select( 'games.desc', 'games.name','games.image','games.types_id','games.id')
+        ->where('games.id', 1)
         ->get();
 
         $gameList = DB::table('games')
         ->join('types', 'games.types_id', '=', 'types.id')
-        ->select( 'types.typeName', 'games.name','games.image', 'games.link','games.types_id', 'games.id')
+        ->select( 'types.typeName', 'games.name','games.image','games.desc','games.title', 'games.link','games.types_id', 'games.id')
         ->limit(8)
         ->get();
 
@@ -34,10 +40,15 @@ class PageController extends Controller
         ->limit(8)
         ->get();
 
+        $gameslider = DB::table('games')
+        ->join('types', 'games.types_id', '=', 'types.id')
+        ->select( 'types.typeName', 'games.name','games.image','games.desc','games.title', 'games.link','games.types_id', 'games.id')
+        ->limit(8)->where('games.title','!=','Multiplay')
+        ->get();
 
-        return view('layouts.index', compact('typeGame','typeApp', 'catGame','catApp', 'gameRing', 'gameList','bestGame', 'appList'));
+        return view('layouts.index', compact('gameslider','typeGame','typeApp', 'catGame','catApp', 'gameRing', 'gameList','bestGame', 'appList'));
     }
-
+    
     public function getContact(){
         $catGame = DB::table('categories')->where('id','=', 1)->get() ;
         $typeGame = DB::table('types')->where('id', '<', 5)->get();
@@ -51,15 +62,20 @@ class PageController extends Controller
         $typeGame = DB::table('types')->where('id', '<', 5)->get();
         $catApp = DB::table('categories')->where('id','=', 2)->get() ;
         $typeApp = DB::table('types')->where('id', '>', 4)->get();
+
         $gameList = DB::table('games')
         ->join('types', 'games.types_id', '=', 'types.id')
         ->select( 'types.typeName', 'games.name','games.image', 'games.link','games.title', 'games.types_id','games.id')
         ->limit(12)
         ->get();
+
+        
+
         $typeList = DB::table('types')->where('id', '<', 5)->get();
+        
         return view('layouts.game',compact('typeGame','typeApp', 'catGame','catApp','gameList', 'typeList'));
     }
-
+    
 
     public function getApp(){
         $catGame = DB::table('categories')->where('id','=', 1)->get() ;
@@ -116,5 +132,36 @@ class PageController extends Controller
         return view('layouts.obj-detail', compact('typeGame','typeApp', 'catGame','catApp','allthingD','allType'));
     }
 
+
+    // search
+    public function search(Request $request){
+        $catGame = DB::table('categories')->where('id','=', 1)->get() ;
+        $typeGame = DB::table('types')->where('id', '<', 5)->get();
+        $catApp = DB::table('categories')->where('id','=', 2)->get() ;
+        $typeApp = DB::table('types')->where('id', '>', 4)->get();
+
+        $attributes = $request->search;
+
+
+        $resultGame = DB::table('games')
+        ->join('types', 'games.types_id', '=', 'types.id')
+        ->select( 'types.typeName', 'games.name','games.image','games.desc','games.title', 'games.link','games.types_id', 'games.id')
+        ->where('name','LIKE','%'.$attributes.'%')
+        ->orWhere('types.typeName','LIKE','%'.$attributes.'%')
+        ->paginate(5);
+
+        
+        $resultApp = DB::table('apps')
+        ->join('types', 'apps.types_id', '=', 'types.id')
+        ->select( 'types.typeName', 'apps.name','apps.image','apps.desc','apps.title', 'apps.link','apps.types_id', 'apps.id')
+        ->where('name','LIKE','%'.$attributes.'%')
+        ->orWhere('types.typeName','LIKE','%'.$attributes.'%')
+        ->paginate(5);
+
+        
+        
+        return view('layouts.search', compact('resultGame','resultApp','catGame','typeGame','catApp','typeApp'));
+    }
+   
 }
      

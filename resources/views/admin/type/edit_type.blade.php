@@ -2,11 +2,14 @@
 @section('content_edit_type')
 <div class="grid_10">
     <div class="box round first grid">
-        <h2>Thêm sản phẩm</h2>
-        <div class="block">     
-          
+        <h2>Edit Type</h2>
+        @if (session('error'))
+            <div class="alert alert-danger" role="alert">
+                {{ session('error') }}
+            </div>
+        @endif
         <!-- enctype dùng update and thêm mới something -->
-        @foreach ($data1 as $key)
+        @foreach ($data_ed as $key)
             
         
          <form action="{{URL('update-type/'.$key->id)}}" method="post" enctype="multipart/form-data">

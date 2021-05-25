@@ -6,7 +6,11 @@
             <div class="box round first grid">
                 <h2> Dashbord</h2>
                 <div class="block">               
-                  Welcome admin panel        
+                  @if (session('success'))
+                    <div class="alert alert-success" role="alert">
+                      {{ session('success') }}
+                    </div>
+                @endif
                 </div>
             </div>
         </div>

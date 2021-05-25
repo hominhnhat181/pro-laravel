@@ -2,7 +2,7 @@
 @section('content_list_object')
 <div class="grid_10">
     <div class="box round first grid">
-        <h2>Danh sách sản phẩm</h2>
+        <h2>Danh sách  </h2>
         <div class="block">  
  
             <table class="data display datatable" id="example">

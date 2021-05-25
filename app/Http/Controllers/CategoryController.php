@@ -1,49 +1,77 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Repositories\CategoryRepository;
+use App\Repositories\interfaces\CategoryRepositoryInterface as CategoryInterface;; 
 use Illuminate\Http\Request;
+use Carbon\Carbon;
 use DB;
-
 class CategoryController extends Controller
 {
+
+    protected $categoryRepository;
+
+    public function __construct(CategoryInterface $categoryRepository){
+
+        $this->categoryRepository = $categoryRepository;
+
+    }
+
+
     public function listCategory(){
-        $data = DB::table('categories')->get() ;
-        return view('admin.category.list_category', compact('data'));
+        $data = $this->categoryRepository->sidebar();
+        $data_ad = $this->categoryRepository->getAll();
+        return view('admin.category.list_category', compact('data', 'data_ad'));
+    
     }
 
 
     public function addCategory(){
-        $data = DB::table('categories')->get() ;
-        return view('admin.category.add_category', compact('data'));
+        $data = $this->categoryRepository->sidebar();
+        $data_ad = $this->categoryRepository->getAll();
+        return view('admin.category.add_category', compact('data', 'data_ad'));
+    
     }
 
 
-    public function saveCategory(Request $request){
-        $data = array();
-        $data['catName'] = $request->category_name;
-        DB::table('categories')->insert($data);
-        return redirect('list-category');
+    public function store(Request $request){
+        $attributes = array();
+        $attributes['catName'] = $request->category_name;
+        $attributes['created_at'] = Carbon::now();
+        $attributes['updated_at'] = Carbon::now();
+        if($attributes['catName'] == null ){
+            return  redirect('add-category')->with('error', 'Create Category Failure, Catagory Name cannot be empty');
+        }else{
+            $this->categoryRepository->store($attributes);
+            return   redirect('list-category')->with('create', 'Create Category Success');
+        }
     }
 
 
-    public function editCategory($category_id){
-        
-        $data=DB::table("categories")->where('id', $category_id)->get();
-        return view('admin.category.edit_category', compact('data'));
+    public function get($id){
+        $data = $this->categoryRepository->sidebar();
+        $data_ed = $this->categoryRepository->find($id);
+        return view('admin.category.edit_category', compact('data', 'data_ed'));
+
     }
 
 
-    public function updateCategory(Request $request, $category_id){
-        $data = array();
-        $data['catName'] = $request->category_name;
-        DB::table('categories')->where('id', $category_id)->update($data);
-        return Redirect('list-category');
+    public function update($category_id,Request $request){
+        $attributes = array();
+        $attributes['catName'] = $request->category_name;
+        $attributes['created_at'] = Carbon::now();
+        $attributes['updated_at'] = Carbon::now();
+        if($attributes['catName'] == null ){
+            return  redirect('edit-category/'.$category_id)->with('error', 'Update Category Failure, Catagory Name cannot be empty');
+        }else{
+            $this->categoryRepository->update($category_id, $attributes);
+            return redirect('list-category')->with('update', 'Update Category Success');
+        }
     }
 
 
-    public function deleteCategory($category_id){
-        DB::table('categories')->where('id', $category_id)->delete();
-        return Redirect('list-category');
+    public function delete($category_id) {
+        $this->categoryRepository->delete($category_id);
+        return redirect('list-category')->with('delete', 'Delete Category success');
     }
 }

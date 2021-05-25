@@ -2,7 +2,7 @@
 @section('content_add_type')
 <div class="grid_10">
     <div class="box round first grid">
-        <h2>Thêm Danh Mục</h2>
+        <h2>New Type</h2>
         <div class="block">     
           
          <form action="{{URL('save-type')}}" method="post" enctype="multipart/form-data">

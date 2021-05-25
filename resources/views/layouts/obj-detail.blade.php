@@ -11,7 +11,7 @@
         </div>
         <div class="col-lg-12 product-details pl-md-5 ftco-animate fadeInUp ftco-animated">
             <h3>{{$tp->name}}</h3>
-            @foreach ($allType as $item)<h5>{{$item->typeName}}</h5>@endforeach
+            @foreach ($allType as $item)<a href="{{URL('types-'.$item->id)}}"><h5 class="detail-typex" >{{$item->typeName}}</h5></a>@endforeach
             <div id="rating" class="rating d-flex">
                 <p class="text-left mr-4">
                     <a href="#" class="mr-2">5.0</a>

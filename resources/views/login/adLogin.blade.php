@@ -2,6 +2,9 @@
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+
 <style>
 body {	font-family: Arial, Helvetica, sans-serif; width:40%; text-align: center;margin: auto;margin-top: 200px}
 form {border: 3px solid #f1f1f1;}
@@ -53,6 +56,11 @@ span.psw {
   float: right;
   padding-top: 16px;
 }
+.alert-danger{
+  color: red;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
 
 /* Change styles for span and cancel button on extra small screens */
 @media screen and (max-width: 300px) {
@@ -70,6 +78,16 @@ span.psw {
 
 <h2>Login Form</h2>
 <base href="{{asset('')}}">
+@if (session('error'))
+  <div class="alert alert-danger" role="alert">
+      {{ session('error') }}
+  </div>
+@endif
+@if (session('create'))
+	<div class="alert alert-success" role="alert">
+		{{ session('create') }}
+	</div>
+@endif
 <form  method="post" enctype="multipart/form-data">
 
 

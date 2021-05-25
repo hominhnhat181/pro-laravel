@@ -12,7 +12,7 @@
             <div id="branding">
 
 				<div class="floatleft middle">
-					<h1>WELCOME ADMINS</h1>
+					<h1>BLUE-NIGHT</h1>
 					<p>Nothing Is Absolute, Nothing Is Forever, Nothing From Nothing</p>
 				</div>
                 <div class="floatright">
@@ -20,14 +20,13 @@
                     <div class="floatleft marginleft10">
                         <ul class="inline-ul floatleft">
                             <!-- get user name -->
-                            
-                           
-                            
-                            <li>Hello {{{ isset(Auth::user()->name) ? Auth::user()->name : Auth::user()->email }}} </li>
+                            @if (Auth::guest())
 
-
-
-                            <li><a href="{{url('luis')}}">Logout</a></li>
+                            @else
+                            <li>Hi Admin {{{ isset(Auth::user()->name) ? Auth::user()->name : Auth::user()->email }}} </li>
+                            <li><a  href="{{url('luis')}}">Web</a></li>
+                            <li><a  href="{{url('logoutadmin')}}">Logout </a></li>
+                            @endif
                         </ul>
                     </div>
                 </div>

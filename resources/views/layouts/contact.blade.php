@@ -99,5 +99,33 @@
         </div>
     </div>
 </section>
-
+<style>
+    .ftco-navbar-light .nav-item .nav-link{
+         color: rgba(255, 255, 255, 0.5) !important;
+    }
+    .ftco-navbar-light .nav-item .nav-link:hover{
+        color: #b7472a !important;
+    }
+    .ftco-navbar-light .nav-item .dropdown-menu .dropdown-item:hover{
+        color: #b7472a !important;
+    }
+    .ftco-navbar-light #menu__contact .nav-link {
+        color: #ffffff !important; 
+    }
+    .ftco-navbar-light #menu__contact .nav-link:hover {
+        color: #b7472a !important;
+    }
+    .ftco-navbar-light.scrolled.awake .navbar-nav .nav-item .nav-link{
+        color: #000000 !important;
+    }
+    .ftco-navbar-light.scrolled.awake .navbar-nav .nav-item .nav-link:hover{
+        color: #b7472a !important;
+    }
+    .ftco-navbar-light.scrolled.awake .navbar-nav .nav-item .dropdown-menu .dropdown-item:hover{
+        color: #b7472a !important;
+    }
+    .ftco-navbar-light.scrolled.awake .navbar-nav #menu__contact .nav-link{
+        color: #b7472a !important;
+    }
+</style>
 @endsection
