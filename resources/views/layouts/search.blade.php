@@ -5,7 +5,7 @@
 
 <div class="container">
     <div class="row">
-        <h3 style="padding: 20px 0">Kết quả tìm kiếm:</h3>
+        <h3 style="padding: 20px 10px">Kết quả tìm kiếm:</h3>
         <div class="search__container">
 
         </div>
@@ -17,8 +17,9 @@
     <div class="result" >
         <div class="result__block">
             <div class="result__img--item" style=" max-width: 100%; background-size: cover">
-                <a href="{{URL('detail-'.$gm->types_id.'-'.$gm->id)}}" style="width: 100%; height: 100%;"></a>
-                <img src="../public/layout/images/{{$gm->image}}" alt="">
+                <a href="{{URL('detail-'.$gm->types_id.'-'.$gm->id)}}" style="width: 100%; height: 100%;">
+                <img  src="../public/layout/images/{{$gm->image}}" alt=""></a>
+
             </div>
             <div class="result__content">
                 <div>
@@ -43,7 +44,7 @@
         <div class="result__block">
             <div class="result__img--item" style=" max-width: 100%; background-size: cover">
                 <a href="{{URL('detail-'.$ap->types_id.'-'.$ap->id)}}" style="width: 100%; height: 100%;"></a>
-                <img src="../public/layout/images/{{$ap->image}}" alt="">
+                <img href="{{URL('detail-'.$ap->types_id.'-'.$ap->id)}}" src="../public/layout/images/{{$ap->image}}" alt="">
             </div>
             <div class="result__content">
                 <div>
@@ -76,9 +77,23 @@
     }
     .pagination{
         position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    }
+    .pagination .page-link{
+        margin: 0 3px !important;
+        color: black !important;
+       
+    }
+    .pagination .page-link:hover{
+        color: #b7472a !important;
+    }
+    .page-item.active .page-link {
+        background: #b7472a !important;
+        outline: none !important;
+        border: none !important;
+        color: #ffffff !important
     }
     .result{
        margin: 50px 0;
@@ -100,6 +115,26 @@
     .block-27 ul{
         margin-bottom:50px
     }
+    #header__content{
+        max-height: 400px !important;
+    }
+    
+    .hero-wrap{
+        background-attachment: initial !important;
+        max-height: 400px;
+        background-size: cover;
+    }
+    #header__content  .mb-4, .p  ,.name__content{
+        display: none;
+    }
+    .ftco-navbar-light .navbar-brand .name__change{
+        margin-left: -5px !important;
+    }
+    .ftco-navbar-light .navbar-brand .name__change::before{
+        content: "earch";
+    }
+   
+
   </style>
 
 @endsection

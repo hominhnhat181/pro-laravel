@@ -127,5 +127,22 @@
     .ftco-navbar-light.scrolled.awake .navbar-nav #menu__contact .nav-link{
         color: #b7472a !important;
     }
+    #header__content h1, p, .name__content{
+        display: none;
+    }
+    .ftco-navbar-light .navbar-brand .name__change{
+        margin-left: -5px !important;
+    }
+    .ftco-navbar-light .navbar-brand .name__change::before{
+        content: "contact";
+    }
+    #header__content{
+        max-height: 400px !important;
+    }
+    .hero-wrap{
+        background-attachment: initial !important;
+        max-height: 80px;
+        background-size: cover;
+    }
 </style>
 @endsection

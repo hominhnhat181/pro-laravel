@@ -45,7 +45,7 @@
 
 <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
 <div class="container">
-  <a class="navbar-brand" href="{{URL('luis')}}">Luis<span>tore</span></a>
+  <a class="navbar-brand" href="{{URL('luis')}}">Luis<span class="name__content">tore</span> <span class="name__change"></span></a>
   <div class="order-lg-last btn-group">
 
   
@@ -58,7 +58,7 @@
 		
 	<li style="margin-right: 4px"> 
 		<form class="form-search" action="{{URL('search')}}">
-			<input type="search" placeholder="Search?" name="search" required>
+			<input class="search" type="search" placeholder="Search?" name="search" required>
 			<i class="fa fa-search"></i>
 		</form>
 	</li>
@@ -98,13 +98,12 @@
 <!-- END nav -->
 
 <div class="hero-wrap" style="background-image: url('layout/images/game0.jpg');" data-stellar-background-ratio="0.5">
-<div class="overlay"></div>
 <div class="container">
-<div class="row no-gutters slider-text align-items-center justify-content-center">
+<div id="header__content" class="row no-gutters slider-text align-items-center justify-content-center">
   <div class="col-md-8 ftco-animate d-flex align-items-end">
 	  <div class="text w-100 text-center">
 		<h1 class="mb-4">Good <span>Games</span> for Good <span>Moments</span>.</h1>
-		<p><a href="#" class="btn btn-primary py-2 px-4">View Now</a> <a href="#" class="btn btn-white btn-outline-white py-2 px-4">Read more</a></p>
+		<p class="p"><a href="#" class="btn btn-primary py-2 px-4">View Now</a> <a href="#" class="btn btn-white btn-outline-white py-2 px-4">Read more</a></p>
 	</div>
   </div>
 </div>
@@ -127,7 +126,7 @@
             padding: 5px;
         }
         
-        input{
+        .search{
             position: absolute;
             top: 0;
             left: 0;
@@ -146,7 +145,7 @@
             box-sizing: border-box;
             padding: 10px;
             width: 32.5px;
-			height: 33px;
+			      height: 33px;
             position: absolute;
             top: -30%;
             right: -15%;
@@ -162,7 +161,7 @@
             cursor: pointer;
         }
         
-        .form-search:hover input{
+        .form-search:hover .search{
             display: block;
             height: 25px;
         }

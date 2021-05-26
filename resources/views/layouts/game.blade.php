@@ -92,5 +92,14 @@
     .ftco-navbar-light.scrolled.awake .navbar-nav #menu__game .nav-link{
         color: #b7472a !important;
     }
+    #header__content .p ,.name__content{
+        display: none;
+    }
+    .ftco-navbar-light .navbar-brand .name__change{
+        margin-left: -5px !important;
+    }
+    .ftco-navbar-light .navbar-brand .name__change::before{
+        content: "games";
+    }
 </style>
 @endsection
