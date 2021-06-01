@@ -8,7 +8,7 @@ class Game extends Model
 {
     protected $table ='games';
     protected $fillable =[
-        'name','title','desc','image','link'
+        'name','title','desc','image','link','types_id','categories_id'
     ] ;
     protected function categories(){
         return $this->belongsTo(Category::class);

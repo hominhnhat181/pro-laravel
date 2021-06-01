@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Repositories\Providers;
+namespace App\Repositories\providers;
 use Illuminate\Support\ServiceProvider;
 class RepositoriesServiceProviders extends ServiceProvider{
     public function register(){
@@ -20,10 +20,14 @@ class RepositoriesServiceProviders extends ServiceProvider{
             \App\Repositories\TypeRepository::class
             );
             
-       $this->app->singleton(
-            \App\Repositories\interfaces\ObjectRepositoryInterface::class,
-            \App\Repositories\ObjectRepository::class
+        $this->app->singleton(
+            \App\Repositories\interfaces\GameRepositoryInterface::class,
+            \App\Repositories\GameRepository::class
             );
+        $this->app->singleton(
+                \App\Repositories\interfaces\AppRepositoryInterface::class,
+                \App\Repositories\AppRepository::class
+                );
             
       
     }

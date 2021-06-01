@@ -2,7 +2,7 @@
 @section('title', 'Home')
 
 @section('content')
-<section class="ftco-section ftco-no-pb">
+<section class="ftco-section ftco-no-pb" id="sec-view">
 			<div class="container">
 				@foreach ($bestGame as $best)
 				<div class="row">
@@ -12,7 +12,7 @@
 					<div class="col-md-6 wrap-about pl-md-5 ftco-animate py-5">
 	          <div class="heading-section">
 				
-	          	<span class="subheading">Best Game of Day</span>
+	          	<span class="subheading">{{__('Best Game of Day')}}</span>
 				 
 				  <a href="{{URL('detail-'.$best->types_id.'-'.$best->id)}}"> <h2 class="mb-4">{{$best->name}}	</h2></a>
 
@@ -20,7 +20,7 @@
 	            
 	            <p class="year">
 	            	<strong class="number" data-number="118">0</strong>
-		            <span>Hours of Experience In Story</span>
+		            <span>{{__('Hours of Experience In Story')}}</span>
 	            </p>
 	          </div>
 			  

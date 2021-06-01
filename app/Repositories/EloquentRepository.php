@@ -99,4 +99,6 @@ abstract class EloquentRepository implements RepositoryInterface
        return db::table('categories')->get();
     }
 
+
+    
 }

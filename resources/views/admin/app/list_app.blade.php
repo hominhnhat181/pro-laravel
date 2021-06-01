@@ -15,14 +15,14 @@
 				</tr>
 			</thead>
 			<tbody>
-				@foreach($test1 as $key=>$oj)
+				@foreach($app as $key=>$ga)
 				<tr class="odd gradeX" style="text-align: center">
-					<td>{{$oj->id}}</td>
-					<td>{{$oj->name}}</td>
-					<td>{{$oj->typeName}}</td>
+					<td>{{$ga->id}}</td>
+					<td>{{$ga->name}}</td>
+					<td>{{$ga->typeName}}</td>
 						
 				
-					<td><a href="{{URL('edit-object/'.$oj->id.'/'.$oj->categories_id)}}">Edit</a> || <a href="{{URL('delete-object/'.$oj->id.'/'.$oj->categories_id)}}">Delete</a></td>
+					<td><a href="{{URL('edit-apps/'.$ga->id.'/'.$ga->categories_id)}}">Edit</a> || <a href="{{URL('delete-apps/'.$ga->id)}}">Delete</a></td>
 				</tr>
 				@endforeach
 			</tbody>

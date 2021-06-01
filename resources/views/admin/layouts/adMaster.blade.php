@@ -39,7 +39,7 @@
     <script src="{{url('js/table/table.js')}}" type="text/javascript"></script>
     <script src="{{url('js/setup.js')}}" type="text/javascript"></script>
   
-
+    
 {{-- bootraps --}}
     
 

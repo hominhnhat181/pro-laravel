@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Repositories\CategoryRepository;
-use App\Repositories\interfaces\CategoryRepositoryInterface as CategoryInterface;; 
+use App\Repositories\interfaces\CategoryRepositoryInterface as CategoryInterface;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 use DB;
@@ -35,10 +35,12 @@ class CategoryController extends Controller
 
 
     public function store(Request $request){
+        
         $attributes = array();
         $attributes['catName'] = $request->category_name;
         $attributes['created_at'] = Carbon::now();
         $attributes['updated_at'] = Carbon::now();
+
         if($attributes['catName'] == null ){
             return  redirect('add-category')->with('error', 'Create Category Failure, Catagory Name cannot be empty');
         }else{

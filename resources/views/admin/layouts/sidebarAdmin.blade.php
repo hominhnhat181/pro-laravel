@@ -26,10 +26,11 @@
                 @foreach ($data as $key)
                     <li><a class="menuitem">{{$key->catName}}</a>
                         <ul class="submenu">
-                            <li><a href="{{URL('add-object/'.strtolower($key->catName).'/'.$key->id)}}">New {{$key->catName}}</a> </li>
-                            <li><a href="{{URL('list-object/'.strtolower($key->catName).'/'.$key->id)}}">List {{$key->catName}}</a> </li>
+                            <li><a href="{{URL('new-'.strtolower($key->catName))}}">New {{$key->catName}}</a> </li>
+                            <li><a href="{{URL('list-'.strtolower($key->catName))}}">List {{$key->catName}}</a> </li>
                         </ul>
                     </li>
+                    {{-- .strtolower($key->catName) --}}
                 @endforeach
 
             </ul>

@@ -16,17 +16,27 @@ use Illuminate\Support\Facades\Route;
 
 
 // -------------------------PAGES-------------------------
+
+// lang
+Route::get('setLocale/{locale}', function ($locale) {
+    if (in_array($locale, Config::get('app.locales'))) {
+      Session::put('locale', $locale);
+    }
+    return redirect()->back();
+})->name('app.setLocale');
+// lang
 Route::get('luis', 'PageController@getIndex');
 Route::get('luis', 'PageController@getMenu');
 
 Route::get('search', 'SearchController@search');
-Route::get('search', 'PageController@search');
-
+Route::get('search', 'SearchController@searchLogic');
 Route::get('contact','PageController@getContact');
 Route::get('games', 'PageController@getGame');
 Route::get('apps', 'PageController@getApp');
 Route::get('types-{id}', 'PageController@getType');
 Route::get('detail-{types_id}-{id}', 'PageController@getDetail');
+
+// Route::get('/{any}', 'HeaderPageController@loadHeader');
 
 
 
@@ -72,14 +82,25 @@ Route::get('edit-type/{type_id}','TypeController@get');
 Route::get('delete-type/{type_id}','TypeController@delete');
 Route::post('update-type/{type_id}','TypeController@update');
 
-// -------------------------OBJECT-------------------------
+// -------------------------GAME-------------------------
 
-Route::get('list-object/{category_name}/{category_id}','ObjectController@listObject');
-Route::get('add-object/{category_name}/{category_id}','ObjectController@addObject');
-Route::post('save-object/{category_name}/{category_id}','ObjectController@saveObject');
-Route::get('edit-object/{category_id}/{categories_id}','ObjectController@editObject');
-Route::get('delete-object/{object_id}/{categories_id}','ObjectController@deleteObject');
-Route::post('update-object/{category_name}/{category_id}','ObjectController@updateObject');
+Route::get('list-games','GameController@listGame');
+Route::get('new-games','GameController@addGame');
+Route::post('save-games/{category_id}','GameController@saveGame');
+Route::get('edit-games/{category_id}/{categories_id}','GameController@editGame');
+Route::post('update-games/{category_name}/{category_id}','GameController@update');
+Route::get('delete-games/{object_id}','GameController@delete');
+
+// -------------------------APP-------------------------
+
+Route::get('list-apps','AppController@listApp');
+Route::get('new-apps','AppController@addApp');
+Route::post('save-apps/{category_id}','AppController@saveApp');
+Route::get('edit-apps/{category_id}/{categories_id}','AppController@editApp');
+Route::post('update-apps/{category_name}/{category_id}','AppController@update');
+Route::get('delete-apps/{object_id}','AppController@delete');
+
+
 
 // TEST
 Route::get('users','UserController@index');
