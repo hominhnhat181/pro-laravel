@@ -8,23 +8,13 @@ class Type extends Model
 {
     protected $table ='types';
     protected $fillable = [
-         'typeName',
+         'typeName','categories_id',
     ];
-    public function getAll()
-    {
-        return static::all();
+
+
+    protected function categories(){
+        return $this->belongsTo(Category::class);
     }
 
-
-    public function findUser($id)
-    {
-        return static::find($id);
-    }
-
-
-    public function deleteUser($id)
-    {
-        return static::find($id)->delete();
-    }
 }
 

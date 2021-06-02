@@ -4,7 +4,7 @@
         @foreach ($super as $key)  <h2>Edit {{$key->catName}} </h2> @endforeach
         <div class="block">
             @foreach ($super as $key)
-            <form action="{{URL('update-games/'.$key->id.'/'.$key->categories_id)}}" method="post" enctype="multipart/form-data">
+            <form action="{{URL('update-games/'.$key->id)}}" method="post" enctype="multipart/form-data">
                 {{ csrf_field() }}
                 <table class="form">
                     <tr>

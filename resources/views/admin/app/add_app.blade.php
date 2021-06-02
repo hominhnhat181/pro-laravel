@@ -5,7 +5,7 @@
         <h2>New app</h2>
         <div class="block">     
 
-            @foreach ($data as $key)
+            @foreach ($typeList as $key)
 
          <form action="{{URL('save-apps/'.$key->id)}}" method="post" enctype="multipart/form-data">
 

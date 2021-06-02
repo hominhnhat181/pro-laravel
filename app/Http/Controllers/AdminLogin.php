@@ -8,6 +8,7 @@ use Redirect;
 use User;//user model can kiem tra
 use Auth; //use thư viện auth
 use DB;
+
 use Carbon\Carbon;
 
 class AdminLogin extends Controller
@@ -26,6 +27,8 @@ class AdminLogin extends Controller
         return redirect('luis');
        
     }
+
+    
     public function postLoginAdmin(Request $request){
         $arr = [
             'email' => $request->email,
@@ -34,14 +37,13 @@ class AdminLogin extends Controller
         
         if (Auth::attempt($arr)) {
             return redirect('luis')->with('success', 'Login Success');
-
-
         } else {
-
             return redirect('login')->with('success', 'Incorrect Email or Password');
-
         }
     }
+
+
+
     // SIGN UP
     public function getSignUpAdmin(){
         return view('login.signUp');

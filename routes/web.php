@@ -88,7 +88,7 @@ Route::get('list-games','GameController@listGame');
 Route::get('new-games','GameController@addGame');
 Route::post('save-games/{category_id}','GameController@saveGame');
 Route::get('edit-games/{category_id}/{categories_id}','GameController@editGame');
-Route::post('update-games/{category_name}/{category_id}','GameController@update');
+Route::post('update-games/{object_id}','GameController@update');
 Route::get('delete-games/{object_id}','GameController@delete');
 
 // -------------------------APP-------------------------
@@ -97,7 +97,7 @@ Route::get('list-apps','AppController@listApp');
 Route::get('new-apps','AppController@addApp');
 Route::post('save-apps/{category_id}','AppController@saveApp');
 Route::get('edit-apps/{category_id}/{categories_id}','AppController@editApp');
-Route::post('update-apps/{category_name}/{category_id}','AppController@update');
+Route::post('update-apps/{object_id}','AppController@update');
 Route::get('delete-apps/{object_id}','AppController@delete');
 
 

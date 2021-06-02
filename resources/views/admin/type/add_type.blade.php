@@ -19,7 +19,12 @@
 				<tr>
                     <td></td>
                     <td>
-                        <input type="submit" name="submit" Value="Save" />
+                        <select  name="categories">
+                            <option  value="">Category</option>
+                        @foreach ($listCat as $xp)
+                            <option  value="{{$xp->catName}} ">{{$xp->catName}}</option>
+                        @endforeach  
+                        <input style="margin-left:390px " type="submit" name="submit" Value="Save" />
                     </td>
                 </tr>
             </table>

@@ -24,6 +24,7 @@
 				<tr>
 					<th>ID</th>
 					<th>Types Name</th>
+					<th>Category Name</th>
 					<th>Custom</th>
 
 
@@ -34,6 +35,7 @@
 				<tr class="odd gradeX" style="text-align: center">
 					<td>{{$type->id}}</td>
 					<td>{{$type->typeName}}</td>
+					<td>{{$type->catName}}</td>
 					<td><a href="{{URL('edit-type/'.$type->id)}}">Edit</a> || <a href="{{URL('delete-type/'.$type->id)}}">Delete</a></td>
 				</tr>
 				@endforeach

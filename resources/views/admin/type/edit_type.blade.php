@@ -21,10 +21,15 @@
                     </td>
                     <td>
                         <input type="text" name="type_name" value="{{$key->typeName}}" placeholder="Nhập tên Danh mục Moi..." class="medium" />
+                        <select  name="categories">
+                            <option  value="">Category</option>
+                        @foreach ($listCat as $xp)
+                            <option  value="{{$xp->catName}} ">{{$xp->catName}}</option>
+                        @endforeach  
                     </td>
                 </tr>
 				<tr>
-                    <td></td>
+                    
                     <td>
                         <input type="submit" name="submit" value="Update" />
                     </td>

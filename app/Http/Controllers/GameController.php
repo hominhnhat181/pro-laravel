@@ -75,7 +75,7 @@ class GameController extends Controller
     }
 
 
-    public function update(Request $request, $object_id, $categories_id){
+    public function update(Request $request, $object_id){
 
         // catch typeName
         $data_type = $request->game_types;
@@ -87,7 +87,7 @@ class GameController extends Controller
         $attributes['name'] = $request->game_name;
         $attributes['title'] =  $request->game_title;
         $attributes['desc'] =  $request->game_desc;
-        $attributes['image'] =  $request->game_image;
+        $attributes['image'] =  $request->game_image.'.png';
         $attributes['link'] =  $request->game_link;
 
         // fill colum types_id of game

@@ -71,13 +71,14 @@ class AppController extends Controller
     }
 
 
-    public function update(Request $request, $object_id, $categories_id){
-
+    public function update(Request $request, $object_id){
+        
         // catch typeName
         $data_type = $request->app_types;
-
+        
         // get type id using typeName
         $typeId =DB::table('types')->where('typeName', $data_type)->value('id');
+
 
         $attributes = array();
         $attributes['name'] = $request->app_name;
@@ -85,9 +86,8 @@ class AppController extends Controller
         $attributes['desc'] =  $request->app_desc;
         $attributes['image'] =  $request->app_image;
         $attributes['link'] =  $request->app_link;
-
-        // fill colum types_id of game
         $attributes['types_id'] = $typeId;
+        
 
         $this->appRepository->update($object_id, $attributes);
       

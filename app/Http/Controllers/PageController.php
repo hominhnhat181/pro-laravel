@@ -11,9 +11,9 @@ class PageController extends Controller
         return view('layouts.index');
     }
     public function getMenu(){
-        $catGame = DB::table('categories')->where('id','=', 1)->get() ;
+        $catGame = DB::table('categories')->where('id','=', 1)->get();
         $typeGame = DB::table('types')->where('id', '<', 5)->get();
-        $catApp = DB::table('categories')->where('id','=', 2)->get() ;
+        $catApp = DB::table('categories')->where('id','=', 2)->get();
         $typeApp = DB::table('types')->where('id', '>', 4)->get();
 
         $gameRing = DB::table('games')
@@ -113,6 +113,9 @@ class PageController extends Controller
 
         return view('layouts.type', compact('typeGame','typeApp', 'catGame','catApp','allthing','alltype','typeList'));
     }
+
+
+
     public function getDetail($types_id,$id){
         $catGame = DB::table('categories')->where('id','=', 1)->get() ;
         $typeGame = DB::table('types')->where('id', '<', 5)->get();
@@ -131,10 +134,5 @@ class PageController extends Controller
        
         return view('layouts.obj-detail', compact('typeGame','typeApp', 'catGame','catApp','allthingD','allType'));
     }
-
-    
-    // search
-   
-
 }
      

@@ -5,7 +5,7 @@
         <h2>New Game</h2>
         <div class="block">     
 
-            @foreach ($data as $key)
+            @foreach ($typeList as $key)
 
          <form action="{{URL('save-games/'.$key->id)}}" method="post" enctype="multipart/form-data">
 

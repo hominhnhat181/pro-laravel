@@ -15,7 +15,18 @@ class TypeRepository extends EloquentRepository implements TypeRepositoryInterfa
     {
         return \App\Type::class;
     }
-
+    
+    public function getAll(){
+        return DB::table('types')
+        ->join('categories', 'types.categories_id', '=', 'categories.id')
+        ->select('categories.*','types.*')
+        ->get();
+    }
+    public function fillCategory(){
+        return DB::table('categories')
+       
+        ->get();
+    }
 
 
    

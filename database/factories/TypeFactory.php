@@ -9,7 +9,7 @@ use App\Category;
 $factory->define(App\Type::class, function (Faker $faker) {
     return [
      'typeName'=>$faker->name(15),
-     
+     'categories_id'=>rand(1,2),
       
        ];
 });
