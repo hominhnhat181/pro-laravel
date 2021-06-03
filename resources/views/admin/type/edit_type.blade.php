@@ -8,6 +8,13 @@
                 {{ session('error') }}
             </div>
         @endif
+        @if ($errors->any())
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li class="alert alert-danger" role="alert" style="list-style-type: none; margin-left:0" >{{ $error }}</li>
+                    @endforeach
+                </ul>
+            @endif
         <!-- enctype dùng update and thêm mới something -->
         @foreach ($data_ed as $key)
             
@@ -20,8 +27,8 @@
                         <label>CHỉnh Tên Danh Muc Moi</label>
                     </td>
                     <td>
-                        <input type="text" name="type_name" value="{{$key->typeName}}" placeholder="Nhập tên Danh mục Moi..." class="medium" />
-                        <select  name="categories">
+                        <input type="text" name="typeName" value="{{$key->typeName}}" placeholder="Nhập tên Danh mục Moi..." class="medium" />
+                        <select  name="categories_id">
                             <option  value="">Category</option>
                         @foreach ($listCat as $xp)
                             <option  value="{{$xp->catName}} ">{{$xp->catName}}</option>

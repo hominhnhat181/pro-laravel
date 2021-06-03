@@ -75,10 +75,10 @@
     .ftco-navbar-light .nav-item .dropdown-menu .dropdown-item:hover{
         color: #b7472a !important;
     }
-    .ftco-navbar-light #menu__app .nav-link {
+    .ftco-navbar-light #Apps2 .nav-link {
         color: #ffffff !important; 
     }
-    .ftco-navbar-light #menu__app .nav-link:hover {
+    .ftco-navbar-light #Apps2 .nav-link:hover {
         color: #b7472a !important;
     }
     .ftco-navbar-light.scrolled.awake .navbar-nav .nav-item .nav-link{
@@ -90,7 +90,7 @@
     .ftco-navbar-light.scrolled.awake .navbar-nav .nav-item .dropdown-menu .dropdown-item:hover{
         color: #b7472a !important;
     }
-    .ftco-navbar-light.scrolled.awake .navbar-nav #menu__app .nav-link{
+    .ftco-navbar-light.scrolled.awake .navbar-nav #Apps2 .nav-link{
         color: #b7472a !important;
     }
     #header__content .p ,.name__content{

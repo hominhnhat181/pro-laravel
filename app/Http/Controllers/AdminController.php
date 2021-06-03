@@ -21,6 +21,7 @@ class AdminController extends Controller
 
     public function index(){
         $data = $this->userRepository->sidebar();
+
         if ((Auth::user()->lever) < 1) {
             return view('admin.layouts.indexAdmin', compact('data'));
         }else
@@ -28,7 +29,6 @@ class AdminController extends Controller
     }
 
     public function addAdmin(){ 
-
         $data = $this->userRepository->sidebar();
         $data_ad = $this->userRepository->getAll();
         return view('admin.user.add_admin', compact('data','data_ad'));
@@ -37,7 +37,6 @@ class AdminController extends Controller
 
 
     public function listAdmin(){
-
         $data = $this->userRepository->sidebar();
         $data_ad = $this->userRepository->getAll();
         return view('admin.user.list_admin', compact('data','data_ad'));
@@ -47,23 +46,23 @@ class AdminController extends Controller
 
     public function store(Request $request){ 
 
+        $validatedData = $request->validate([
+            'email' => 'required|email|unique:users',
+            'password' => 'required|min:8',
+        ]);
+
         $attributes = array();
         $attributes['email'] = $request->email;
         $attributes['password'] = $request->password;
         $attributes['lever'] = '1';
         $attributes['created_at'] = Carbon::now();
         $attributes['updated_at'] = Carbon::now();
-        
-        if($attributes['email'] == null || $attributes['password'] == null){
-            return   redirect('add-admin')->with('error', 'Create Admin Failure, Email or Password cannot be empty');
+        $attributes['password'] = bcrypt($request->password);
 
-        }else{
-
-            $attributes['password'] = bcrypt($request->password);
-            $this->userRepository->store($attributes);
-            return   redirect('list-admin')->with('create', 'Create Admin success');
-        }
+        $this->userRepository->store($attributes);
+        return redirect('list-admin')->with('create', 'Create Admin success');
     }
+
 
     public function get($id){
         $data = $this->userRepository->sidebar();
@@ -71,18 +70,33 @@ class AdminController extends Controller
         return view('admin.user.edit_admin', compact('data', 'data_ed'));
     }
 
+
     public function update($id, Request $request){
+
         $attributes = array();
         $attributes['email'] = $request->email;
-        $attributes['password'] = $request->password;
 
-        if($attributes['email'] == null || $attributes['password'] == null){
-            return   redirect('edit-admin/'.$id)->with('error', 'Update Admin Failure, Email or Password cannot be empty');
+        // catch user who update
+        $us = DB::table('users')->select('email')->where('users.id',$id)->value('email');
+        // if use unique before: This cannot update an unedited email 
+        if($attributes['email'] == $us){
 
-        }else{
+            $validatedData = $request->validate([ 'password' => 'required|min:8']);
+          
             $attributes['password'] = bcrypt($request->password);
             $this->userRepository->update($id, $attributes);
             return redirect('list-admin')->with('update', 'Update Admin success');
+
+        }else{
+
+            $validatedData = $request->validate([
+            'email' => 'required|email|unique:users',
+            'password' => 'required|min:8',
+            ]);
+            $attributes['email'] = $request->email;
+            $this->userRepository->update($id, $attributes);
+            return redirect('list-admin')->with('update', 'Update Admin success');
+
         }
     }
 
@@ -90,7 +104,5 @@ class AdminController extends Controller
     {
         $this->userRepository->delete($id);
         return redirect('list-admin')->with('delete', 'Delete Admin success');
-       
     }
-   
 }

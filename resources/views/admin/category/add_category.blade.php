@@ -4,11 +4,13 @@
     <div class="box round first grid">
         <h2>New category</h2>
         <div class="block">     
-            @if (session('error'))
-            <div class="alert alert-danger" role="alert">
-                {{ session('error') }}
-            </div>
-         @endif
+            @if ($errors->any())
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li class="alert alert-danger" role="alert" style="list-style-type: none; margin-left:0" >{{ $error }}</li>
+                    @endforeach
+                </ul>
+            @endif
          <form action="{{URL('save-category')}}" method="post" enctype="multipart/form-data">
             {{ csrf_field() }}
             <table class="form">

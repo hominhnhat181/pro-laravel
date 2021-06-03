@@ -18,21 +18,9 @@ class Category extends Model
          'catName'
     ];
 
-    // public function getAll()
-    // {
-    //     return static::all();
-    // }
-
-
-    // public function findUser($id)
-    // {
-    //     return static::find($id);
-    // }
-
-
-    // public function deleteUser($id)
-    // {
-    //     return static::find($id)->delete();
-    // }
+    public function types()
+    {
+        return $this->hasMany('App\Type');
+    }
 }
 

@@ -4,7 +4,21 @@
     <div class="box round first grid">
         <h2>Danh sách  </h2>
         <div class="block">  
- 
+			@if (session('update'))
+				<div class="alert alert-success" role="alert">
+					{{ session('update') }}
+				</div>
+			@endif
+			@if (session('delete'))
+				<div class="alert alert-success" role="alert">
+					{{ session('delete') }}
+				</div>
+			@endif
+			@if (session('create'))
+				<div class="alert alert-success" role="alert">
+					{{ session('create') }}
+				</div>
+			@endif
             <table class="data display datatable" id="example">
 			<thead>
 				<tr>

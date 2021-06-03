@@ -3,6 +3,13 @@
     <div class="box round first grid">
         @foreach ($super as $key)  <h2>Edit {{$key->catName}} </h2> @endforeach
         <div class="block">
+            @if ($errors->any())
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li class="alert alert-danger" role="alert" style="list-style-type: none; margin-left:0" >{{ $error }}</li>
+                    @endforeach
+                </ul>
+            @endif
             @foreach ($super as $key)
             <form action="{{URL('update-apps/'.$key->id)}}" method="post" enctype="multipart/form-data">
                 {{ csrf_field() }}
@@ -12,7 +19,7 @@
                             <label>Name {{$key->catName}} </label>
                         </td>
                         <td>
-                            <input type="text" name="app_name" value="{{$key->name}}" placeholder="Nhập tên Danh mục Moi..." class="medium" />
+                            <input type="text" name="name" value="{{$key->name}}" placeholder="Nhập tên Danh mục Moi..." class="medium" />
                         </td>
                     </tr>
                     
@@ -21,7 +28,7 @@
                             <label>Title {{$key->catName}} </label>
                         </td>
                         <td>
-                            <input type="text" name="app_title" value="{{$key->title}}" placeholder="Nhập tên Danh mục Moi..." class="medium" />
+                            <input type="text" name="title" value="{{$key->title}}" placeholder="Nhập tên Danh mục Moi..." class="medium" />
                         </td>
                     </tr>
                     <tr>
@@ -29,7 +36,7 @@
                             <label>Desc {{$key->catName}} </label>
                         </td>
                         <td>
-                            <input type="text" name="app_desc" value="{{$key->desc}}" placeholder="Nhập desc Moi..." class="medium" />
+                            <input type="text" name="desc" value="{{$key->desc}}" placeholder="Nhập desc Moi..." class="medium" />
                         </td>
                     </tr>
                     <tr>
@@ -37,7 +44,7 @@
                             <label>Images {{$key->catName}} </label>
                         </td>
                         <td>
-                            <input type="text" name="app_image" value="{{$key->image}}" placeholder="Nhập tên images Moi..." class="medium"/>
+                            <input type="text" name="image" value="{{$key->image}}" placeholder="Nhập tên images Moi..." class="medium"/>
                         </td>
                     </tr>
                     <tr>
@@ -45,7 +52,7 @@
                             <label>Link Download {{$key->catName}} </label>
                         </td>
                         <td>
-                            <input type="text" name="app_link" value="{{$key->link}}" placeholder="Nhập tên images Moi..." class="medium"/>
+                            <input type="text" name="link" value="{{$key->link}}" placeholder="Nhập tên images Moi..." class="medium"/>
                         </td>
                     </tr>
                     <tr>
@@ -53,7 +60,7 @@
                             <label>Types {{$key->catName}} </label>
                         </td>
                         <td>
-                            <select name="app_types">
+                            <select name="types_id">
                                 <option  value="{{$key->typeName}} ">{{$key->typeName}}</option>
                             @foreach ($typeList as $xp)
                                 <option  value="{{$xp->typeName}} ">{{$xp->typeName}}</option>

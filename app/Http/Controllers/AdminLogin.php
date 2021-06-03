@@ -17,15 +17,15 @@ class AdminLogin extends Controller
     public function getLoginAdmin(){
         return view('login.adLogin');
     }
+
     public function getLogoutAdmin(){
         Auth::logout();
         return redirect('login')->with('notice', 'Bạn đã đăng xuất thành công khỏi hệ thống');
-       
     }
+
     public function getLogoutPage(){
         Auth::logout();
         return redirect('luis');
-       
     }
 
     
@@ -63,10 +63,10 @@ class AdminLogin extends Controller
         $alreadyAcc = DB::table('users')->where('email', $request->email)->first();
 
         if($attributes['email'] == null || $attributes['password'] == null || $confirm_password == null){
+            
             return redirect('sign-up')->with('error', 'Create Admin Failure, Email or Password cannot be empty');
 
         }else{
-           
             if($attributes['password'] != $confirm_password){
 
                 return redirect('sign-up')->with('error', 'Create Admin Failure, Passwords do not match');

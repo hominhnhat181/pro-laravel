@@ -10,11 +10,16 @@ class PageController extends Controller
     public function getIndex(){
         return view('layouts.index');
     }
-    public function getMenu(){
-        $catGame = DB::table('categories')->where('id','=', 1)->get();
-        $typeGame = DB::table('types')->where('id', '<', 5)->get();
-        $catApp = DB::table('categories')->where('id','=', 2)->get();
-        $typeApp = DB::table('types')->where('id', '>', 4)->get();
+
+    public function menu(){
+        $cat = DB::table('categories')->get();
+        $typ = DB::table('types')->join('categories','categories.id','=','types.categories_id')->get();
+        return view('layouts.master', compact('cat','typ'));
+    }
+
+    public function getObject(){
+        $cat = DB::table('categories')->get();
+        $typ = DB::table('types')->join('categories','categories.id','=','types.categories_id')->get();
 
         $gameRing = DB::table('games')
         ->join('types', 'games.types_id', '=', 'types.id')
@@ -46,22 +51,18 @@ class PageController extends Controller
         ->limit(8)->where('games.title','!=','Multiplay')
         ->get();
 
-        return view('layouts.index', compact('gameslider','typeGame','typeApp', 'catGame','catApp', 'gameRing', 'gameList','bestGame', 'appList'));
+        return view('layouts.index', compact('gameslider', 'gameRing', 'gameList','bestGame', 'appList','cat','typ'));
     }
     
     public function getContact(){
-        $catGame = DB::table('categories')->where('id','=', 1)->get() ;
-        $typeGame = DB::table('types')->where('id', '<', 5)->get();
-        $catApp = DB::table('categories')->where('id','=', 2)->get() ;
-        $typeApp = DB::table('types')->where('id', '>', 4)->get();
-        return view('layouts.contact',compact('typeGame','typeApp', 'catGame','catApp'));
+        $cat = DB::table('categories')->get();
+        $typ = DB::table('types')->join('categories','categories.id','=','types.categories_id','cat','typ')->get();
+        return view('layouts.contact',compact('cat','typ'));
     }
     
     public function getGame(){
-        $catGame = DB::table('categories')->where('id','=', 1)->get() ;
-        $typeGame = DB::table('types')->where('id', '<', 5)->get();
-        $catApp = DB::table('categories')->where('id','=', 2)->get() ;
-        $typeApp = DB::table('types')->where('id', '>', 4)->get();
+        $cat = DB::table('categories')->get();
+        $typ = DB::table('types')->join('categories','categories.id','=','types.categories_id')->get();
 
         $gameList = DB::table('games')
         ->join('types', 'games.types_id', '=', 'types.id')
@@ -69,35 +70,29 @@ class PageController extends Controller
         ->limit(12)
         ->get();
 
+        $typeList = DB::table('types')->join('categories','categories.id','=','types.categories_id')->where('categories.id',1)->get();
         
-
-        $typeList = DB::table('types')->where('id', '<', 5)->get();
-        
-        return view('layouts.game',compact('typeGame','typeApp', 'catGame','catApp','gameList', 'typeList'));
+        return view('layouts.game',compact('cat','typ','gameList', 'typeList'));
     }
     
 
     public function getApp(){
-        $catGame = DB::table('categories')->where('id','=', 1)->get() ;
-        $typeGame = DB::table('types')->where('id', '<', 5)->get();
-        $catApp = DB::table('categories')->where('id','=', 2)->get() ;
-        $typeApp = DB::table('types')->where('id', '>', 4)->get();
+        $cat = DB::table('categories')->get();
+        $typ = DB::table('types')->join('categories','categories.id','=','types.categories_id')->get();
+
         $appList = DB::table('apps')
         ->join('types', 'apps.types_id', '=', 'types.id')
         ->select( 'types.typeName', 'apps.name','apps.image', 'apps.link','apps.title', 'apps.types_id','apps.id')
         ->limit(12)
         ->get();
-        $typeList = DB::table('types')->where('id', '>', 4)->get();
-        return view('layouts.app',compact('typeGame','typeApp', 'catGame','catApp','appList', 'typeList'));
+        $typeList = DB::table('types')->join('categories','categories.id','=','types.categories_id')->where('categories.id',2)->get();
+        return view('layouts.app',compact('cat','typ','appList', 'typeList'));
     }
 
 
     public function getType($id){
-        $catGame = DB::table('categories')->where('id','=', 1)->get() ;
-        $typeGame = DB::table('types')->where('id', '<', 5)->get();
-        $catApp = DB::table('categories')->where('id','=', 2)->get() ;
-        $typeApp = DB::table('types')->where('id', '>', 4)->get();
-
+        $cat = DB::table('categories')->get();
+        $typ = DB::table('types')->join('categories','categories.id','=','types.categories_id')->get();
         if($id < 5 ){
             $alltype = DB::table('types')->where('id', '<', 5)->get();
         }else{
@@ -109,18 +104,16 @@ class PageController extends Controller
         $typeList = DB::table('types')->where('id', $id)->get();
 
         $allthing = $gameList->union($appList);
-       
+  
 
-        return view('layouts.type', compact('typeGame','typeApp', 'catGame','catApp','allthing','alltype','typeList'));
+        return view('layouts.type', compact( 'cat','typ','allthing','alltype','typeList'));
     }
 
 
 
     public function getDetail($types_id,$id){
-        $catGame = DB::table('categories')->where('id','=', 1)->get() ;
-        $typeGame = DB::table('types')->where('id', '<', 5)->get();
-        $catApp = DB::table('categories')->where('id','=', 2)->get() ;
-        $typeApp = DB::table('types')->where('id', '>', 4)->get();
+        $cat = DB::table('categories')->get();
+        $typ = DB::table('types')->join('categories','categories.id','=','types.categories_id')->get();
 
         $gameList = DB::table('games')->where('id', $id)->get();
         $appList = DB::table('apps')->where('id', $id)->get();
@@ -132,7 +125,7 @@ class PageController extends Controller
         }
         $allType = DB::table('types')->where('id', $types_id)->get();
        
-        return view('layouts.obj-detail', compact('typeGame','typeApp', 'catGame','catApp','allthingD','allType'));
+        return view('layouts.obj-detail', compact('cat','typ', 'allthingD','allType'));
     }
 }
      

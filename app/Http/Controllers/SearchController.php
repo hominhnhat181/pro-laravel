@@ -11,10 +11,8 @@ class SearchController extends Controller
         return view('layouts.search');
     }
     public function searchLogic(Request $request){
-        $catGame = DB::table('categories')->where('id','=', 1)->get() ;
-        $typeGame = DB::table('types')->where('id', '<', 5)->get();
-        $catApp = DB::table('categories')->where('id','=', 2)->get() ;
-        $typeApp = DB::table('types')->where('id', '>', 4)->get();
+        $cat = DB::table('categories')->get();
+        $typ = DB::table('types')->join('categories','categories.id','=','types.categories_id')->get();
 
         $attributes = $request->search;
 
@@ -33,6 +31,6 @@ class SearchController extends Controller
         ->orWhere('types.typeName','LIKE','%'.$attributes.'%')
         ->paginate(5);
         
-        return view('layouts.search', compact('resultGame','resultApp','catGame','typeGame','catApp','typeApp'));
+        return view('layouts.search', compact('resultGame','resultApp','cat','typ'));
     }
 }

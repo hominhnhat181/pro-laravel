@@ -58,20 +58,28 @@
                     </form>
                 </li>
                 <li class="nav-item active" id="menu__home"><a class="nav-link" href="{{URL('luis')}}" class="nav-link">{{__('home')}}</a></li>
-                <li class="nav-item dropdown" id="menu__game">
-                    <a class="nav-link dropdown-toggle" href="{{URL('games')}}" id="dropdown04" data-toggle="" aria-haspopup="true" aria-expanded="false">Games</a>
+
+                @foreach ($cat as $cat)
+
+                <li class="nav-item dropdown" id="{{$cat->catName.$cat->id}}">
+                    <a class="nav-link dropdown-toggle" href="{{URL(strtolower($cat->catName))}}" id="dropdown04" data-toggle="" aria-haspopup="true" aria-expanded="false">{{$cat->catName}}</a>
                     <div class="dropdown-menu">
-                        @foreach ($typeGame as $typ)
-                        <a class="dropdown-item" href="{{URL('types-'.$typ->id)}}">{{$typ->typeName}}</a> @endforeach
+                        
+                        @foreach ($typ as $ty)
+
+                            @if ($cat->id == $ty->categories_id)
+
+                                <a class="dropdown-item" href="{{URL('types-'.$ty->id)}}">{{$ty->typeName}}</a> 
+
+                            @endif
+
+                        @endforeach
+
                     </div>
                 </li>
-                <li class="nav-item dropdown" id="menu__app">
-                    <a class="nav-link dropdown-toggle" href="{{URL('apps')}}" id="dropdown04" data-toggle="" aria-haspopup="true" aria-expanded="false">Apps</a>
-                    <div class="dropdown-menu">
-                        @foreach ($typeApp as $typ2)
-                        <a class="dropdown-item" href="{{URL('types-'.$typ2->id)}}">{{$typ2->typeName}}</a> @endforeach
-                    </div>
-                </li>
+
+                @endforeach
+
                 <li class="nav-item" id="menu__contact"><a class="nav-link" href="{{URL('contact')}}" class="nav-link">{{__('contact')}}</a></li>
             </ul>
         </div>
@@ -148,8 +156,8 @@
         width: 32.5px;
         height: 33px;
         position: absolute;
-        top: -30%;
-        right: -15%;
+           top: -31%;
+    right: -18%;
         border-radius: 20px;
         color: #07051a;
         text-align: center;

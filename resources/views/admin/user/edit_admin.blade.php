@@ -4,15 +4,17 @@
     <div class="box round first grid">
         <h2>Edit Admin</h2>
         <div class="block">     
-            @if (session('error'))
-                <div class="alert alert-danger" role="alert">
-                    {{ session('error') }}
-                </div>
+            @if ($errors->any())
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li class="alert alert-danger" role="alert" style="list-style-type: none; margin-left:0" >{{ $error }}</li>
+                    @endforeach
+                </ul>
             @endif
         <!-- enctype dùng update and thêm mới something -->
         @foreach ($data_ed as $key)
             
-        
+      
          <form action="{{URL('update-admin/'.$key->id)}}" method="post" enctype="multipart/form-data">
             {{ csrf_field() }}
             <table class="form">

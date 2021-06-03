@@ -25,8 +25,11 @@ Route::get('setLocale/{locale}', function ($locale) {
     return redirect()->back();
 })->name('app.setLocale');
 // lang
+
 Route::get('luis', 'PageController@getIndex');
-Route::get('luis', 'PageController@getMenu');
+Route::get('luis', 'PageController@menu');
+Route::get('luis', 'PageController@getObject');
+
 
 Route::get('search', 'SearchController@search');
 Route::get('search', 'SearchController@searchLogic');

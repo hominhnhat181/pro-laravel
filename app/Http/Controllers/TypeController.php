@@ -37,22 +37,24 @@ class TypeController extends Controller
 
     // add
     public function store(Request $request){
-        $catchCat = $request->categories;
+
+        $validatedData = $request->validate([
+            'typeName' => 'Required|unique:types',
+            'categories_id'=>'Required'
+            ]);
+
+        $catchCat = $request->categories_id;
         // get cat id using catName
         $catId =DB::table('categories')->where('catName', $catchCat)->value('id');
 
         $attributes = array();
-        $attributes['typeName'] = $request->type_name;
+        $attributes['typeName'] = $request->typeName;
         $attributes['created_at'] = Carbon::now();
         $attributes['updated_at'] = Carbon::now();
         $attributes['categories_id'] = $catId;
 
-        if($attributes['typeName'] == null ){
-            return  redirect('add-type')->with('error', 'Create Type Failure, Type Name cannot be empty');
-        }else{
-            $this->typeRepository->store($attributes);
-            return   redirect('list-type')->with('create', 'Create Type Success');
-        }
+        $this->typeRepository->store($attributes);
+        return redirect('list-type')->with('create', 'Create Type Success');
     }
 
     // fill edit view
@@ -66,20 +68,32 @@ class TypeController extends Controller
 
     // update
     public function update($id,Request $request){
-        $catchCat = $request->categories;
+
+
+        $catchCat = $request->categories_id;
         // get cat id using catName
         $catId =DB::table('categories')->where('catName', $catchCat)->value('id');
 
         $attributes = array();
-        $attributes['typeName'] = $request->type_name;
+        $attributes['typeName'] = $request->typeName;
         $attributes['created_at'] = Carbon::now();
         $attributes['updated_at'] = Carbon::now();
         $attributes['categories_id'] = $catId;
 
+        $ty = DB::table('types')->where('id',$id)->value('typeName');
+        if($attributes['typeName'] == $ty ){
 
-        if($attributes['typeName'] == null ){
-            return  redirect('edit-type/'.$id)->with('error', 'Update Type Failure, Type Name cannot be empty');
+            $this->typeRepository->update($id, $attributes);
+            return redirect('list-type')->with('update', 'Update Type Success');
+
         }else{
+            $validatedData = $request->validate([
+                'typeName' => 'Required|unique:types',
+                'categories_id'=>'Required'
+                ]);
+
+            $attributes['typeName'] = $request->typeName;
+            $attributes['categories_id'] = $catId;
             $this->typeRepository->update($id, $attributes);
             return redirect('list-type')->with('update', 'Update Type Success');
         }

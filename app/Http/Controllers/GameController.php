@@ -39,29 +39,35 @@ class GameController extends Controller
     // save object
     public function saveGame(Request $request, $categori_id){
         
-      // catch typeName
-      $data_type = $request->app_types;
+        $validatedData = $request->validate([
+            'name' => 'Required|unique:games',
+            'title' => 'Required',
+            'desc' => 'Required|max:100',
+            'image' => 'Required',
+            'link' => 'Required',
+            'types_id' => 'Required',
+            ]);
 
-      // get type id using typeName
-      $typeId =DB::table('types')->where('typeName', $data_type)->value('id');
+        // catch typeName
+        $data_type = $request->types_id;
+        // get type id using typeName
+        $typeId =DB::table('types')->where('typeName', $data_type)->value('id');
 
         $attributes = array();
-        $attributes['name'] = $request->game_name;
-        $attributes['title'] =  $request->game_title;
-        $attributes['desc'] =  $request->game_desc;
-        $attributes['image'] =  $request->game_image;
-        $attributes['link'] =  $request->game_link;
+        $attributes['name'] = $request->name;
+        $attributes['title'] =  $request->title;
+        $attributes['desc'] =  $request->desc;
+        $attributes['image'] =  $request->image;
+        $attributes['link'] =  $request->link;
         $attributes['types_id'] = $typeId;
         $attributes['categories_id'] = $categori_id;
         $attributes['created_at'] = Carbon::now();
         $attributes['updated_at'] = Carbon::now();
 
         $this->gameRepository->store($attributes);
+        $this->gameRepository->getAll();
 
-        $game = $this->gameRepository->getAll();
-
-
-        return Redirect('list-games');
+        return Redirect('list-games')->with('create', 'Create Game Success');
     }
 
 // 100% overload
@@ -78,31 +84,40 @@ class GameController extends Controller
     public function update(Request $request, $object_id){
 
         // catch typeName
-        $data_type = $request->game_types;
+        $data_type = $request->types_id;
 
         // get type id using typeName
         $typeId =DB::table('types')->where('typeName', $data_type)->value('id');
 
         $attributes = array();
-        $attributes['name'] = $request->game_name;
-        $attributes['title'] =  $request->game_title;
-        $attributes['desc'] =  $request->game_desc;
-        $attributes['image'] =  $request->game_image.'.png';
-        $attributes['link'] =  $request->game_link;
-
-        // fill colum types_id of game
+        $attributes['name'] = $request->name;
+        $attributes['title'] =  $request->title;
+        $attributes['desc'] =  $request->desc;
+        $attributes['image'] =  $request->image;
+        $attributes['link'] =  $request->link;
         $attributes['types_id'] = $typeId;
+       
 
-        $this->gameRepository->update($object_id, $attributes);
-      
-        return Redirect('list-games');
+        $game = DB::table('games')->where('id', $object_id)->value('name');
+        
+        if($attributes['name'] == $game){
+
+            $this->gameRepository->update($object_id, $attributes);
+            return Redirect('list-games')->with('update', 'Update Game Success');
+
+        }else{
+            $validatedData = $request->validate(['name' => 'Required|unique:games']);
+            $attributes['name'] = $request->name;
+            $this->gameRepository->update($object_id, $attributes);
+            return Redirect('list-games')->with('update', 'Update Game Success');
+        }
     }
 
     // delete
     public function delete($object_id){
         
         $this->gameRepository->delete($object_id);
-        return Redirect('list-games');
+        return Redirect('list-games')->with('delete', 'Delete Game Success');
     }
 
 }

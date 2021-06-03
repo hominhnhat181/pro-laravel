@@ -36,17 +36,18 @@ class CategoryController extends Controller
 
     public function store(Request $request){
         
+        $validatedData = $request->validate([
+            'catName' => 'unique:categories'
+            ]);
+        
         $attributes = array();
         $attributes['catName'] = $request->category_name;
         $attributes['created_at'] = Carbon::now();
         $attributes['updated_at'] = Carbon::now();
-
-        if($attributes['catName'] == null ){
-            return  redirect('add-category')->with('error', 'Create Category Failure, Catagory Name cannot be empty');
-        }else{
-            $this->categoryRepository->store($attributes);
-            return   redirect('list-category')->with('create', 'Create Category Success');
-        }
+       
+        $this->categoryRepository->store($attributes);
+        return redirect('list-category')->with('create', 'Create Category Success');
+        
     }
 
 
@@ -60,14 +61,22 @@ class CategoryController extends Controller
 
     public function update($category_id,Request $request){
         $attributes = array();
-        $attributes['catName'] = $request->category_name;
+        $attributes['catName'] = $request->catName;
         $attributes['created_at'] = Carbon::now();
         $attributes['updated_at'] = Carbon::now();
-        if($attributes['catName'] == null ){
-            return  redirect('edit-category/'.$category_id)->with('error', 'Update Category Failure, Catagory Name cannot be empty');
-        }else{
+
+        $ct = DB::table('categories')->where('id', $category_id)->value('catName');
+        if($attributes['catName'] == $ct){
             $this->categoryRepository->update($category_id, $attributes);
             return redirect('list-category')->with('update', 'Update Category Success');
+        }else{
+            $validatedData = $request->validate([
+                'catName' => 'Required|unique:categories'
+            ]);
+            $attributes['catName'] = $request->catName;
+            $this->categoryRepository->update($category_id, $attributes);
+            return redirect('list-category')->with('update', 'Update Category Success');
+            
         }
     }
 

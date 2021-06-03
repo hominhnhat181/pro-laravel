@@ -4,27 +4,30 @@
     <div class="box round first grid">
         <h2>New Game</h2>
         <div class="block">     
-
-            @foreach ($typeList as $key)
-
+            @if ($errors->any())
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li class="alert alert-danger" role="alert" style="list-style-type: none; margin-left:0" >{{ $error }}</li>
+                    @endforeach
+                </ul>
+            @endif
+        @foreach ($typeList as $key)
          <form action="{{URL('save-games/'.$key->id)}}" method="post" enctype="multipart/form-data">
-
-            @endforeach
+        @endforeach
             {{ csrf_field() }}
             <table class="form">
                 <tr>
-                   
                     <td class="add-game">
-                        <input type="text" name="game_name" placeholder="Nhập tên Game mới..." class="medium" />
-                        <input type="text" name="game_title" placeholder="Nhập tiêu đề..." class="medium" />
-                        <input type="text" name="game_desc" placeholder="Nhập chi tiết..." class="medium" />
-                        <input type="text" name="game_image" placeholder="tên image..." class="medium" />
-                        <input type="text" name="game_link" placeholder="link download..." class="medium" />
+                        <input type="text" name="name" placeholder="Nhập tên Game mới..." class="medium" />
+                        <input type="text" name="title" placeholder="Nhập tiêu đề..." class="medium" />
+                        <input type="text" name="desc" placeholder="Nhập chi tiết..." class="medium" />
+                        <input type="text" name="image" placeholder="tên image..." class="medium" />
+                        <input type="text" name="link" placeholder="link download..." class="medium" />
                     </td>
                 </tr>
 				<tr>
                     <td>
-                        <select style="margin-left: 20px" name="app_types">
+                        <select style="margin-left: 20px" name="types_id">
                             <option  value="">Chọn thể loại</option>
                         @foreach ($typeList as $xp)
                             <option  value="{{$xp->typeName}} ">{{$xp->typeName}}</option>

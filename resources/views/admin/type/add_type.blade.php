@@ -4,7 +4,13 @@
     <div class="box round first grid">
         <h2>New Type</h2>
         <div class="block">     
-          
+            @if ($errors->any())
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li class="alert alert-danger" role="alert" style="list-style-type: none; margin-left:0" >{{ $error }}</li>
+                    @endforeach
+                </ul>
+            @endif
          <form action="{{URL('save-type')}}" method="post" enctype="multipart/form-data">
             {{ csrf_field() }}
             <table class="form">
@@ -13,13 +19,13 @@
                         <label>Tên</label>
                     </td>
                     <td>
-                        <input type="text" name="type_name" placeholder="Nhập tên Danh mục mới..." class="medium" />
+                        <input type="text" name="typeName" placeholder="Nhập tên Danh mục mới..." class="medium" />
                     </td>
                 </tr>
 				<tr>
                     <td></td>
                     <td>
-                        <select  name="categories">
+                        <select  name="categories_id">
                             <option  value="">Category</option>
                         @foreach ($listCat as $xp)
                             <option  value="{{$xp->catName}} ">{{$xp->catName}}</option>
