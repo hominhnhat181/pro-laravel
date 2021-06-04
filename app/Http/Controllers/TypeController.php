@@ -1,11 +1,15 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Repositories\TypeRepository;
 use App\Repositories\interfaces\TypeRepositoryInterface as TypeInterface;; 
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 use DB;
+use App\Http\Requests\TypeRequest;
+
+
 class TypeController extends Controller
 {
 
@@ -23,9 +27,8 @@ class TypeController extends Controller
         $data = $this->typeRepository->sidebar();
         $data_ad = $this->typeRepository->getAll();
         return view('admin.type.list_type', compact('data','data_ad'));
-    
- 
     }
+
 
     // fill add view
     public function addType(){
@@ -33,29 +36,18 @@ class TypeController extends Controller
         $data_ad = $this->typeRepository->getAll();
         $listCat = $this->typeRepository->fillCategory();
         return view('admin.type.add_type', compact('data','data_ad','listCat'));
+
     }
+
 
     // add
-    public function store(Request $request){
-
-        $validatedData = $request->validate([
-            'typeName' => 'Required|unique:types',
-            'categories_id'=>'Required'
-            ]);
-
-        $catchCat = $request->categories_id;
-        // get cat id using catName
-        $catId =DB::table('categories')->where('catName', $catchCat)->value('id');
-
-        $attributes = array();
-        $attributes['typeName'] = $request->typeName;
-        $attributes['created_at'] = Carbon::now();
-        $attributes['updated_at'] = Carbon::now();
-        $attributes['categories_id'] = $catId;
-
+    public function store(TypeRequest $request){
+        $attributes = $request->all();
         $this->typeRepository->store($attributes);
         return redirect('list-type')->with('create', 'Create Type Success');
+
     }
+
 
     // fill edit view
     public function get($id){
@@ -63,41 +55,16 @@ class TypeController extends Controller
         $data_ed = $this->typeRepository->find($id);
         $listCat = $this->typeRepository->fillCategory();
         return view('admin.type.edit_type', compact('data','data_ed','listCat'));
-
     }
+
 
     // update
-    public function update($id,Request $request){
-
-
-        $catchCat = $request->categories_id;
-        // get cat id using catName
-        $catId =DB::table('categories')->where('catName', $catchCat)->value('id');
-
-        $attributes = array();
-        $attributes['typeName'] = $request->typeName;
-        $attributes['created_at'] = Carbon::now();
-        $attributes['updated_at'] = Carbon::now();
-        $attributes['categories_id'] = $catId;
-
-        $ty = DB::table('types')->where('id',$id)->value('typeName');
-        if($attributes['typeName'] == $ty ){
-
-            $this->typeRepository->update($id, $attributes);
-            return redirect('list-type')->with('update', 'Update Type Success');
-
-        }else{
-            $validatedData = $request->validate([
-                'typeName' => 'Required|unique:types',
-                'categories_id'=>'Required'
-                ]);
-
-            $attributes['typeName'] = $request->typeName;
-            $attributes['categories_id'] = $catId;
-            $this->typeRepository->update($id, $attributes);
-            return redirect('list-type')->with('update', 'Update Type Success');
-        }
+    public function update($type_id,TypeRequest $request){
+        $attributes = $request->except('_token');
+        $this->typeRepository->update($type_id, $attributes);
+        return redirect('list-type')->with('update', 'Update Type Success');
     }
+
 
     // detete
     public function delete($id) {

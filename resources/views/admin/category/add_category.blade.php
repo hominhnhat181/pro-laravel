@@ -18,7 +18,7 @@
                     <td>                     
                     </td>
                     <td>
-                        <input type="text" name="category_name" placeholder="Nhập Danh mục mới..." class="medium" />
+                        <input type="text" name="catName" placeholder="Nhập Danh mục mới..." class="medium" />
                     </td>
                 </tr>
 				<tr>

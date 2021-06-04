@@ -106,4 +106,3 @@ Route::get('delete-apps/{object_id}','AppController@delete');
 
 
 // TEST
-Route::get('users','UserController@index');

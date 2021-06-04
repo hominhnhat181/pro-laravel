@@ -24,21 +24,21 @@
             <table class="form">
                 <tr>
                     <td>
-                        <label>CHỉnh Tên Danh Muc Moi</label>
+                        <label>Tên</label>
                     </td>
                     <td>
-                        <input type="text" name="typeName" value="{{$key->typeName}}" placeholder="Nhập tên Danh mục Moi..." class="medium" />
-                        <select  name="categories_id">
-                            <option  value="">Category</option>
-                        @foreach ($listCat as $xp)
-                            <option  value="{{$xp->catName}} ">{{$xp->catName}}</option>
-                        @endforeach  
+                        <input type="text" name="typeName" value="{{$key->typeName}}" placeholder="Nhập tên Danh mục mới..." class="medium" />
                     </td>
                 </tr>
 				<tr>
-                    
+                    <td></td>
                     <td>
-                        <input type="submit" name="submit" value="Update" />
+                        <select  name="categories_id">
+                            <option value="{{$key->categories_id}}" >Select Category</option>
+                        @foreach ($listCat as $xp)
+                            <option  value="{{$xp->id}} ">{{$xp->catName}}</option>
+                        @endforeach  
+                        <input style="margin-left:390px " type="submit"  Value="Save" />
                     </td>
                 </tr>
             </table>

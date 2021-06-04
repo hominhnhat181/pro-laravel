@@ -18,6 +18,7 @@
          <form action="{{URL('update-category/'.$key->id)}}" method="post" enctype="multipart/form-data">
             {{ csrf_field() }}
             <table class="form">
+                
                 <tr>
                     <td>
                         <label>Tên Danh Muc Moi</label>
@@ -29,10 +30,11 @@
 				<tr>
                     <td></td>
                     <td>
-                        <input type="submit" name="submit" value="Update" />
+                        <input type="submit"  value="Update" />
                     </td>
                 </tr>
             </table>
+           
             </form>
             @endforeach
         </div>

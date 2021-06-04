@@ -44,7 +44,7 @@
                             <label>Images {{$key->catName}} </label>
                         </td>
                         <td>
-                            <input type="text" name="image" value="{{$key->image}}" placeholder="Nhập tên images Moi..." class="medium"/>
+                            <input type="input" name="image" value="{{$key->image}}" placeholder="tên image..." class="medium" />
                         </td>
                     </tr>
                     <tr>
@@ -61,21 +61,19 @@
                         </td>
                         <td>
                             <select name="types_id">
-                                <option  value="{{$key->typeName}} ">{{$key->typeName}}</option>
+                                <option  value="{{$key->types_id}} ">{{$key->typeName}}</option>
                             @foreach ($typeList as $xp)
-                                <option  value="{{$xp->typeName}} ">{{$xp->typeName}}</option>
+                                <option  value="{{$xp->id}} ">{{$xp->typeName}}</option>
                             @endforeach  
                    
                             </select>
-                            <input style="margin-left: 235px" type="submit" name="submit" value="Update" /> {{-- <input type="text" name="object_type" value="{{$key->typeName}}" placeholder="Nhập tên Danh mục Moi..." class="medium" /> --}}
+                            <input style="margin-left: 235px" type="submit"  value="Update" /> {{-- <input type="text" name="object_type" value="{{$key->typeName}}" placeholder="Nhập tên Danh mục Moi..." class="medium" /> --}}
                         </td>
-                        
                     </tr>
                 </table>
             </form>
             @endforeach
         </div>
-        
     </div>
 </div>
 @endsection

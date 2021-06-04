@@ -31,7 +31,7 @@ class GameRepository extends EloquentRepository implements GameRepositoryInterfa
         return DB::table('types')
         ->join('categories','types.categories_id','=','categories.id')
         ->join('games','games.categories_id','=','types.categories_id')
-        ->select('types.typeName','categories.id')
+        ->select('types.typeName','types.id')
         ->DISTINCT()->get();
     }
 
@@ -45,7 +45,7 @@ class GameRepository extends EloquentRepository implements GameRepositoryInterfa
         return $super;
     }
 
-
+   
     public function fillTypeName($id){
        
        
@@ -56,7 +56,7 @@ class GameRepository extends EloquentRepository implements GameRepositoryInterfa
         $typeList =  DB::table('types')
         ->join('categories','types.categories_id','=','categories.id')
         ->join('games','games.categories_id','=','types.categories_id')
-        ->select('types.typeName')->DISTINCT()
+        ->select('types.typeName','types.id')->DISTINCT()
         ->where('types.id','!=', $typeId)
         ->get();
         return $typeList ;

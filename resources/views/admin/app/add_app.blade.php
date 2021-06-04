@@ -23,7 +23,7 @@
                         <input type="text" name="name" placeholder="Nhập tên app mới..." class="medium" />
                         <input type="text" name="title" placeholder="Nhập tiêu đề..." class="medium" />
                         <input type="text" name="desc" placeholder="Nhập chi tiết..." class="medium" />
-                        <input type="text" name="image" placeholder="tên image..." class="medium" />
+                        <input type="file" name="image" placeholder="tên image..." class="medium" />
                         <input type="text" name="link" placeholder="link download..." class="medium" />
                     </td>
                 </tr>
@@ -32,12 +32,12 @@
                         <select style="margin-left: 20px" name="types_id">
                             <option  value="">Chọn thể loại</option>
                         @foreach ($typeList as $xp)
-                            <option  value="{{$xp->typeName}} ">{{$xp->typeName}}</option>
+                            <option  value="{{$xp->id}} ">{{$xp->typeName}}</option>
                         @endforeach  
                         <input style="margin-left:415px " type="submit" name="submit" Value="Save" />
                     </td>
                     <td>
-                        
+                        <input type="hidden"  name="categories_id" value="2">
                     </td>
                 </tr>
             </table>

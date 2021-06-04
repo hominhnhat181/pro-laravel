@@ -28,7 +28,7 @@
                         <select  name="categories_id">
                             <option  value="">Category</option>
                         @foreach ($listCat as $xp)
-                            <option  value="{{$xp->catName}} ">{{$xp->catName}}</option>
+                            <option  value="{{$xp->id}} ">{{$xp->catName}}</option>
                         @endforeach  
                         <input style="margin-left:390px " type="submit" name="submit" Value="Save" />
                     </td>

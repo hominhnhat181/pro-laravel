@@ -31,7 +31,7 @@ class AppRepository extends EloquentRepository implements AppRepositoryInterface
         return DB::table('types')
         ->join('categories','types.categories_id','=','categories.id')
         ->join('apps','apps.categories_id','=','types.categories_id')
-        ->select('types.typeName','categories.id')
+        ->select('types.typeName','types.id')
         ->DISTINCT()->get();
     }
 
@@ -54,7 +54,7 @@ class AppRepository extends EloquentRepository implements AppRepositoryInterface
         ->join('categories','types.categories_id','=','categories.id')
         ->join('apps','apps.categories_id','=','types.categories_id')
         ->where('types.id','!=', $typeId)
-        ->select('types.typeName')
+        ->select('types.typeName','types.id')
         ->DISTINCT()
         ->get();
         return $typeList ;
