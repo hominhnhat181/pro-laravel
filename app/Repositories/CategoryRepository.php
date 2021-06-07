@@ -9,20 +9,12 @@ use App\Category;
 
 class CategoryRepository extends EloquentRepository implements CategoryRepositoryInterface{
 
-    
     //lấy model tương ứng
     public function getModel()
     {
         return \App\Category::class;
     }
 
-
-
-
-
-
-
-   
 }
 
 

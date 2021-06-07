@@ -14,9 +14,9 @@
         <!-- enctype dùng update and thêm mới something -->
         @foreach ($data_ed as $key)
             
-      
-         <form action="{{URL('update-admin/'.$key->id)}}" method="post" enctype="multipart/form-data">
-            {{ csrf_field() }}
+        {!!Form::open(['action' => ['adminController@update', $key->id ], 'method' =>'POST'])!!}
+        {{Form::hidden('_method','PUT')}}
+
             <table class="form">
                 <tr>
                     <td>
@@ -34,7 +34,7 @@
                     </td>
                 </tr>
             </table>
-            </form>
+            {!!Form::close()!!}
             @endforeach
         </div>
     </div>

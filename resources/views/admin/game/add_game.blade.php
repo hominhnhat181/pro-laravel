@@ -12,7 +12,7 @@
                 </ul>
             @endif
         @foreach ($typeList as $key)
-         <form action="{{URL('save-games/'.$key->id)}}" method="post" enctype="multipart/form-data">
+        {!!Form::open(['action' => ['GameController@saveGame',$key->id], 'method' =>'POST' ,'enctype' => 'multipart/form-data'])!!}
         @endforeach
             {{ csrf_field() }}
             <table class="form">
@@ -40,7 +40,7 @@
                     </td>
                 </tr>
             </table>
-            </form>
+            {!!Form::close()!!}
         </div>
     </div>
 </div>

@@ -20,9 +20,13 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     {{-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ --}}
     <link rel="stylesheet" href="{{url('css/reset.css')}}">
+    
     <link rel="stylesheet" href="{{url('css/text.css')}}">
+    
     <link rel="stylesheet" href="{{url('css/grid.css')}}">
+    
     <link rel="stylesheet" href="{{url('css/layout.css')}}">
+    
     <link rel="stylesheet" href="{{url('css/nav.css')}}">
     <link rel="stylesheet" href="{{url('css/table/demo_page.css')}}">
     {{-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ --}}
@@ -38,6 +42,8 @@
     <script src="{{url('js/table/jquery.dataTables.min.js')}}" type="text/javascript"></script>
     <script src="{{url('js/table/table.js')}}" type="text/javascript"></script>
     <script src="{{url('js/setup.js')}}" type="text/javascript"></script>
+
+
   
     
 {{-- bootraps --}}

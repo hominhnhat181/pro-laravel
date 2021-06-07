@@ -59,7 +59,7 @@ class GameController extends Controller
 
     // update
     public function update(GameRequest $request, $object_id){
-        $attributes = $request->except('_token');
+        $attributes = $request->except('_token','_method');
         $this->gameRepository->update($object_id, $attributes);
         return Redirect('list-games')->with('update', 'Update Game Success');
       

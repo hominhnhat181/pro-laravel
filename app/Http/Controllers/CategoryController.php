@@ -54,7 +54,7 @@ class CategoryController extends Controller
 
     public function update($category_id, CategoryRequest $request)
     {
-        $attributes = $request->except('_token');
+        $attributes = $request->except('_token','_method');
         $this->categoryRepository->update($category_id, $attributes);
         return redirect('list-category')->with('update', 'Update Category Success');
     }

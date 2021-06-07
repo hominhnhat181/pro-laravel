@@ -247,7 +247,7 @@ h2#page-heading {
 }
 
 .box.first {
-    min-height: 465px;
+    min-height: 588px;
 }
 
 .block {
@@ -1602,3 +1602,25 @@ table.form select {
 
 
 /* End */
+
+.delete-btn {
+    background: rgb(218, 23, 23);
+    outline: none;
+    border: none;
+}
+
+.delete-btn:hover {
+    background: black;
+}
+
+.edit-btn {
+    background: rgb(36, 158, 36);
+    outline: none;
+    border: none;
+    width: 69px !important;
+    margin-right: 5px;
+}
+
+.edit-btn:hover {
+    background: black;
+}

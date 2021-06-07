@@ -17,10 +17,10 @@
             @endif
         <!-- enctype dùng update and thêm mới something -->
         @foreach ($data_ed as $key)
-            
+
+        {!!Form::open(['action' => ['TypeController@update', $key->id ], 'method' =>'POST'])!!}
+        {{Form::hidden('_method','PUT')}}
         
-         <form action="{{URL('update-type/'.$key->id)}}" method="post" enctype="multipart/form-data">
-            {{ csrf_field() }}
             <table class="form">
                 <tr>
                     <td>
@@ -42,7 +42,7 @@
                     </td>
                 </tr>
             </table>
-            </form>
+            {!!Form::close()!!}
             @endforeach
         </div>
     </div>

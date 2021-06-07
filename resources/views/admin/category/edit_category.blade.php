@@ -11,14 +11,13 @@
                     @endforeach
                 </ul>
             @endif
-        <!-- enctype dùng update and thêm mới something -->
-        @foreach ($data_ed as $key)
-            
-        
-         <form action="{{URL('update-category/'.$key->id)}}" method="post" enctype="multipart/form-data">
-            {{ csrf_field() }}
-            <table class="form">
+            <!-- enctype dùng update and thêm mới something -->
+            @foreach ($data_ed as $key)
                 
+            
+            {!!Form::open(['action' => ['CategoryController@update', $key->id ], 'method' =>'POST'])!!}
+            {{Form::hidden('_method','PUT')}}
+            <table class="form">
                 <tr>
                     <td>
                         <label>Tên Danh Muc Moi</label>
@@ -34,8 +33,7 @@
                     </td>
                 </tr>
             </table>
-           
-            </form>
+            {!!Form::close()!!}
             @endforeach
         </div>
     </div>

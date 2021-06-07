@@ -11,8 +11,10 @@
                 </ul>
             @endif
             @foreach ($super as $key)
-            <form action="{{URL('update-apps/'.$key->id)}}" method="post" enctype="multipart/form-data">
-                {{ csrf_field() }}
+            
+                {!!Form::open(['action' => ['AppController@update', $key->id ], 'method' =>'POST'])!!}
+                {{Form::hidden('_method','PUT')}}
+              
                 <table class="form">
                     <tr>
                         <td>
@@ -67,11 +69,11 @@
                             @endforeach  
                    
                             </select>
-                            <input style="margin-left: 235px" type="submit"  value="Update" /> {{-- <input type="text" name="object_type" value="{{$key->typeName}}" placeholder="Nhập tên Danh mục Moi..." class="medium" /> --}}
+                            <input style="margin-left: 235px" type="submit"  value="Update" /> 
                         </td>
                     </tr>
                 </table>
-            </form>
+                {!!Form::close()!!}
             @endforeach
         </div>
     </div>

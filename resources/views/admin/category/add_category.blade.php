@@ -11,8 +11,7 @@
                     @endforeach
                 </ul>
             @endif
-         <form action="{{URL('save-category')}}" method="post" enctype="multipart/form-data">
-            {{ csrf_field() }}
+            {!!Form::open(['action' => ['CategoryController@store'], 'method' =>'POST'])!!}
             <table class="form">
                 <tr>
                     <td>                     
@@ -27,8 +26,9 @@
                         <input type="submit" name="submit" Value="Save" />
                     </td>
                 </tr>
+              
             </table>
-            </form>
+            {!!Form::close()!!}
         </div>
     </div>
 </div>

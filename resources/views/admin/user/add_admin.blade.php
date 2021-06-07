@@ -11,8 +11,9 @@
                     @endforeach
                 </ul>
             @endif
-         <form action="{{URL('save-admin')}}" method="post" enctype="multipart/form-data">
-            {{ csrf_field() }}
+
+            {!!Form::open(['action' => ['adminController@store'], 'method' =>'POST' ,'enctype' => 'multipart/form-data'])!!}
+
             <table class="form">
                 <tr>
                     <td>
@@ -35,7 +36,7 @@
                     </td>
                 </tr>
             </table>
-            </form>
+            {!!Form::close()!!}
         </div>
     </div>
 </div>

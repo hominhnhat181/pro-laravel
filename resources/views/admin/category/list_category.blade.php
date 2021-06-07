@@ -32,7 +32,19 @@
 				<tr class="odd gradeX" style="text-align: center">
 					<td>{{$cat->id}}</td>
 					<td>{{$cat->catName}}</td>
-					<td><a href="{{URL('edit-category/'.$cat->id)}}">Edit</a> || <a href="{{URL('delete-category/'.$cat->id)}}">Delete</a></td>
+
+					<td style="justify-content: center; display: flex;">
+						{{-- edit --}}
+						{!!Form::open(['action' => ['CategoryController@get', $cat->id], 'method' =>'POST','class' =>'pull-right'])!!}
+						{{Form::hidden('_method','get')}}
+						{{Form::submit('Edit',['class' => 'btn btn-success edit-btn'])}}
+						{!!Form::close()!!}
+						{{-- delete --}}
+						{!!Form::open(['action' => ['CategoryController@delete', $cat->id], 'method' =>'POST','class' =>'pull-right'])!!}
+						{{Form::hidden('_method','DELETE')}}
+						{{Form::submit('Delete',['class' => 'btn btn-danger delete-btn'])}}
+						{!!Form::close()!!}
+					</td>
 				</tr>
 				@endforeach
 			</tbody>

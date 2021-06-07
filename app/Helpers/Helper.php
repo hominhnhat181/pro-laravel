@@ -3,6 +3,7 @@
    class Helper {
        
      public static function helper(){
-          return 'brô pro họ hồ tên Nhật :DD';
+          return ' Mít tơ Nhật hồ - 
+         không đi giật đồ - chỉ giật bồ !!';
       }
   }

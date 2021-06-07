@@ -94,20 +94,18 @@ margin-top: 80px;
 <body>
 <div class="signup-form">
 	
-    <form action="{{URL('new-admin')}}" method="post" class="form-horizontal">
-		{{ csrf_field() }}
+	{!!Form::open(['action' => ['UserController@createAdmin'], 'method' =>'POST'])!!}
+
 		
       	<div class="row">
         	<div class="col-8 offset-4">
 				<h2>Sign Up</h2>
 			</div>	
       	</div>	
-		  @if ($errors->any())
-			
-				@foreach ($errors->all() as $error)
-					<li class="alert alert-danger" role="alert" style="list-style-type: none; margin-left:0" >{{ $error }}</li>
-				@endforeach
-			
+		@if ($errors->any())
+			@foreach ($errors->all() as $error)
+				<li class="alert alert-danger" role="alert" style="list-style-type: none; margin-left:0" >{{ $error }}</li>
+			@endforeach
 		@endif
 		@if (session('error'))
 			<div class="alert alert-danger" role="alert">
@@ -144,7 +142,7 @@ margin-top: 80px;
 				<button type="submit" class="btn btn-primary btn-lg">Sign Up</button>
 			</div>  
 		</div>		      
-    </form>
+	{!!Form::close()!!}
 	<div class="text-center">Already have an account? <a href="{{URL('login')}}">Login here</a></div>
 </div>
 </body>

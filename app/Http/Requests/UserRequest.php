@@ -28,7 +28,7 @@ class UserRequest extends FormRequest
             'email' => 
             [
                 'Required',
-                Rule::unique('users','email')->ignore($this->id),
+                Rule::unique('users','email')->ignore($this->admin_id),
                 'bail',
             ],
 

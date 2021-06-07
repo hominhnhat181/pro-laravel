@@ -50,7 +50,7 @@ class UserController extends Controller
 
 
     public function createAdmin(UserRequest $request){
-        $attributes = $request->except('_token','confirm_password');
+        $attributes = $request->except('_token','confirm_password','_method');
         $attributes['password'] = bcrypt($request->password);
         DB::table('users')->insert($attributes);
         return redirect('login')->with('create', 'Create account success, Login now');

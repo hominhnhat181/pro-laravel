@@ -24,7 +24,7 @@ class AdminController extends Controller
     // Access
     public function index(){
         $data = $this->adminRepository->sidebar();
-        return $this->adminRepository->accessLogin();
+        return $this->adminRepository->accessLogin($data);
     }
 
 
@@ -50,17 +50,17 @@ class AdminController extends Controller
     }
 
 
-    public function get($id){
+    public function get($admin_id){
         $data = $this->adminRepository->sidebar();
-        $data_ed = $this->adminRepository->find($id);
+        $data_ed = $this->adminRepository->find($admin_id);
         return view('admin.user.edit_admin', compact('data', 'data_ed'));
     }
 
 
-    public function update($id, UserRequest $request){
-        $attributes = $request->except('_token');
+    public function update($admin_id, UserRequest $request){
+        $attributes = $request->except('_token','_method');
         $attributes['password'] = bcrypt($request->password);
-        $this->adminRepository->update($id, $attributes);
+        $this->adminRepository->update($admin_id, $attributes);
         return redirect('list-admin')->with('update', 'Update Admin success');
     }
     

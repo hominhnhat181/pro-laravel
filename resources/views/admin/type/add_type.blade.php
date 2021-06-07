@@ -11,8 +11,9 @@
                     @endforeach
                 </ul>
             @endif
-         <form action="{{URL('save-type')}}" method="post" enctype="multipart/form-data">
-            {{ csrf_field() }}
+            
+            {!!Form::open(['action' => ['TypeController@store'], 'method' =>'POST' ])!!}
+
             <table class="form">
                 <tr>
                     <td>
@@ -34,7 +35,7 @@
                     </td>
                 </tr>
             </table>
-            </form>
+            {!!Form::close()!!}
         </div>
     </div>
 </div>

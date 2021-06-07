@@ -26,8 +26,6 @@
 					<th>Types Name</th>
 					<th>Category Name</th>
 					<th>Custom</th>
-
-
 				</tr>
 			</thead>
 			<tbody>
@@ -36,7 +34,18 @@
 					<td>{{$type->id}}</td>
 					<td>{{$type->typeName}}</td>
 					<td>{{$type->catName}}</td>
-					<td><a href="{{URL('edit-type/'.$type->id)}}">Edit</a> || <a href="{{URL('delete-type/'.$type->id)}}">Delete</a></td>
+					<td style="justify-content: center; display: flex;">
+						{{-- edit --}}
+						{!!Form::open(['action' => ['TypeController@get', $type->id], 'method' =>'POST','class' =>'pull-right'])!!}
+							{{Form::hidden('_method','get')}}
+							{{Form::submit('Edit',['class' => 'btn btn-success edit-btn'])}}
+						{!!Form::close()!!}
+						{{-- delete --}}
+						{!!Form::open(['action' => ['TypeController@delete', $type->id], 'method' =>'POST','class' =>'pull-right'])!!}
+							{{Form::hidden('_method','DELETE')}}
+							{{Form::submit('Delete',['class' => 'btn btn-danger delete-btn'])}}
+						{!!Form::close()!!}
+					</td>
 				</tr>
 				@endforeach
 			</tbody>

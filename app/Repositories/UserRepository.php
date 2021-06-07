@@ -25,7 +25,7 @@ class UserRepository extends EloquentRepository implements UserRepositoryInterfa
         }
     }
 
-    public function accessLogin(){
+    public function accessLogin($data){
         if ((Auth::user()->lever) < 1) {
             return view('admin.layouts.indexAdmin', compact('data'));
         }else

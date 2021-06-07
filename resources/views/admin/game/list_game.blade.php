@@ -34,9 +34,21 @@
 					<td>{{$ga->id}}</td>
 					<td>{{$ga->name}}</td>
 					<td>{{$ga->typeName}}</td>
-						
+
+					<td style="justify-content: center; display: flex;">
+
+						{{-- edit --}}
+						{!!Form::open(['action' => ['GameController@editGame', $ga->id , $ga->categories_id], 'method' =>'POST','class' =>'pull-right'])!!}
+							{{Form::hidden('_method','get')}}
+							{{Form::submit('Edit',['class' => 'btn btn-success edit-btn'])}}
+						{!!Form::close()!!}
+						{{-- delete --}}
+						{!!Form::open(['action' => ['GameController@delete', $ga->id], 'method' =>'POST','class' =>'pull-right'])!!}
+							{{Form::hidden('_method','DELETE')}}
+							{{Form::submit('Delete',['class' => 'btn btn-danger delete-btn'])}}
+						{!!Form::close()!!}
 				
-					<td><a href="{{URL('edit-games/'.$ga->id.'/'.$ga->categories_id)}}">Edit</a> || <a href="{{URL('delete-games/'.$ga->id)}}">Delete</a></td>
+					</td>
 				</tr>
 				@endforeach
 			</tbody>

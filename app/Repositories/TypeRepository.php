@@ -3,9 +3,10 @@
 namespace App\Repositories;
 use App\Repositories\EloquentRepository;
 use App\Repositories\Interfaces\TypeRepositoryInterface;
-use DB;
 use Illuminate\Http\Request;
 use App\Type;
+use App\Category;
+
 
 class TypeRepository extends EloquentRepository implements TypeRepositoryInterface{
 
@@ -17,13 +18,12 @@ class TypeRepository extends EloquentRepository implements TypeRepositoryInterfa
     }
     
     public function getAll(){
-        return DB::table('types')
-        ->join('categories', 'types.categories_id', '=', 'categories.id')
+        return Type::join('categories', 'types.categories_id', '=', 'categories.id')
         ->select('categories.*','types.*')
         ->get();
     }
     public function fillCategory(){
-        return DB::table('categories')->get();
+        return Category::get();
     }
 
 

@@ -58,7 +58,7 @@ class AppController extends Controller
 
     // update
     public function update(AppRequest $request, $object_id){
-        $attributes = $request->except('_token');
+        $attributes = $request->except('_token','_method');
         $this->appRepository->update($object_id, $attributes);
         return Redirect('list-apps')->with('update', 'Update App Success');
     }

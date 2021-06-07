@@ -36,7 +36,6 @@ class TypeController extends Controller
         $data_ad = $this->typeRepository->getAll();
         $listCat = $this->typeRepository->fillCategory();
         return view('admin.type.add_type', compact('data','data_ad','listCat'));
-
     }
 
 
@@ -45,7 +44,6 @@ class TypeController extends Controller
         $attributes = $request->all();
         $this->typeRepository->store($attributes);
         return redirect('list-type')->with('create', 'Create Type Success');
-
     }
 
 
@@ -60,7 +58,7 @@ class TypeController extends Controller
 
     // update
     public function update($type_id,TypeRequest $request){
-        $attributes = $request->except('_token');
+        $attributes = $request->except('_token','_method');
         $this->typeRepository->update($type_id, $attributes);
         return redirect('list-type')->with('update', 'Update Type Success');
     }
