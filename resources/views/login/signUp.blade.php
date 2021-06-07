@@ -93,13 +93,22 @@ margin-top: 80px;
 </head>
 <body>
 <div class="signup-form">
+	
     <form action="{{URL('new-admin')}}" method="post" class="form-horizontal">
 		{{ csrf_field() }}
+		
       	<div class="row">
         	<div class="col-8 offset-4">
 				<h2>Sign Up</h2>
 			</div>	
       	</div>	
+		  @if ($errors->any())
+			
+				@foreach ($errors->all() as $error)
+					<li class="alert alert-danger" role="alert" style="list-style-type: none; margin-left:0" >{{ $error }}</li>
+				@endforeach
+			
+		@endif
 		@if (session('error'))
 			<div class="alert alert-danger" role="alert">
 				{{ session('error') }}
@@ -126,6 +135,7 @@ margin-top: 80px;
 			<label class="col-form-label col-4">Confirm Password</label>
 			<div class="col-8">
                 <input type="password" class="form-control" name="confirm_password" required="required">
+				<input type="hidden"  name="lever" value="1">
             </div>        	
         </div>
 		<div class="form-group row">

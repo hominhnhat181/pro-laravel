@@ -48,10 +48,8 @@ class GameRepository extends EloquentRepository implements GameRepositoryInterfa
    
     public function fillTypeName($id){
        
-       
         // catch types_id
         $typeId = DB::table('games')->where('games.id','=',$id)->value('types_id');
-
         // catch typeName not have
         $typeList =  DB::table('types')
         ->join('categories','types.categories_id','=','categories.id')

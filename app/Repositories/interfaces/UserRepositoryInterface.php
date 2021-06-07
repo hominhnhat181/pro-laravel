@@ -6,5 +6,5 @@ use Illuminate\Http\Request;
 
 interface UserRepositoryInterface extends RepositoryInterface
 {
-    
+    public function checkLogin($arr);
 }

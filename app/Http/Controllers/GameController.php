@@ -43,9 +43,7 @@ class GameController extends Controller
     public function saveGame(GameRequest $request, $object_id){
         $attributes = $request->all();
         $attributes['image'] = $request->image->getClientOriginalName();
-       
         $this->gameRepository->store($attributes);
-        $this->gameRepository->getAll();
         return Redirect('list-games')->with('create', 'Create Game Success');
     }
 

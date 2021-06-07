@@ -100,7 +100,7 @@ span.psw {
         
     <button type="submit">Login</button>
     <label>
-      <input type="checkbox" checked="checked" name="remember"> Remember me
+      <input type="checkbox" checked="checked" > Remember me
     </label>
   </div>
 {{csrf_field()}}

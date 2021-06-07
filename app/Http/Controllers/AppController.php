@@ -42,7 +42,6 @@ class AppController extends Controller
         $attributes = $request->all();
         $attributes['image'] = $request->image->getClientOriginalName();
         $this->appRepository->store($attributes);
-        $this->appRepository->getAll();
         return Redirect('list-apps')->with('create', 'Create App Success');
     }
 

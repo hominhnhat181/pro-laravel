@@ -24,7 +24,9 @@
                         <input style="margin-top:15px " type="text" name="email" placeholder="Tên quản trị viên mới..." class="medium" />
                         <input style="margin-top:15px " type="text" name="password" placeholder="Nhập mật khẩu..." class="medium" />
                     </td>
-                   
+                    <td>
+                        <input type="hidden"  name="lever" value="1">
+                    </td>
                 </tr>
 				<tr>
                     <td></td>

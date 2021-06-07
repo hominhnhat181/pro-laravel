@@ -30,7 +30,6 @@ Route::get('luis', 'PageController@getIndex');
 Route::get('luis', 'PageController@menu');
 Route::get('luis', 'PageController@getObject');
 
-
 Route::get('search', 'SearchController@search');
 Route::get('search', 'SearchController@searchLogic');
 Route::get('contact','PageController@getContact');
@@ -45,13 +44,13 @@ Route::get('detail-{types_id}-{id}', 'PageController@getDetail');
 
 
 // -------------------------LOGIN-------------------------
-Route::get('login', 'AdminLogin@getLoginAdmin');
-Route::post('login', 'AdminLogin@postLoginAdmin');
-Route::get('logoutadmin', 'AdminLogin@getLogoutAdmin');
+Route::get('login', 'UserController@getLoginAdmin');
+Route::post('login', 'UserController@postLoginAdmin');
+Route::get('logoutadmin', 'UserController@getLogoutAdmin');
 
-Route::get('sign-up', 'AdminLogin@getSignUpAdmin');
-Route::post('new-admin','AdminLogin@createAdmin');
-Route::get('logoutpage', 'AdminLogin@getLogoutPage');
+Route::get('sign-up', 'UserController@getSignUpAdmin');
+Route::post('new-admin','UserController@createAdmin');
+Route::get('logoutpage', 'UserController@getLogoutPage');
 
 
 
@@ -63,8 +62,8 @@ Route::get('add-admin','adminController@addAdmin');
 Route::post('save-admin','adminController@store');
 Route::get('list-admin','adminController@listAdmin');
 Route::get('edit-admin/{admin_id}','adminController@get');
-Route::get('delete-admin/{admin_id}','adminController@delete');
 Route::post('update-admin/{admin_id}','adminController@update');
+Route::get('delete-admin/{admin_id}','adminController@delete');
 
 
 // -------------------------CATEGORY----------------------
@@ -73,8 +72,9 @@ Route::get('list-category','CategoryController@listCategory');
 Route::get('add-category','CategoryController@addCategory');
 Route::post('save-category','CategoryController@store');
 Route::get('edit-category/{category_id}','CategoryController@get');
-Route::get('delete-category/{category_id}','CategoryController@delete');
 Route::post('update-category/{category_id}','CategoryController@update');
+Route::get('delete-category/{category_id}','CategoryController@delete');
+
 
 // -------------------------TYPE--------------------------
 
@@ -82,8 +82,9 @@ Route::get('list-type','TypeController@listType');
 Route::get('add-type','TypeController@addType');
 Route::post('save-type','TypeController@store');
 Route::get('edit-type/{type_id}','TypeController@get');
-Route::get('delete-type/{type_id}','TypeController@delete');
 Route::post('update-type/{type_id}','TypeController@update');
+Route::get('delete-type/{type_id}','TypeController@delete');
+
 
 // -------------------------GAME-------------------------
 
@@ -101,7 +102,7 @@ Route::get('new-apps','AppController@addApp');
 Route::post('save-apps/{category_id}','AppController@saveApp');
 Route::get('edit-apps/{category_id}/{categories_id}','AppController@editApp');
 Route::post('update-apps/{object_id}','AppController@update');
-Route::get('delete-apps/{object_id}','AppController@delete');
+Route::delete('delete-apps/{object_id}','AppController@delete');
 
 
 

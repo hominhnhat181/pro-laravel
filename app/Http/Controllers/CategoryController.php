@@ -44,7 +44,6 @@ class CategoryController extends Controller
     }
 
 
-    
     public function get($id)
     {
         $data = $this->categoryRepository->sidebar();
@@ -60,6 +59,7 @@ class CategoryController extends Controller
         return redirect('list-category')->with('update', 'Update Category Success');
     }
 
+    
     public function delete($category_id)
     {
         $this->categoryRepository->delete($category_id);
