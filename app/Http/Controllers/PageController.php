@@ -33,18 +33,18 @@ class PageController extends Controller
     }
     
 
-    public function getGame(){
-       return $this->pageRepository->getGame();
+    public function getGame($catId){
+       return $this->pageRepository->getGame($catId);
     }
     
 
-    public function getApp(){
-        return $this->pageRepository->getApp();
+    public function getApp($catId){
+        return $this->pageRepository->getApp($catId);
     }
 
 
-    public function getType($id){
-        return $this->pageRepository->getType($id);
+    public function getType($catId,$id){
+        return $this->pageRepository->getType($catId,$id);
     }
 
 

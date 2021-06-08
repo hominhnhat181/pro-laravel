@@ -26,7 +26,7 @@
                             </div>
                             <div class="text text-center">
                                 <span class="sale">Hot</span>
-                                <a href="{{URL('types-'.$tp->types_id)}}"><span class="sale">{{$tp->typeName}}</span></a>
+                                <a href="{{URL('types-'.$tp->categories_id.'-'.$tp->types_id)}}"><span class="sale">{{$tp->typeName}}</span></a>
 								<div class="top__name">
 									<a class="link-oj" href="{{URL('detail-'.$tp->types_id.'-'.$tp->id)}}"><span class="category">{{$tp->name}}</a>
 								</div>
@@ -59,7 +59,7 @@
       <div class="categories">
         <h3 style="padding-left: 40px">App Types</h3>
         <ul class="x">
-            @foreach ($typeList as $ap)  <li><a href="{{URL('types-'.$ap->id)}}">{{$ap->typeName}} </a></li>@endforeach
+            @foreach ($typeList as $ap)  <li><a href="{{URL('types-'.$ap->categories_id.'-'.$ap->id)}}">{{$ap->typeName}} </a></li>@endforeach
 
         </ul>
       </div>

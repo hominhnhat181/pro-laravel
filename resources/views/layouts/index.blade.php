@@ -69,15 +69,10 @@
 					<div class="col-md-3 d-flex">
 						<div class="product ftco-animate">
 							<div class="img d-flex align-items-center justify-content-center" style="background-image: url(layout/images/{{$tp->image}});  max-width: 100%; background-size: cover">
-							
-								
-								
-										<a href="{{URL('detail-'.$tp->types_id.'-'.$tp->id)}}" style="width: 100%; height: 100%;"></a>
-								
-							
+								<a href="{{URL('detail-'.$tp->types_id.'-'.$tp->id)}}" style="width: 100%; height: 100%;"></a>
 							</div>
 							<div class="text text-center">
-								<a href="{{URL('types-'.$tp->types_id)}}"><span class="sale">{{$tp->typeName}}</span></a>
+								<a href="{{URL('types-'.$tp->categories_id.'-'.$tp->types_id)}}"><span class="sale">{{$tp->typeName}}</span></a>
 								<div class="top__name">
 									<a class="link-oj" href="{{URL('detail-'.$tp->types_id.'-'.$tp->id)}}"><span class="category">{{$tp->name}}</a>
 								</div>
@@ -114,85 +109,22 @@
 @foreach ($gameslider as $tp)
 
               <div class="item">
-                <div class="testimony-wrap py-4" style="height: 175px !important;background: rgba(15, 15, 15, 0.719)">
+                <div class="testimony-wrap py-4" style="background: url(layout/images/{{$tp->image}}) no-repeat center center ; ">
                 	<div class="icon d-flex align-items-center justify-content-center">{{$tp->title}}</div>
                   <div class="text">
                     <p class="mb-4"></p>
                     <div class="d-flex align-items-center">
-                    	<a href="{{URL('detail-'.$tp->types_id.'-'.$tp->id)}}"><div class="user-img" style="background-image: url(layout/images/{{$tp->image}})">
-					</div>	</a>
+                    	<a href="{{URL('detail-'.$tp->types_id.'-'.$tp->id)}}">	</a>
                     	<div class="pl-3">
-		                   <a href="{{URL('detail-'.$tp->types_id.'-'.$tp->id)}}"><p class="name">{{$tp->name}}</p></a> 
-		                    <a href="{{URL('types-'.$tp->types_id)}}"><span class="position">{{$tp->typeName}}</span></a>
+							<button class="slier">
+									<a class="slier_route" href="{{URL('detail-'.$tp->types_id.'-'.$tp->id)}}">view now</a>
+							  </button>
 		                  </div>
 	                  </div>
                   </div>
                 </div>
               </div>
 @endforeach
-
-{{-- foreach --}}
-{{-- 
-              <div class="item">
-                <div class="testimony-wrap py-4">
-                	<div class="icon d-flex align-items-center justify-content-center"><span class="fa fa-quote-left"></div>
-                  <div class="text">
-                    <p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                    <div class="d-flex align-items-center">
-                    	<div class="user-img" style="background-image: url(layout/images/person_2.jpg)"></div>
-                    	<div class="pl-3">
-		                    <p class="name">Roger Scott</p>
-		                    <span class="position">Marketing Manager</span>
-		                  </div>
-	                  </div>
-                  </div>
-                </div>
-              </div>
-              <div class="item">
-                <div class="testimony-wrap py-4">
-                	<div class="icon d-flex align-items-center justify-content-center"><span class="fa fa-quote-left"></div>
-                  <div class="text">
-                    <p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                    <div class="d-flex align-items-center">
-                    	<div class="user-img" style="background-image: url(layout/images/person_3.jpg)"></div>
-                    	<div class="pl-3">
-		                    <p class="name">Roger Scott</p>
-		                    <span class="position">Marketing Manager</span>
-		                  </div>
-	                  </div>
-                  </div>
-                </div>
-              </div>
-              <div class="item">
-                <div class="testimony-wrap py-4">
-                	<div class="icon d-flex align-items-center justify-content-center"><span class="fa fa-quote-left"></div>
-                  <div class="text">
-                    <p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                    <div class="d-flex align-items-center">
-                    	<div class="user-img" style="background-image: url(layout/images/person_1.jpg)"></div>
-                    	<div class="pl-3">
-		                    <p class="name">Roger Scott</p>
-		                    <span class="position">Marketing Manager</span>
-		                  </div>
-	                  </div>
-                  </div>
-                </div>
-              </div>
-              <div class="item">
-                <div class="testimony-wrap py-4">
-                	<div class="icon d-flex align-items-center justify-content-center"><span class="fa fa-quote-left"></div>
-                  <div class="text">
-                    <p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                    <div class="d-flex align-items-center">
-                    	<div class="user-img" style="background-image: url(layout/images/person_2.jpg)"></div>
-                    	<div class="pl-3">
-		                    <p class="name">Roger Scott</p>
-		                    <span class="position">Marketing Manager</span>
-		                  </div>
-	                  </div>
-                  </div>
-                </div>
-              </div> --}}
             </div>
           </div>
         </div>
@@ -218,7 +150,7 @@
 							<a href="{{URL('detail-'.$tp->types_id.'-'.$tp->id)}}" style="width: 100%; height: 100%;"></a>
 						</div>
 						<div class="text text-center">
-							<a href="{{URL('types-'.$tp->types_id)}}"><span class="sale">{{$tp->typeName}}</span></a>
+							<a href="{{URL('types-'.$tp->categories_id.'-'.$tp->types_id)}}"><span class="sale">{{$tp->typeName}}</span></a>
 							<div class="top__name">
 								<a class="link-oj" href="{{URL('detail-'.$tp->types_id.'-'.$tp->id)}}"><span class="category">{{$tp->name}}</a>
 							</div>
@@ -240,15 +172,7 @@
 
 
 <style>
-	.ftco-navbar-light .nav-item .nav-link:hover{
-        color: #b7472a !important;
-    }
-    .ftco-navbar-light .nav-item .dropdown-menu .dropdown-item:hover{
-        color: #b7472a !important;
-    }
-	.ftco-navbar-light.scrolled.awake .navbar-nav .nav-item .dropdown-menu .dropdown-item:hover {
-        color: #b7472a !important;
-    }
+
 </style>
 
 @endsection

@@ -17,12 +17,11 @@
                     <div class="col-md-4 d-flex">
                         <div class="product ftco-animate">
                             <div class="img d-flex align-items-center justify-content-center" style="background-image: url(layout/images/{{$tp->image}});">
-                               
-										<a href="{{URL('detail-'.$tp->types_id.'-'.$tp->id)}}" style="width: 100%; height: 100%;"></a>
+								<a href="{{URL('detail-'.$tp->types_id.'-'.$tp->id)}}" style="width: 100%; height: 100%;"></a>
                             </div>
                             <div class="text text-center">
                                
-                                <a href="{{URL('types-'.$tp->types_id)}}"><span class="sale">{{$tp->typeName}}</span></a>
+                                <a href="{{URL('types-'.$tp->categories_id.'-'.$tp->types_id)}}"><span class="sale">{{$tp->typeName}}</span></a>
 								<div class="top__name">
 									<a class="link-oj" href="{{URL('detail-'.$tp->types_id.'-'.$tp->id)}}"><span class="category">{{$tp->name}}</a>
 								</div>
@@ -55,7 +54,7 @@
       <div class="categories">
         <h3 style="padding-left: 40px">Game Types</h3>
         <ul class="xx">
-            @foreach ($typeList as $ap)  <li><a href="{{URL('types-'.$ap->id)}}">{{$ap->typeName}}</a></li>@endforeach
+            @foreach ($typeList as $ap)  <li><a href="{{URL('types-'.$ap->categories_id.'-'.$ap->id)}}">{{$ap->typeName}}</a></li>@endforeach
            
 
         </ul>

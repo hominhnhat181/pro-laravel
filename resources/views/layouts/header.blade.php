@@ -62,14 +62,14 @@
                 @foreach ($cat as $cat)
 
                 <li class="nav-item dropdown" id="{{$cat->catName.$cat->id}}">
-                    <a class="nav-link dropdown-toggle" href="{{URL(strtolower($cat->catName))}}" id="dropdown04" data-toggle="" aria-haspopup="true" aria-expanded="false">{{$cat->catName}}</a>
+                    <a class="nav-link dropdown-toggle" href="{{URL(strtolower($cat->catName.'-'.$cat->id))}}" id="dropdown04" data-toggle="" aria-haspopup="true" aria-expanded="false">{{$cat->catName}}</a>
                     <div class="dropdown-menu">
                         
                         @foreach ($typ as $ty)
 
                             @if ($cat->id == $ty->categories_id)
 
-                                <a class="dropdown-item" href="{{URL('types-'.$ty->id)}}">{{$ty->typeName}}</a> 
+                                <a class="dropdown-item" href="{{URL('types-'.$ty->categories_id.'-'.$ty->id)}}">{{$ty->typeName}}</a> 
 
                             @endif
 

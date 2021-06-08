@@ -11445,7 +11445,7 @@ h5,
     height: 10px;
     margin: 5px;
     border-radius: 50%;
-    background: #e6e6e6;
+    background-color: var(--btn-color);
     position: relative;
 }
 
@@ -11466,7 +11466,7 @@ h5,
 }
 
 .owl-carousel .owl-dots .owl-dot.active {
-    background: #b3b3b3;
+    background-color: var(--btn-color) !important;
 }
 
 .owl-carousel:hover .owl-nav .owl-prev,
@@ -12827,7 +12827,7 @@ textarea.form-control {
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    background: #b7472a;
+    background-color: var(--btn-color);
 }
 
 .testimony-wrap .icon span {
@@ -13647,6 +13647,7 @@ textarea.form-control {
     border: 1px solid transparent;
     background: #b7472a;
     padding: 10px 20px;
+    min-width: 150px;
 }
 
 .link__download a {
@@ -13725,4 +13726,92 @@ textarea.form-control {
 .text-center a:hover {
     background-color: #b7472a;
     color: #FFFFFF !important;
+}
+
+@import url('https://fonts.googleapis.com/css?family=Source+Code+Pro:200,900');
+button {
+    position: relative;
+    padding: 3px 20px 5px 20px;
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-family: "Source Code Pro";
+    font-weight: 900;
+    text-transform: uppercase;
+    color: var(--text-color);
+    background-color: var(--btn-color);
+    box-shadow: var(--shadow-color) 2px 2px 22px;
+    border-radius: 4px;
+    z-index: 0;
+    text-align: center;
+    overflow: hidden;
+    max-width: 150px;
+    max-height: 50px;
+}
+
+.slier {
+    margin-top: 260px;
+    text-align: center;
+}
+
+
+/* bubbles */
+
+button::before {
+    content: '';
+    pointer-events: none;
+    opacity: .6;
+    background: radial-gradient(circle at 20% 35%, transparent 0, transparent 2px, var(--text-color) 3px, var(--text-color) 4px, transparent 4px), radial-gradient(circle at 75% 44%, transparent 0, transparent 2px, var(--text-color) 3px, var(--text-color) 4px, transparent 4px), radial-gradient(circle at 46% 52%, transparent 0, transparent 4px, var(--text-color) 5px, var(--text-color) 6px, transparent 6px);
+    width: 100%;
+    height: 300%;
+    top: 0;
+    left: 0;
+    position: absolute;
+    animation: bubbles 5s linear infinite both;
+}
+
+:root {
+    --text-color: hsla(210, 50%, 85%, 1);
+    --shadow-color: hsla(210, 40%, 52%, .4);
+    --btn-color: hsl(210, 80%, 42%);
+    --bg-color: #141218;
+}
+
+@keyframes bubbles {
+    from {
+        transform: translate();
+    }
+    to {
+        transform: translate(0, -66.666%);
+    }
+}
+
+.ftco-navbar-light .nav-item .nav-link:hover {
+    color: #b7472a !important;
+}
+
+.ftco-navbar-light .nav-item .dropdown-menu .dropdown-item:hover {
+    color: #b7472a !important;
+}
+
+.ftco-navbar-light.scrolled.awake .navbar-nav .nav-item .dropdown-menu .dropdown-item:hover {
+    color: #b7472a !important;
+}
+
+.testimony-wrap {
+    height: 300px !important;
+    -webkit-background-size: cover !important;
+    -moz-background-size: cover !important;
+    -o-background-size: cover !important;
+    background-size: cover !important;
+    margin-bottom: 30px;
+}
+
+.slier .slier_route {
+    font-size: 20px;
+    color: aliceblue;
+}
+
+.slier .slier_route:hover {
+    color: rgb(5, 43, 43);
 }

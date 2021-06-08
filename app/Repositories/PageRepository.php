@@ -35,17 +35,17 @@ class PageRepository extends EloquentRepository implements PageRepositoryInterfa
         ->get();
 
         $gameList = Game::join('types', 'games.types_id', '=', 'types.id')
-        ->select( 'types.typeName', 'games.name','games.image','games.desc','games.title', 'games.link','games.types_id', 'games.id')
+        ->select( 'types.typeName', 'games.*')
         ->limit(8)
         ->get();
 
         $appList = App::join('types', 'apps.types_id', '=', 'types.id')
-        ->select( 'types.typeName', 'apps.name','apps.image','apps.link','apps.types_id','apps.id')
+        ->select( 'types.typeName', 'apps.*')
         ->limit(8)
         ->get();
 
         $gameslider = Game::join('types', 'games.types_id', '=', 'types.id')
-        ->select( 'types.typeName', 'games.name','games.image','games.desc','games.title', 'games.link','games.types_id', 'games.id')
+        ->select( 'types.typeName', 'games.*')
         ->limit(8)->where('games.title','!=','Multiplay')
         ->get();
         return view('layouts.index', compact('gameslider', 'gameRing', 'gameList','bestGame', 'appList','cat','typ'));
@@ -53,46 +53,35 @@ class PageRepository extends EloquentRepository implements PageRepositoryInterfa
 
 
 
-    public function getGame(){
+    public function getGame($catId){
        $cat = Category::get();
         $typ = Type::get();
         $gameList = Game::join('types', 'games.types_id', '=', 'types.id')
-        ->select( 'types.typeName', 'games.name','games.image', 'games.link','games.title', 'games.types_id','games.id')
+        ->select( 'types.typeName', 'games.*')
         ->limit(12)
         ->get();
-        $typeList = Type::join('categories','categories.id','=','types.categories_id')->where('categories.id',1)->get();
+        $typeList = Type::where('categories_id',$catId)->get();
         return view('layouts.game',compact('cat','typ','gameList', 'typeList'));
     }
 
 
-
-    public function getContact(){
-        $cat = Category::get();
-        $typ = Type::get();
-        return view('layouts.contact',compact('cat','typ'));
-    }
-
-
-    public function getApp(){
+    public function getApp($catId){
         $cat = Category::get();
         $typ = Type::get();
         $appList = App::join('types', 'apps.types_id', '=', 'types.id')
-        ->select( 'types.typeName', 'apps.name','apps.image', 'apps.link','apps.title', 'apps.types_id','apps.id')
+        ->select( 'types.typeName', 'apps.*')
         ->limit(12)
         ->get();
-        $typeList = Type::join('categories','categories.id','=','types.categories_id')->where('categories.id',2)->get();
+        $typeList = Type::where('categories_id',$catId)->get();
         return view('layouts.app',compact('cat','typ','appList', 'typeList'));
     }
 
 
-    public function getType($id){
+    public function getType($catId,$id){
         $cat = Category::get();
         $typ = Type::get();
-        if($id < 5 ){
-            $alltype = Type::where('id', '<', 5)->get();
-        }else{
-            $alltype =Type::where('id', '>', 4)->get();
-        }
+        $alltype = Type::where('categories_id',$catId)->get();
+
         $gameList = Game::where('types_id', $id)->get();
         $appList = App::where('types_id', $id)->get();
         $typeList = Type::where('id', $id)->get();
@@ -115,4 +104,13 @@ class PageRepository extends EloquentRepository implements PageRepositoryInterfa
         $allType = Type::where('id', $types_id)->get();
         return view('layouts.obj-detail', compact('cat','typ', 'allthingD','allType'));
     }
+
+
+
+    public function getContact(){
+        $cat = Category::get();
+        $typ = Type::get();
+        return view('layouts.contact',compact('cat','typ'));
+    }
+
 }

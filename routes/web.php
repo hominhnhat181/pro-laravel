@@ -25,9 +25,9 @@ Route::get('luis', 'PageController@getObject');
 Route::get('search', 'SearchController@search');
 Route::get('search', 'SearchController@searchLogic');
 Route::get('contact','PageController@getContact');
-Route::get('games', 'PageController@getGame');
-Route::get('apps', 'PageController@getApp');
-Route::get('types-{id}', 'PageController@getType');
+Route::get('games-{cats_id}', 'PageController@getGame');
+Route::get('apps-{cats_id}', 'PageController@getApp');
+Route::get('types-{cats_id}-{id}', 'PageController@getType');
 Route::get('detail-{types_id}-{id}', 'PageController@getDetail');
 
 

@@ -7,9 +7,9 @@ use Illuminate\Http\Request;
 interface PageRepositoryInterface extends RepositoryInterface
 {
     public function getObject();
-    public function getGame();
+    public function getGame($catId);
     public function getContact();
-    public function getApp();
-    public function getType($id);
+    public function getApp($catId);
+    public function getType($catId,$id);
     public function getDetail($types_id,$id);
 }
