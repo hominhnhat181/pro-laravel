@@ -6,7 +6,6 @@ use Illuminate\Http\Request;
 
 interface PageRepositoryInterface extends RepositoryInterface
 {
-    public function menu();
     public function getObject();
     public function getGame();
     public function getContact();

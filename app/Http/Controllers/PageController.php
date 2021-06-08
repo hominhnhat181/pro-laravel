@@ -23,11 +23,6 @@ class PageController extends Controller
     }
 
 
-    public function menu(){
-       return $this->pageRepository->menu();
-    }
-
-
     public function getObject(){
         return $this->pageRepository->getObject();
     }
