@@ -3,7 +3,7 @@
    class Helper {
        
      public static function helper(){
-          return ' Mít tơ Nhật hồ - 
-         không đi giật đồ - chỉ giật bồ !!';
+          return ' MR Nhật hồ - 
+         không giật đồ - chỉ giật bồ !!';
       }
   }

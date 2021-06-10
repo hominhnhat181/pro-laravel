@@ -28,10 +28,10 @@ class PageRepository extends EloquentRepository implements PageRepositoryInterfa
         ->select( 'types.typeName', 'games.name','games.image', 'games.link','games.title', 'games.types_id','games.id')
         ->limit(6)
         ->get();
-        
+
         $bestGame = Game::join('types', 'games.types_id', '=', 'types.id')
         ->select( 'games.desc', 'games.name','games.image','games.types_id','games.id')
-        ->where('games.id', rand(1,9))
+        ->where('games.id', rand(1,1))
         ->get();
 
         $gameList = Game::join('types', 'games.types_id', '=', 'types.id')
@@ -85,8 +85,6 @@ class PageRepository extends EloquentRepository implements PageRepositoryInterfa
         $gameList = Game::where('types_id', $id);
         $allthing = App::where('types_id', $id)->union($gameList)->paginate(6);
         $typeList = Type::where('id', $id)->get();
-     
-
 
         return view('layouts.type', compact('query', 'cat','typ','allthing','alltype','typeList'));
     }
@@ -96,13 +94,10 @@ class PageRepository extends EloquentRepository implements PageRepositoryInterfa
     public function getDetail($types_id,$id){
         $cat = Category::get();
         $typ = Type::get();
-        $gameList = Game::where('id', $id)->get();
-        $appList = App::where('id', $id)->get();
-        if($types_id < 5){
-            $allthingD = $gameList;
-        }else{
-            $allthingD = $appList;
-        }
+        $gameList = Game::where('id', $id);
+        
+        $allthingD = App::where('id', $id)->union($gameList)->get();
+
         $allType = Type::where('id', $types_id)->get();
         return view('layouts.obj-detail', compact('cat','typ', 'allthingD','allType'));
     }
