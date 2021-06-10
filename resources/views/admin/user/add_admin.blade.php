@@ -1,5 +1,6 @@
 @extends('admin/layouts/adMaster')
-@section('content_add_admin')
+@section('title', 'New Admin')
+@section('content')
 <div class="grid_10">
     <div class="box round first grid">
         <h2>New Admin</h2>
@@ -22,7 +23,8 @@
                     <td>
                         <label>New Admin</label>
                         <br>
-                        <input style="margin-top:15px " type="text" name="email" placeholder="Tên quản trị viên mới..." class="medium" />
+                        <input style="margin-top:15px " type="text" name="name" placeholder="Tên quản trị viên mới..." class="medium" />
+                        <input style="margin-top:15px " type="text" name="email" placeholder="Email..." class="medium" />
                         <input style="margin-top:15px " type="text" name="password" placeholder="Nhập mật khẩu..." class="medium" />
                     </td>
                     <td>

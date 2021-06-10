@@ -2,8 +2,8 @@
     <div class="box sidemenu">
         <div class="block" id="section-menu">
             <ul class="section menu">
-                <li><a class="menuitem" href="{{URL('admin')}}">Home</a> </li>  
-                
+                <li><a  href="{{URL('admin')}}">Home</a> </li>  
+                <li style="display: hidden"><a class="menuitem" href="{{URL('admin')}}"></a> </li>
                 <li><a class="menuitem">Admin</a>
                     <ul class="submenu">
                         <li><a href="{{URL('add-admin')}}">New Admin</a> </li>

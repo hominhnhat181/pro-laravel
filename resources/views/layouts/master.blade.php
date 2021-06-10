@@ -29,25 +29,6 @@
     @section('content')
     @yield('content')
 
-    @section('contact')
-    @yield('contact')
-
-    @section('game')
-    @yield('game')
-
-    @section('app')
-    @yield('app')
-
-    @section('type')
-    @yield('type')
-
-    @section('detail')
-    @yield('detail')
-
-    @section('search')
-    @yield('search')
-
-    
     @include('layouts/footer')
 
 {{-- endFotter --}}

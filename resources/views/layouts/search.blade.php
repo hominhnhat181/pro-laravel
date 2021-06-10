@@ -1,7 +1,7 @@
 @extends('layouts/master')
 @section('title', 'search')
 
-@section('search')
+@section('content')
 
 <div class="container">
     <div class="row">

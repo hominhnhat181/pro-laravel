@@ -1,5 +1,6 @@
 @extends('admin/layouts/adMaster')
-@section('content_list_type')
+@section('title', 'List Types')
+@section('content')
 <div class="grid_10">
     <div class="box round first grid">
         <h2>List Types</h2>

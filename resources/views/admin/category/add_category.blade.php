@@ -1,5 +1,7 @@
 @extends('admin/layouts/adMaster')
-@section('content_add_category')
+@section('title', 'New Categories')
+
+@section('content')
 <div class="grid_10">
     <div class="box round first grid">
         <h2>New category</h2>

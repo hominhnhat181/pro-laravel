@@ -1,5 +1,6 @@
 @extends('admin/layouts/adMaster')
-@section('content_edit_type')
+@section('title', 'Edit Types')
+@section('content')
 <div class="grid_10">
     <div class="box round first grid">
         <h2>Edit Type</h2>

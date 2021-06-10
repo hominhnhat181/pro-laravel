@@ -1,5 +1,6 @@
 @extends('admin/layouts/adMaster')
-@section('content_edit_admin')
+@section('title', 'Edit Admin')
+@section('content')
 <div class="grid_10">
     <div class="box round first grid">
         <h2>Edit Admin</h2>
@@ -23,7 +24,9 @@
                         <label>Tên ADMIN</label>
                     </td>
                     <td>
-                        <input type="text" name="email" value="{{$key->email}}" placeholder="New Name..." class="medium" />
+                        <input type="text" name="name" value="{{$key->name}}" placeholder="New Name..." class="medium" />
+
+                        <input type="text" name="email" value="{{$key->email}}" placeholder="New Email..." class="medium" />
                         <input type="password" name="password" value="" placeholder="New Password..." class="medium" />
                     </td>
                 </tr>

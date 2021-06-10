@@ -1,4 +1,6 @@
-@extends('layouts/master') @section('title', 'Detail') @section('detail')
+@extends('layouts/master') 
+@section('title', 'Detail') 
+@section('content')
 <section class="ftco-section">
     <div class="luis">
 

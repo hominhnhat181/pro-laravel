@@ -1,7 +1,7 @@
 @extends('layouts/master')
 @section('title', 'Types')
 
-@section('type')
+@section('content')
 <section class="ftco-section">
     <div class="container">
         <div class="row">

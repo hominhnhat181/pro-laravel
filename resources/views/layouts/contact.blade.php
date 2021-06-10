@@ -1,7 +1,8 @@
 @extends('layouts/master')
 @section('title', 'contact')
 
-@section('contact')
+@section('content')
+
 
 <section class="ftco-section bg-light">
     <div class="container">

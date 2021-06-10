@@ -1,5 +1,7 @@
 @extends('admin/layouts/adMaster')
-@section('content_list_object')
+@section('title', 'List Games')
+@section('content')
+
 <div class="grid_10">
     <div class="box round first grid">
         <h2>Danh sách  </h2>

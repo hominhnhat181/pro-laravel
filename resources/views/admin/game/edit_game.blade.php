@@ -1,4 +1,7 @@
-@extends('admin/layouts/adMaster') @section('content_edit_object')
+@extends('admin/layouts/adMaster') 
+@section('title', 'New Games')
+@section('content')
+
 <div class="grid_10">
     <div class="box round first grid">
         @foreach ($super as $key)  <h2>Edit {{$key->catName}} </h2> @endforeach

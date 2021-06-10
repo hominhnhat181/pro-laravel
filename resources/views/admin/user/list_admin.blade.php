@@ -1,5 +1,6 @@
 @extends('admin/layouts/adMaster')
-@section('content_list_admin')
+@section('title', 'List Admin')
+@section('content')
 <div class="grid_10">
     <div class="box round first grid">
         <h2>List Admin</h2>
@@ -24,6 +25,7 @@
 				<tr>
 					<th>ID</th>
 					<th>Admin name</th>
+					<th>Email</th>
 					<th>Custom</th>
 				</tr>
 			</thead>
@@ -31,6 +33,7 @@
 				@foreach($data_ad as $admin)
 				<tr class="odd gradeX" style="text-align: center">
 					<td>{{$admin->id}}</td>
+					<td>{{$admin->name}}</td>
 					<td>{{$admin->email}}</td>
 					<td style="justify-content: center; display: flex;">
 						{{-- edit --}}
