@@ -9,7 +9,7 @@ use App\Category;
 use App\Type;
 use App\App;
 use DB;
-
+use Illuminate\Database\Query\Builder;
 
 
 class PageRepository extends EloquentRepository implements PageRepositoryInterface
@@ -28,10 +28,10 @@ class PageRepository extends EloquentRepository implements PageRepositoryInterfa
         ->select( 'types.typeName', 'games.name','games.image', 'games.link','games.title', 'games.types_id','games.id')
         ->limit(6)
         ->get();
-       
+        
         $bestGame = Game::join('types', 'games.types_id', '=', 'types.id')
         ->select( 'games.desc', 'games.name','games.image','games.types_id','games.id')
-        ->where('games.id', 1)
+        ->where('games.id', rand(1,9))
         ->get();
 
         $gameList = Game::join('types', 'games.types_id', '=', 'types.id')
@@ -59,7 +59,7 @@ class PageRepository extends EloquentRepository implements PageRepositoryInterfa
         $gameList = Game::join('types', 'games.types_id', '=', 'types.id')
         ->select( 'types.typeName', 'games.*')
         ->limit(12)
-        ->get();
+        ->paginate(6);
         $typeList = Type::where('categories_id',$catId)->get();
         return view('layouts.game',compact('cat','typ','gameList', 'typeList'));
     }
@@ -71,7 +71,7 @@ class PageRepository extends EloquentRepository implements PageRepositoryInterfa
         $appList = App::join('types', 'apps.types_id', '=', 'types.id')
         ->select( 'types.typeName', 'apps.*')
         ->limit(12)
-        ->get();
+        ->paginate(6);
         $typeList = Type::where('categories_id',$catId)->get();
         return view('layouts.app',compact('cat','typ','appList', 'typeList'));
     }
@@ -82,11 +82,13 @@ class PageRepository extends EloquentRepository implements PageRepositoryInterfa
         $typ = Type::get();
         $alltype = Type::where('categories_id',$catId)->get();
 
-        $gameList = Game::where('types_id', $id)->get();
-        $appList = App::where('types_id', $id)->get();
+        $gameList = Game::where('types_id', $id);
+        $allthing = App::where('types_id', $id)->union($gameList)->paginate(6);
         $typeList = Type::where('id', $id)->get();
-        $allthing = $gameList->union($appList);
-        return view('layouts.type', compact( 'cat','typ','allthing','alltype','typeList'));
+     
+
+
+        return view('layouts.type', compact('query', 'cat','typ','allthing','alltype','typeList'));
     }
 
 

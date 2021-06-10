@@ -13815,3 +13815,31 @@ button::before {
 .slier .slier_route:hover {
     color: rgb(5, 43, 43);
 }
+
+.panigate {
+    position: relative;
+    padding-bottom: 100px;
+}
+
+.pagination {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.pagination .page-link {
+    margin: 0 3px !important;
+    color: black !important;
+}
+
+.pagination .page-link:hover {
+    color: #b7472a !important;
+}
+
+.page-item.active .page-link {
+    background: #b7472a !important;
+    outline: none !important;
+    border: none !important;
+    color: #ffffff !important
+}

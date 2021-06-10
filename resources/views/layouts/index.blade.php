@@ -51,18 +51,11 @@
 		<section class="ftco-section" id="list-start">
 			<div class="container">
 				<div id="software-box" class="row justify-content-center pb-5">
-          <div class="col-md-7 heading-section text-center ftco-animate">
-			<h2 id="lion" >Daily Games</h2>
-			<span class="subheading" id="wolf">Games collection</span>
-			{{-- <br> --}}
-
-			
-		
-			
-			
-				
-          </div>
-        </div>
+					<div class="col-md-7 heading-section text-center ftco-animate">
+						<h2 id="lion" >Daily Games</h2>
+						<span class="subheading" id="wolf">Games collection</span>
+					</div>
+				</div>
 				<div class="row">
 {{-- foreach --}}
 					@foreach ($gameList as $tp)
@@ -169,11 +162,5 @@
 			</div>
 		</div>
 	</section>
-
-
-<style>
-
-</style>
-
 @endsection
 

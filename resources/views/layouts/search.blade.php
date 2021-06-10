@@ -10,36 +10,7 @@
 
         </div>
     </div>
-
-
-
-    @foreach ($resultGame as $gm)
-    <div class="result" >
-        <div class="result__block">
-            <div class="result__img--item" style=" max-width: 100%; background-size: cover">
-                <a href="{{URL('detail-'.$gm->types_id.'-'.$gm->id)}}" style="width: 100%; height: 100%;">
-                <img  src="../public/layout/images/{{$gm->image}}" alt=""></a>
-
-            </div>
-            <div class="result__content">
-                <div>
-                <a class="result__content--title" href="{{URL('detail-'.$gm->types_id.'-'.$gm->id)}}"><h3 class="category">{{$gm->name}}</a>
-                </div>
-                <div>
-                    <a href="{{URL('types-'.$gm->types_id)}}"><span class="sale">{{$gm->typeName}}</span></a>
-                </div>
-                <div>
-                    <p> {{ Str::limit($gm->desc, 200) }}</p>
-                </div>
-                <a class="mb-0" href="{{URL('detail-'.$gm->types_id.'-'.$gm->id)}}"> <span class="price">DETAIL</span></a>
-            </div>
-        </div>
-    </div>
-    @endforeach
-
-
-
-@foreach ($resultApp as $ap)
+@foreach ($allResult as $ap)
     <div class="result" >
         <div class="result__block">
             <div class="result__img--item" style=" max-width: 100%; background-size: cover">
@@ -54,7 +25,7 @@
                     <a href="{{URL('types-'.$ap->types_id)}}"><span class="sale">{{$ap->typeName}}</span></a>
                 </div>
                 <div>
-                    <p>{{$ap->desc}}</p>
+                    <p>{{ Str::limit($ap->desc, 250) }}</p>
                 </div>
                 <a class="mb-0" href="{{URL('detail-'.$ap->types_id.'-'.$ap->id)}}"> <span class="price">DETAIL</span></a>
             </div>
@@ -63,7 +34,7 @@
     @endforeach
    
     <div class="panigate">
-        {{ $resultGame->links() }}
+        {{ $allResult->links() }}
     </div>
 </div>
 
