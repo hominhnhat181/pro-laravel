@@ -94,9 +94,9 @@ class PageRepository extends EloquentRepository implements PageRepositoryInterfa
     public function getDetail($types_id,$id){
         $cat = Category::get();
         $typ = Type::get();
-        $gameList = Game::where('id', $id);
+        $gameList = Game::where('id', $id)->where('types_id',$types_id);
         
-        $allthingD = App::where('id', $id)->union($gameList)->get();
+        $allthingD = App::where('id', $id)->where('types_id',$types_id)->union($gameList)->get();
 
         $allType = Type::where('id', $types_id)->get();
         return view('layouts.obj-detail', compact('cat','typ', 'allthingD','allType'));

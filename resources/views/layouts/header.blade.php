@@ -24,7 +24,10 @@
                 </div>
                 <div class="reg">
                     @if (Auth::guest())
-                    <p class="mb-0"><a style="margin-right: 10px" class="master" href="{{url('sign-up')}}" class="mr-2">{{ __('sign') }}</a> <a class="master" href="{{url('login')}}">{{ __('login') }}</a></p>
+                    <p class="mb-0"> 
+                        <a  class="master" href="{{url('login')}}">{{ __('login') }}</a>
+                        <a style="margin-left: 20px" class="master" href="{{ route('register') }}">{{ __('Register') }}</a>
+                    </p>
                     @else 
                         @if((Auth::user()->lever)< 1) 
 

@@ -135,8 +135,8 @@
                 <div class="media">
                     <a class="pull-left" href="#"><img class="media-object" src="https://bootdey.com/img/Content/avatar/avatar1.png" alt=""></a>
                     <div class="media-body">
-                        <h4 class="media-heading">John Doe</h4>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                        <h4 class="media-heading">Thầy Bình</h4>
+                        <p>Ờ Mây Zing, Gút Chóp Em  {•-<} </p>
                         <ul class="list-unstyled list-inline media-detail pull-left">
                             <li><i class="fa fa-calendar"></i>27/02/2014</li>
                             <li><i class="fa fa-thumbs-up"></i>13</li>
@@ -153,10 +153,10 @@
                 <div class="media">
                     <a class="pull-left" href="#"><img class="media-object" src="https://bootdey.com/img/Content/avatar/avatar2.png" alt=""></a>
                     <div class="media-body">
-                        <h4 class="media-heading">John Doe</h4>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                        <h4 class="media-heading">Anh Hiếu PC</h4>
+                        <p>Game chi mà chi lạ rứa, chơi răng mà hắn không nghe chi hết rứaaa </p>
                         <ul class="list-unstyled list-inline media-detail pull-left">
-                            <li><i class="fa fa-calendar"></i>27/02/2014</li>
+                            <li><i class="fa fa-calendar"></i>27/02/2021</li>
                             <li><i class="fa fa-thumbs-up"></i>13</li>
                         </ul>
                         <ul class="list-unstyled list-inline media-detail pull-right">
@@ -171,7 +171,7 @@
                 <div class="media">
                     <a class="pull-left" href="#"><img class="media-object" src="https://bootdey.com/img/Content/avatar/avatar3.png" alt=""></a>
                     <div class="media-body">
-                        <h4 class="media-heading">John Doe</h4>
+                        <h4 class="media-heading">Crush</h4>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                         <ul class="list-unstyled list-inline media-detail pull-left">
                             <li><i class="fa fa-calendar"></i>27/02/2014</li>

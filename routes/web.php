@@ -13,11 +13,21 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// -------------------------LOGIN-------------------------
+
+Route::get('login', 'UserController@getLoginAdmin');
+Route::post('login', 'UserController@postLoginAdmin');
+Route::get('logoutadmin', 'UserController@getLogoutAdmin');
+
+Route::get('sign-up', 'UserController@getSignUpAdmin');
+Route::post('new-admin','UserController@createAdmin');
+Route::get('logoutpage', 'UserController@getLogoutPage');
+
 
 
 
 // -----------------------Layout-------------------------
-
+Auth::routes(['verify' => true]);
 Route::get('luis', 'PageController@getIndex');
 Route::get('luis', 'PageController@menu');
 Route::get('luis', 'PageController@getObject');
@@ -42,16 +52,6 @@ Route::get('setLocale/{locale}', function ($locale) {
 })->name('app.setLocale');
 
 
-
-// -------------------------LOGIN-------------------------
-
-Route::get('login', 'UserController@getLoginAdmin');
-Route::post('login', 'UserController@postLoginAdmin');
-Route::get('logoutadmin', 'UserController@getLogoutAdmin');
-
-Route::get('sign-up', 'UserController@getSignUpAdmin');
-Route::post('new-admin','UserController@createAdmin');
-Route::get('logoutpage', 'UserController@getLogoutPage');
 
 
 
@@ -108,3 +108,4 @@ Route::delete('delete-apps/{object_id}','AppController@delete');
 
 
 // TEST
+

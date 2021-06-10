@@ -12,15 +12,19 @@ use App\Http\Requests\UserRequest;
 
 class AdminController extends Controller
 {
-
+      /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
     protected $userRepository;
 
     public function __construct(UserInterface $adminRepository){
-
+        $this->middleware(['auth','verified']);
         $this->adminRepository = $adminRepository;
 
     }
-
+    
     // Access
     public function index(){
         $data = $this->adminRepository->sidebar();
