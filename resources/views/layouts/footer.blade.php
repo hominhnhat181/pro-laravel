@@ -90,6 +90,6 @@
   <script src="layout/js/jquery.magnific-popup.min.js"></script>
   <script src="layout/js/jquery.animateNumber.min.js"></script>
   <script src="layout/js/scrollax.min.js"></script>
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
-  <script src="layout/js/google-map.js"></script>
+  {{-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+  <script src="layout/js/google-map.js"></script> --}}
   <script src="layout/js/main.js"></script>

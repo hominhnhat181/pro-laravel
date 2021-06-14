@@ -14,20 +14,16 @@ use Illuminate\Support\Facades\Route;
 */
 
 // -------------------------LOGIN-------------------------
+Auth::routes(['verify' => true]);
 
-Route::get('login', 'UserController@getLoginAdmin');
-Route::post('login', 'UserController@postLoginAdmin');
 Route::get('logoutadmin', 'UserController@getLogoutAdmin');
 
-Route::get('sign-up', 'UserController@getSignUpAdmin');
-Route::post('new-admin','UserController@createAdmin');
 Route::get('logoutpage', 'UserController@getLogoutPage');
 
 
 
 
 // -----------------------Layout-------------------------
-Auth::routes(['verify' => true]);
 Route::get('luis', 'PageController@getIndex');
 Route::get('luis', 'PageController@menu');
 Route::get('luis', 'PageController@getObject');
@@ -50,8 +46,6 @@ Route::get('setLocale/{locale}', function ($locale) {
   }
   return redirect()->back();
 })->name('app.setLocale');
-
-
 
 
 

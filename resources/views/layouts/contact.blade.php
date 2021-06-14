@@ -92,7 +92,7 @@
                             </div>
                         </div>
                         <div class="col-md-5 order-md-first d-flex align-items-stretch">
-                            <div id="map" class="map"></div>
+                            <iframe width="520" height="565" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" id="gmap_canvas" src="https://maps.google.com/maps?width=520&amp;height=565&amp;hl=en&amp;q=%20Thanh%20pho%20Hue+()&amp;t=&amp;z=12&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe> <a href='https://mapswebsite.net/'>google maps iframe embed</a> <script type='text/javascript' src='https://embedmaps.com/google-maps-authorization/script.js?id=a4b9d56d684653cc4e6916e465ba818d6652fc4e'></script>            
                         </div>
                     </div>
                 </div>

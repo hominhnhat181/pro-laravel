@@ -50,7 +50,7 @@ class AdminController extends Controller
         $attributes = $request->all();
         $attributes['password'] = bcrypt($request->password);
         $this->adminRepository->store($attributes);
-        return redirect('list-admin')->with('create', 'Create Admin success');
+        return redirect('list-admin')->with('create', 'Create User success');
     }
 
 
@@ -65,12 +65,12 @@ class AdminController extends Controller
         $attributes = $request->except('_token','_method');
         $attributes['password'] = bcrypt($request->password);
         $this->adminRepository->update($admin_id, $attributes);
-        return redirect('list-admin')->with('update', 'Update Admin success');
+        return redirect('list-admin')->with('update', 'Update User success');
     }
     
 
     public function delete($id){
         $this->adminRepository->delete($id);
-        return redirect('list-admin')->with('delete', 'Delete Admin success');
+        return redirect('list-admin')->with('delete', 'Delete User success');
     }
 }

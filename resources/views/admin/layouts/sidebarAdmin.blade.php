@@ -4,10 +4,10 @@
             <ul class="section menu">
                 <li><a  href="{{URL('admin')}}">Home</a> </li>  
                 <li style="display: hidden"><a class="menuitem" href="{{URL('admin')}}"></a> </li>
-                <li><a class="menuitem">Admin</a>
+                <li><a class="menuitem">User</a>
                     <ul class="submenu">
-                        <li><a href="{{URL('add-admin')}}">New Admin</a> </li>
-                        <li><a href="{{URL('list-admin')}}">List Admin</a> </li>
+                        <li><a href="{{URL('add-admin')}}">New User</a> </li>
+                        <li><a href="{{URL('list-admin')}}">List User</a> </li>
                     </ul>
                 </li>
                 <li><a class="menuitem">Categories</a>

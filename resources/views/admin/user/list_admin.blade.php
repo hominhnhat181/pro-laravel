@@ -3,7 +3,7 @@
 @section('content')
 <div class="grid_10">
     <div class="box round first grid">
-        <h2>List Admin</h2>
+        <h2>List User</h2>
         <div class="block">  
 			@if (session('update'))
 				<div class="alert alert-success" role="alert">
@@ -33,7 +33,16 @@
 				@foreach($data_ad as $admin)
 				<tr class="odd gradeX" style="text-align: center">
 					<td>{{$admin->id}}</td>
+
+					@if(($admin->lever) == 0)
+
+					<td>{{'ADMIN - '.$admin->name}}</td>
+
+					@else
+
 					<td>{{$admin->name}}</td>
+
+					@endif
 					<td>{{$admin->email}}</td>
 					<td style="justify-content: center; display: flex;">
 						{{-- edit --}}

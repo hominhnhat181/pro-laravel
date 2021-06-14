@@ -1,7 +1,7 @@
 {
 
     "Welcome": "Welcome to Website!",
-    "sign": "SIGN UP",
+    "Register": "Register",
     "login": "Login",
     "admin": "Admin - Area",
     "logout": "Logout",
@@ -10,6 +10,7 @@
     "contact": "Contact",
     "Hours of Experience In Story": "Hours of Experience In Story",
     "Best Game of Day": "Best Game of Day",
-    "Welcome to Website, :name": "Welcome to Website, :name"
+    "Welcome to Website, :name": "Welcome to Website, :name",
+    "Dishonored Game of the Year Edition là collection của game đã đoạt hơn 100 giải thưởng 2012 Game of Year awards, Best Action Adventure Game at the 2012...Bộ sưu tập này bao gồm tất cả các nội dung bổ sung của nó Dunwall City Trials, The Knife of Dunwall, The Brigmore Witches và Void Walker’s Arsenal.": "Dishonored Game of the Year Edition is a collection of games that won over 100 2012 Game of Year awards, Best Action Adventure Game at the 2012... This collection includes all of its additional content Dunwall City Trials , The Knife of Dunwall, The Brigmore Witches and Void Walker's Arsenal."
 
 }

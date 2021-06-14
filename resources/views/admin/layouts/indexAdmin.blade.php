@@ -13,7 +13,9 @@
                 @endif
                 </div>
                 <div style="text-align: center">
+                  
                  <h1>{{ app\Helpers\Helper::helper() }}</h1> 
+                
                 </div>
             </div>
         </div>

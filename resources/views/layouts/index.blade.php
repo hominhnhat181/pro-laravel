@@ -15,8 +15,8 @@
 	          	<span class="subheading">{{__('Best Game of Day')}}</span>
 				 
 				  <a href="{{URL('detail-'.$best->types_id.'-'.$best->id)}}"> <h2 class="mb-4">{{$best->name}}	</h2></a>
-
-	            <p>{{$best->desc}}</p>
+				
+	            <p>{{__($best->desc)}}</p>
 	            
 	            <p class="year">
 	            	<strong class="number" data-number="118">0</strong>
@@ -53,7 +53,7 @@
 				<div id="software-box" class="row justify-content-center pb-5">
 					<div class="col-md-7 heading-section text-center ftco-animate">
 						<h2 id="lion" >Daily Games</h2>
-						<span class="subheading" id="wolf">Games collection</span>
+						<a style="all: unset !important" href="{{URL('games-1')}}"><span class="subheading" id="wolf">Games collection</span></a>
 					</div>
 				</div>
 				<div class="row">
@@ -130,7 +130,7 @@
 	  <div class="col-md-7 heading-section text-center ftco-animate">		
 	
 		<h2 id="lion">Daily Apps</h2>
-		<span class="subheading" id="wolf">Apps collection</span>
+		<a style="all: unset !important" href="{{URL('apps-2')}}"><span class="subheading" id="wolf">Apps collection</span></a>
 	  </div>
 	</div>
 			<div class="row">

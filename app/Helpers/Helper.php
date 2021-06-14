@@ -1,9 +1,10 @@
-<?php namespace App\Helpers;
+<?php 
 
+namespace App\Helpers;
+use Auth;
    class Helper {
        
      public static function helper(){
-          return ' MR Nhật hồ - 
-         không giật đồ - chỉ giật bồ !!';
+          return 'welcome Admin '.Auth::user()->name;
       }
   }

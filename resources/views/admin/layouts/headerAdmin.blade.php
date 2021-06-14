@@ -23,7 +23,7 @@
                             @if (Auth::guest())
 
                             @else
-                            <li>Hi Admin {{{ isset(Auth::user()->name) ? Auth::user()->name : Auth::user()->email }}} </li>
+                            <li>Admin {{{ isset(Auth::user()->name) ? Auth::user()->name : Auth::user()->email }}} </li>
                             <li><a  href="{{url('luis')}}">Web</a></li>
                             <li><a  href="{{url('logoutadmin')}}">Logout </a></li>
                             @endif
