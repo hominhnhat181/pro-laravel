@@ -19,7 +19,7 @@ class SearchRepository extends EloquentRepository implements SearchRepositoryInt
 
     
     public function searchLogic($attributes){
-        $cat = Category::get();
+      
         $typ = Type::join('categories','categories.id','=','types.categories_id')->get();
 
         $resultApp = App::join('types', 'apps.types_id', '=', 'types.id')

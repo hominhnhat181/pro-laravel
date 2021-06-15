@@ -16,9 +16,9 @@ use Illuminate\Support\Facades\Route;
 // -------------------------LOGIN-------------------------
 Auth::routes(['verify' => true]);
 
-Route::get('logoutadmin', 'UserController@getLogoutAdmin');
+Route::get('logoutadmin', 'Auth\LogoutController@getLogoutAdmin');
 
-Route::get('logoutpage', 'UserController@getLogoutPage');
+Route::get('logoutpage', 'Auth\LogoutController@getLogoutPage');
 
 
 

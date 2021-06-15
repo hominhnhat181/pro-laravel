@@ -2,7 +2,10 @@
 namespace App\Repositories;
 
 use App\Repositories\Interfaces\RepositoryInterface;
-use DB;
+use App\Category;
+use App\Type;
+use Illuminate\Support\Facades\View;
+
 abstract class EloquentRepository implements RepositoryInterface
 {
     /**
@@ -93,12 +96,24 @@ abstract class EloquentRepository implements RepositoryInterface
         }
         return false;
     }
+
+
     // HAND MAKE
+
     public function sidebar()
     {
-       return db::table('categories')->get();
+        return  View::share('data',Category::get());
     }
+    
+    public function shareHeadFoot(){
+        $cat = Category::get();
+        $typ = Type::get();
 
+        return  View::share([
+                'cat' => $cat,
+                'typ' => $typ,
+            ]);
+    }
 
     
 }

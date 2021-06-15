@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 use DB;
-use App\Category;
 use App\Type;
+use App\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
 use App\Repositories\PageRepository;
@@ -21,18 +21,12 @@ class PageController extends Controller
     public function __construct(PageInterface $pageRepository){
         // $this->middleware(['auth','verified']);
         $this->pageRepository = $pageRepository;
-        
+        // Header & Footer for all page :D
+        $this->pageRepository->shareHeadFoot();
     }
-
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Contracts\Support\Renderable
-     */
-
     
-    public function getIndex(){
 
+    public function getIndex(){
         return view('layouts.index');
     }
 

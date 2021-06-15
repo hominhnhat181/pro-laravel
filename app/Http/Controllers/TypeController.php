@@ -18,13 +18,13 @@ class TypeController extends Controller
     public function __construct(TypeInterface $typeRepository){
 
         $this->typeRepository = $typeRepository;
+        $this->typeRepository->sidebar();
 
     }
 
 
     // list 
     public function listType(){
-        $data = $this->typeRepository->sidebar();
         $data_ad = $this->typeRepository->getAll();
         return view('admin.type.list_type', compact('data','data_ad'));
     }
@@ -32,7 +32,6 @@ class TypeController extends Controller
 
     // fill add view
     public function addType(){
-        $data = $this->typeRepository->sidebar();
         $data_ad = $this->typeRepository->getAll();
         $listCat = $this->typeRepository->fillCategory();
         return view('admin.type.add_type', compact('data','data_ad','listCat'));
@@ -49,7 +48,6 @@ class TypeController extends Controller
 
     // fill edit view
     public function get($id){
-        $data = $this->typeRepository->sidebar();
         $data_ed = $this->typeRepository->find($id);
         $listCat = $this->typeRepository->fillCategory();
         return view('admin.type.edit_type', compact('data','data_ed','listCat'));

@@ -16,12 +16,12 @@ class CategoryController extends Controller
     public function __construct(CategoryInterface $categoryRepository)
     {
         $this->categoryRepository = $categoryRepository;
+        $this->categoryRepository->sidebar();
     }
 
 
     public function listCategory()
     {
-        $data = $this->categoryRepository->sidebar();
         $data_ad = $this->categoryRepository->getAll();
         return view('admin.category.list_category', compact('data', 'data_ad'));
     }
@@ -29,7 +29,6 @@ class CategoryController extends Controller
 
     public function addCategory()
     {
-        $data = $this->categoryRepository->sidebar();
         $data_ad = $this->categoryRepository->getAll();
         return view('admin.category.add_category', compact('data', 'data_ad'));
     }
@@ -46,7 +45,6 @@ class CategoryController extends Controller
 
     public function get($id)
     {
-        $data = $this->categoryRepository->sidebar();
         $data_ed = $this->categoryRepository->find($id);
         return view('admin.category.edit_category', compact('data', 'data_ed'));
     }

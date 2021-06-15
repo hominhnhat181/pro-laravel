@@ -18,13 +18,12 @@ class GameController extends Controller
     public function __construct(GameInterface $gameRepository){
 
         $this->gameRepository = $gameRepository;
-
+        $this->gameRepository->sidebar();
     }
 
 
     // view list
     public function listGame(){
-        $data = $this->gameRepository->sidebar();
         $game = $this->gameRepository->getAll();
         return view('admin.game.list_game', compact('data','game'));
     }
@@ -32,7 +31,6 @@ class GameController extends Controller
 
     // add
     public function addGame(){
-        $data = $this->gameRepository->sidebar();
         $add = $this->gameRepository->getAll();
         $typeList = $this->gameRepository->fillType();
         return view('admin.game.add_game', compact('data','add','typeList'));
@@ -50,7 +48,6 @@ class GameController extends Controller
 
     // edit
     public function editGame( $object_id, $categories_id){
-        $data = $this->gameRepository->sidebar();
         $super = $this->gameRepository->fillEdit($object_id);
         $typeList =$this->gameRepository->fillTypeName($object_id);
         return view('admin.game.edit_game', compact('super','data','typeList'));

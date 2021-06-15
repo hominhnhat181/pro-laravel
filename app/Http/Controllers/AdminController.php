@@ -22,31 +22,33 @@ class AdminController extends Controller
     public function __construct(UserInterface $adminRepository){
         $this->middleware(['auth','verified']);
         $this->adminRepository = $adminRepository;
+        $this->adminRepository->sidebar();
 
     }
     
     // Access
-    public function index(){
-        $data = $this->adminRepository->sidebar();
-        return $this->adminRepository->accessLogin($data);
+    public function index()
+    {
+        return view('admin.layouts.indexAdmin');
     }
 
 
-    public function listAdmin(){
-        $data = $this->adminRepository->sidebar();
+    public function listAdmin()
+    {
         $data_ad = $this->adminRepository->getAll();
         return view('admin.user.list_admin', compact('data','data_ad'));
     }
 
 
-    public function addAdmin(){ 
-        $data = $this->adminRepository->sidebar();
+    public function addAdmin()
+    { 
         $data_ad = $this->adminRepository->getAll();
         return view('admin.user.add_admin', compact('data','data_ad'));
     }
 
 
-    public function store(UserRequest $request){ 
+    public function store(UserRequest $request)
+    { 
         $attributes = $request->all();
         $attributes['password'] = bcrypt($request->password);
         $this->adminRepository->store($attributes);
@@ -54,14 +56,15 @@ class AdminController extends Controller
     }
 
 
-    public function get($admin_id){
-        $data = $this->adminRepository->sidebar();
+    public function get($admin_id)
+    {
         $data_ed = $this->adminRepository->find($admin_id);
         return view('admin.user.edit_admin', compact('data', 'data_ed'));
     }
 
 
-    public function update($admin_id, UserRequest $request){
+    public function update($admin_id, UserRequest $request)
+    {
         $attributes = $request->except('_token','_method');
         $attributes['password'] = bcrypt($request->password);
         $this->adminRepository->update($admin_id, $attributes);
@@ -69,7 +72,8 @@ class AdminController extends Controller
     }
     
 
-    public function delete($id){
+    public function delete($id)
+    {
         $this->adminRepository->delete($id);
         return redirect('list-admin')->with('delete', 'Delete User success');
     }

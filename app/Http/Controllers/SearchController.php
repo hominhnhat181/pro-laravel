@@ -15,7 +15,7 @@ class SearchController extends Controller
     public function __construct(SearchInterface $searchRepository){
 
         $this->searchRepository = $searchRepository;
-
+        $this->searchRepository->shareHeadFoot();
     }
 
     public function search(){

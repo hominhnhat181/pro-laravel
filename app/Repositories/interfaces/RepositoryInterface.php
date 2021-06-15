@@ -42,5 +42,5 @@ interface RepositoryInterface
     // Hand Make
 
     public function sidebar();
-    
+    public function shareHeadFoot();
 }
