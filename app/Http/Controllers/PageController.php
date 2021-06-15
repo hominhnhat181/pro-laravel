@@ -59,5 +59,10 @@ class PageController extends Controller
     public function getDetail($types_id,$id){
         return $this->pageRepository->getDetail($types_id,$id);
     }
+
+    public function accountSetting($authId){
+        $auth = db::table('users')->where('id',$authId)->get();
+        return view('auth.authSetting',compact('auth'));
+    }
 }
      

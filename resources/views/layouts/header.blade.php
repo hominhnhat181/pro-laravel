@@ -103,10 +103,12 @@
     </div>
 </div>
 {{-- MODAL --}}
+@if(Auth::user())
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
-        <a class="dropdown-item" href="">{{__('account')}}</a>
+     
+        <a class="dropdown-item" href="{{url('account'.Auth::user()->id)}}">{{__('account')}}</a>
 
         <a class="dropdown-item" style="margin-right: 10px" href="{{ url('admin') }}">{{ __('admin') }}</a>
         <a class="dropdown-item" href="{{ url('logoutpage') }}">{{ __('logout') }}  <i style="margin-left: 5px" class="fa fa-btn fa-sign-out"></i></a>
@@ -116,13 +118,14 @@
 <div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" id="modal2" role="document">
       <div class="modal-content">
-       <a class="dropdown-item" href="">{{__('account')}}</a>
+       <a class="dropdown-item" href="{{url('account'.Auth::user()->id)}}">{{__('account')}}</a>
         <a class="dropdown-item" href="{{ url('logoutpage') }}">{{ __('logout') }}  <i style="margin-left: 5px" class="fa fa-btn fa-sign-out"></i></a>
       </div>
     </div>
 </div>
+@endif
 <style>
-    
+
     .form-search {
         position: relative;
         top: 50%;

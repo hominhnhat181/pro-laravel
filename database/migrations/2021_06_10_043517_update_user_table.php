@@ -15,7 +15,14 @@ class UpdateUserTable extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
            
-            $table->timestamp('email_verified_at')->nullable();
+            $table->string('avatar');
+            $table->string('phone');
+            $table->string('street');
+            $table->string('city');
+
+
+            
+
         });
     }
 
