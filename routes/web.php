@@ -19,11 +19,6 @@ Route::get('logoutadmin', 'Auth\LogoutController@getLogoutAdmin');
 Route::get('logoutpage', 'Auth\LogoutController@getLogoutPage');
 
 
-// -------------------------Auth-------------------------
-
-Route::get('account{id}', 'PageController@accountSetting');
-
-
 
 // -----------------------Layout-------------------------
 Route::get('luis', 'PageController@getIndex');
@@ -38,6 +33,11 @@ Route::get('apps-{cats_id}', 'PageController@getApp');
 Route::get('types-{cats_id}-{id}', 'PageController@getType');
 Route::get('detail-{types_id}-{id}', 'PageController@getDetail');
 
+
+// -------------------------Auth-------------------------
+
+Route::get('account{id}', 'PageController@accountSetting');
+Route::put('AuthSetting/{admin_id}','adminController@authUpdate');
 
 
 // ---------------------Langguages-------------------------

@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 use DB;
 use App\Type;
 use App\Category;
-use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
 use App\Repositories\PageRepository;
 use App\Repositories\interfaces\PageRepositoryInterface as PageInterface; 
@@ -64,5 +63,10 @@ class PageController extends Controller
         $auth = db::table('users')->where('id',$authId)->get();
         return view('auth.authSetting',compact('auth'));
     }
+
+   
 }
+
+
+   
      

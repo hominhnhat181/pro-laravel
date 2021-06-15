@@ -3,7 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <title>account-settings</title>
 </head>
@@ -57,20 +60,59 @@ color: #bcd0f7;
     background: #1A233A;
     color: #bcd0f7;
 }
+#imageUpload
+{
+    display: none;
+}
+
+#profileImage
+{
+    cursor: pointer;
+}
+
+#profile-container {
+    margin: 0 auto !important;
+    width: 150px;
+    height: 150px;
+    overflow: hidden;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    border-radius: 50%;
+}
+
+#profile-container img {
+    width: 150px;
+    height: 150px;
+}
 </style>
 <body>
     @foreach ($auth as $user)
         
-    @endforeach
+
     <div class="container">
+        @if ($errors->any())
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li class="alert alert-danger" role="alert" style="list-style-type: none; margin-left:0" >{{ $error }}</li>
+                    @endforeach
+                </ul>
+            @endif
+            {!!Form::open(['action' => ['adminController@authUpdate', $user->id ], 'method' =>'POST', ])!!}
+            {{Form::hidden('_method','PUT')}}
         <div class="row gutters">
+            
             <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12">
                 <div class="card h-100">
                     <div class="card-body">
                         <div class="account-settings">
                             <div class="user-profile">
                                 <div class="user-avatar">
-                                    <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="Maxwell Admin">
+                                    <div id="profile-container">
+                                        <image id="profileImage" src="layout/images/{{$user->avatar}}" />
+                                     </div>
+                                     <input id="imageUpload" type="file" value="{{$user->avatar}}" name="avatar" placeholder="Photo"  capture>
                                 </div>
                                 <h5 class="user-name">{{$user->name}}</h5>
                                 <h6 class="user-email">{{$user->email}}</h6>
@@ -81,12 +123,12 @@ color: #bcd0f7;
                                 @if(Auth::user()->lever == 0)
 
                                 <p>Admintrators</p>
-                                <p style="position: relative; bottom: -118px">Join Date <br> {{ date('F d, Y', strtotime($user->created_at)) }}</p>
+                                <p style="position: relative; bottom: -88px">Join Date <br> {{ date('F d, Y', strtotime($user->created_at)) }}</p>
 
                                 @else
 
                                 <p>User</p>
-                                <p style="position: relative; bottom: -118px">Join Date <br> {{ date('F d, Y', strtotime($user->created_at)) }}</p>
+                                <p style="position: relative; bottom: -88px">Join Date <br> {{ date('F d, Y', strtotime($user->created_at)) }}</p>
 
                                 @endif
 
@@ -98,6 +140,7 @@ color: #bcd0f7;
             <div class="col-xl-9 col-lg-9 col-md-12 col-sm-12 col-12">
                 <div class="card h-100">
                     <div class="card-body">
+                       
                         <div class="row gutters">
                             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                                 <h6 class="mb-3 text-primary">Personal Details</h6>
@@ -105,37 +148,37 @@ color: #bcd0f7;
                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                 <div class="form-group">
                                     <label for="fullName">Full Name</label>
-                                    <input type="text" class="form-control" id="fullName" value="{{$user->name}}" placeholder="Enter full name">
+                                    <input type="text" class="form-control" name="name" id="fullName" value="{{$user->name}}" placeholder="Enter full name">
                                 </div>
                             </div>
                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                 <div class="form-group">
                                     <label for="eMail">Old Password</label>
-                                    <input type="email" class="form-control" id="eMail" placeholder="Enter old Password">
+                                    <input type="password" name="password" class="form-control"    placeholder="Enter old Password">
                                 </div>
                             </div>
                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                 <div class="form-group">
                                     <label for="phone">Phone</label>
-                                    <input type="text" class="form-control" id="phone" placeholder="Enter phone number">
+                                    <input type="text" class="form-control" name="phone" id="phone" value="{{$user->phone}}" placeholder="Enter phone number">
                                 </div>
                             </div>
                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                 <div class="form-group">
                                     <label for="website">New Password</label>
-                                    <input type="url" class="form-control" id="website" placeholder="Enter new Password">
+                                    <input type="password" class="form-control" id="website" placeholder="Enter new Password">
                                 </div>
                             </div>
                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                 <div class="form-group">
                                     <label for="eMail">Email</label>
-                                    <input type="email" class="form-control" id="eMail" placeholder="Enter email ID">
+                                    <input type="email" class="form-control" name="email" id="eMail" value="{{$user->email}}" placeholder="Enter email ID">
                                 </div>
                             </div>
                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                 <div class="form-group">
                                     <label for="website">Confirm Password</label>
-                                    <input type="url" class="form-control" id="website" placeholder="Enter new Password">
+                                    <input type="password" class="form-control" id="website" placeholder="Enter new Password">
                                 </div>
                             </div>
                         </div>
@@ -146,13 +189,13 @@ color: #bcd0f7;
                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                 <div class="form-group">
                                     <label for="Street">Street</label>
-                                    <input type="name" class="form-control" id="Street" placeholder="Enter Street">
+                                    <input type="name" class="form-control" name="street" value="{{$user->street}}" id="Street" placeholder="Enter Street">
                                 </div>
                             </div>
                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                 <div class="form-group">
                                     <label for="ciTy">City</label>
-                                    <input type="name" class="form-control" id="ciTy" placeholder="Enter City">
+                                    <input type="name" class="form-control" name="city" id="ciTy" value="{{$user->city}}" placeholder="Enter City">
                                 </div>
                             </div>
                             
@@ -161,16 +204,36 @@ color: #bcd0f7;
                             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                                 <div class="text-right">
                                     <a type="button" href="{{url('luis')}}" class="btn btn-secondary">Cancel</a>
-                                    <a type="button" class="btn btn-primary">Update</a>
+                                    <input class="btn btn-secondary" style="background-color: rgb(158, 216, 153)"  type="submit" value="Update" />
                                 </div>
                             </div>
                         </div>
+                       
                     </div>
                 </div>
             </div>
+
         </div>
+        {!!Form::close()!!}
     </div>
+    @endforeach
 </body>
+<script>
+    $("#profileImage").click(function(e) {
+    $("#imageUpload").click();
+});
+
+function fasterPreview( uploader ) {
+    if ( uploader.files && uploader.files[0] ){
+          $('#profileImage').attr('src', 
+             window.URL.createObjectURL(uploader.files[0]) );
+    }
+}
+
+$("#imageUpload").change(function(){
+    fasterPreview( this );
+});
+</script>
 </html>
 
 
