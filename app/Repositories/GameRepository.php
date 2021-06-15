@@ -22,7 +22,7 @@ class GameRepository extends EloquentRepository implements GameRepositoryInterfa
 
     public function getAll(){
         return Game::join('types', 'games.types_id', '=', 'types.id')
-        ->select('types.*','games.*')
+        ->select('types.*','games.*')->orderBy('games.id')
         ->get();
     }
 

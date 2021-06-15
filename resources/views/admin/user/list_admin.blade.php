@@ -30,9 +30,12 @@
 				</tr>
 			</thead>
 			<tbody>
+				<?php
+				$id = 0
+				?>
 				@foreach($data_ad as $admin)
 				<tr class="odd gradeX" style="text-align: center">
-					<td>{{$admin->id}}</td>
+					<td>{{$id+= 1}}</td>
 
 					@if(($admin->lever) == 0)
 

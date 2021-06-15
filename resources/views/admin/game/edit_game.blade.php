@@ -44,10 +44,19 @@
                     </tr>
                     <tr>
                         <td>
-                            <label>Images {{$key->catName}} </label>
+                            <label>New Images {{$key->catName}} </label>
                         </td>
                         <td>
                             <input type="text" name="image" value="{{$key->image}}" placeholder="Nhập tên images Moi..." class="medium"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td >
+                            <label style="position: relative;top: -77px;">Old Images {{$key->catName}} </label>
+                        </td>
+                        <td>
+                          <img style="max-height: 185px; max-width: 300px" src="{{url('layout/images/'.$key->image)}}" class="img-fluid" alt="Colorlib Template">
+
                         </td>
                     </tr>
                     <tr>

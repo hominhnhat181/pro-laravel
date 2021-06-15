@@ -25,9 +25,10 @@ class UserRequest extends FormRequest
     public function rules()
     {
         return [
+            'name' => 'Required',
             'email' => 
             [
-                'Required',
+                'Required','email',
                 Rule::unique('users','email')->ignore($this->admin_id),
                 'bail',
             ],

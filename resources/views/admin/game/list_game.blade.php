@@ -31,9 +31,12 @@
 				</tr>
 			</thead>
 			<tbody>
+				<?php
+				$id = 0
+				?>
 				@foreach($game as $key=>$ga)
 				<tr class="odd gradeX" style="text-align: center">
-					<td>{{$ga->id}}</td>
+					<td>{{$id+=1}}</td>
 					<td>{{$ga->name}}</td>
 					<td>{{$ga->typeName}}</td>
 

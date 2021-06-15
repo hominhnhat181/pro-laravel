@@ -30,9 +30,13 @@
 				</tr>
 			</thead>
 			<tbody>
+				<?php
+				$id = 0
+				?>
 				@foreach($data as $key=>$cat)
 				<tr class="odd gradeX" style="text-align: center">
-					<td>{{$cat->id}}</td>
+					
+					<td>{{$id+=1}}</td>
 					<td>{{$cat->catName}}</td>
 
 					<td style="justify-content: center; display: flex;">

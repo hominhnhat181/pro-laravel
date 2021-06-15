@@ -30,9 +30,12 @@
 				</tr>
 			</thead>
 			<tbody>
+				<?php
+				$id = 0
+				?>
 				@foreach($data_ad as $key=>$type)
 				<tr class="odd gradeX" style="text-align: center">
-					<td>{{$type->id}}</td>
+					<td>{{$id+=1}}</td>
 					<td>{{$type->typeName}}</td>
 					<td>{{$type->catName}}</td>
 					<td style="justify-content: center; display: flex;">

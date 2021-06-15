@@ -23,7 +23,7 @@ class AppRepository extends EloquentRepository implements AppRepositoryInterface
 
     public function getAll(){
         return App::join('types', 'apps.types_id', '=', 'types.id')
-        ->select( 'types.typeName', 'apps.name','apps.image', 'apps.link', 'apps.title','apps.types_id','apps.id','apps.categories_id')
+        ->select( 'types.typeName', 'apps.name','apps.image', 'apps.link', 'apps.title','apps.types_id','apps.id','apps.categories_id')->orderBy('apps.id')
         ->get();
     }
 

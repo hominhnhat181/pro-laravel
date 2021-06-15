@@ -21,7 +21,7 @@
                      
                     </td>
                     <td>
-                        <label>New Admin</label>
+                        <label>New User</label>
                         <br>
                         <input style="margin-top:15px " type="text" name="name" placeholder="Tên quản trị viên mới..." class="medium" />
                         <input style="margin-top:15px " type="text" name="email" placeholder="Email..." class="medium" />

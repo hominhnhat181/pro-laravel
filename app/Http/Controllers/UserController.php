@@ -1,13 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
-
-
 use Redirect;
 use Auth;
-use DB;
-
-use Carbon\Carbon;
 
 class UserController extends Controller
 {
