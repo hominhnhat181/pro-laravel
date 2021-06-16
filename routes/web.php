@@ -37,7 +37,7 @@ Route::get('detail-{types_id}-{id}', 'PageController@getDetail');
 // -------------------------Auth-------------------------
 
 Route::get('account{id}', 'PageController@accountSetting');
-Route::put('AuthSetting/{admin_id}','adminController@authUpdate');
+Route::put('AuthSetting/{auth_id}','PageController@authUpdate');
 
 
 // ---------------------Langguages-------------------------

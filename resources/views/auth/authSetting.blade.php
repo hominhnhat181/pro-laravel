@@ -88,18 +88,31 @@ color: #bcd0f7;
 }
 </style>
 <body>
+    
     @foreach ($auth as $user)
         
 
     <div class="container">
-        @if ($errors->any())
+            @if (session('update'))
+				<div class="alert alert-success" role="alert">
+					{{ session('update') }}
+				</div>
+			@endif
+			
+			@if (session('create'))
+				<div class="alert alert-success" role="alert">
+					{{ session('create') }}
+				</div>
+			@endif
+            {{-- validation note --}}
+            @if ($errors->any())
                 <ul>
                     @foreach ($errors->all() as $error)
                         <li class="alert alert-danger" role="alert" style="list-style-type: none; margin-left:0" >{{ $error }}</li>
                     @endforeach
                 </ul>
             @endif
-            {!!Form::open(['action' => ['adminController@authUpdate', $user->id ], 'method' =>'POST', ])!!}
+            {!!Form::open(['action' => ['PageController@authUpdate', $user->id ], 'method' =>'POST', ])!!}
             {{Form::hidden('_method','PUT')}}
         <div class="row gutters">
             
@@ -109,10 +122,24 @@ color: #bcd0f7;
                         <div class="account-settings">
                             <div class="user-profile">
                                 <div class="user-avatar">
-                                    <div id="profile-container">
-                                        <image id="profileImage" src="layout/images/{{$user->avatar}}" />
-                                     </div>
-                                     <input id="imageUpload" type="file" value="{{$user->avatar}}" name="avatar" placeholder="Photo"  capture>
+                                    
+                                    @if(Auth::user()->avatar)
+
+                                        <div id="profile-container">
+                                            
+                                            <image id="profileImage" src="layout/images/{{$user->avatar}}" />
+                                        </div>
+                                        <input id="imageUpload" type="file" value="{{$user->avatar}}" >
+                                         
+                                     @else
+                                        <div id="profile-container">
+                                            
+                                            <image id="profileImage" src="layout/images/{{$user->avatar}}" />
+                                        </div>
+                                        <input id="imageUpload" type="file" value="{{$user->avatar}}" name="avatar" placeholder="Photo"  capture>
+
+                                     @endif
+
                                 </div>
                                 <h5 class="user-name">{{$user->name}}</h5>
                                 <h6 class="user-email">{{$user->email}}</h6>
@@ -122,13 +149,16 @@ color: #bcd0f7;
 
                                 @if(Auth::user()->lever == 0)
 
-                                <p>Admintrators</p>
+                                <p>Administrator</p>
                                 <p style="position: relative; bottom: -88px">Join Date <br> {{ date('F d, Y', strtotime($user->created_at)) }}</p>
 
+                                <img style="max-height: 100px; position: relative; top: -72px" src="{{url('layout/images/admintrue.png')}}" alt="Admin" title="ADMIN">
                                 @else
 
-                                <p>User</p>
+                                <p>Menber</p>
                                 <p style="position: relative; bottom: -88px">Join Date <br> {{ date('F d, Y', strtotime($user->created_at)) }}</p>
+
+                                <img style="max-height: 100px; position: relative; top: -72px" src="{{url('layout/images/member.png')}}" alt="Member" title="MEMBER">
 
                                 @endif
 
@@ -153,8 +183,12 @@ color: #bcd0f7;
                             </div>
                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                 <div class="form-group">
+                                    
                                     <label for="eMail">Old Password</label>
                                     <input type="password" name="password" class="form-control"    placeholder="Enter old Password">
+                                    @if (session('failed_password'))
+                                            {{ session('failed_password') }}
+                                    @endif
                                 </div>
                             </div>
                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
@@ -166,7 +200,7 @@ color: #bcd0f7;
                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                 <div class="form-group">
                                     <label for="website">New Password</label>
-                                    <input type="password" class="form-control" id="website" placeholder="Enter new Password">
+                                    <input type="password" name="new_password" class="form-control" id="website" placeholder="Enter new Password">
                                 </div>
                             </div>
                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
@@ -218,6 +252,7 @@ color: #bcd0f7;
     </div>
     @endforeach
 </body>
+@foreach ($auth as $user)
 <script>
     $("#profileImage").click(function(e) {
     $("#imageUpload").click();
@@ -234,6 +269,8 @@ $("#imageUpload").change(function(){
     fasterPreview( this );
 });
 </script>
+@endforeach
+
 </html>
 
 

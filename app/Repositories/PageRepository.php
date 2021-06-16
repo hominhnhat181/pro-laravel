@@ -19,7 +19,7 @@ class PageRepository extends EloquentRepository implements PageRepositoryInterfa
 {
     public function getModel()
     {
-        return \App\Game::class;
+        return \App\User::class;
     }
 
 

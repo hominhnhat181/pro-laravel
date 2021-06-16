@@ -31,7 +31,7 @@
                     @else 
                         @if((Auth::user()->lever)< 1) 
 
-                    <a data-toggle="modal" data-target="#exampleModal" class="master" style="margin-right: 10px; color: rgba(255, 255, 255, 0.6)"  href="">'{{{ isset(Auth::user()->name) ? Auth::user()->name : Auth::user()->email }}}</a>
+                    <a data-toggle="modal" data-target="#exampleModal" class="master" style="margin-right: 10px; color: rgba(255, 255, 255, 0.6)"  href="">{{{ isset(Auth::user()->name) ? Auth::user()->name : Auth::user()->email }}}</a>
                    
                         @else
 

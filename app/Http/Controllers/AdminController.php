@@ -78,15 +78,7 @@ class AdminController extends Controller
         return redirect('list-admin')->with('delete', 'Delete User success');
     }
 
-    public function authUpdate($auth_id, Request $request)
-    {
-        $attributes = $request->except('_token','_method');
-        if ($attributes['password']) {
-            $attributes['password'] = bcrypt($request->password);
-        }
-        $this->adminRepository->update($auth_id, $attributes);
-        return redirect('account'.$auth_id)->with('update', 'Update User success');
-    }
+    
 
    
 
