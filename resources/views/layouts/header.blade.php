@@ -29,7 +29,7 @@
                         <a style="margin-left: 20px" class="master" href="{{ route('register') }}">{{ __('Register') }}</a>
                     </p>
                     @else 
-                        @if((Auth::user()->lever)< 1) 
+                        @if((Auth::user()->lever) < 1) 
 
                     <a data-toggle="modal" data-target="#exampleModal" class="master" style="margin-right: 10px; color: rgba(255, 255, 255, 0.6)"  href="">{{{ isset(Auth::user()->name) ? Auth::user()->name : Auth::user()->email }}}</a>
                    
@@ -106,10 +106,8 @@
 @if(Auth::user())
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
-      <div class="modal-content">
-     
+      <div class="modal-content" style="position: relative;right: -8%;top: 3px;">
         <a class="dropdown-item" href="{{url('account'.Auth::user()->id)}}">{{__('account')}}</a>
-
         <a class="dropdown-item" style="margin-right: 10px" href="{{ url('admin') }}">{{ __('admin') }}</a>
         <a class="dropdown-item" href="{{ url('logoutpage') }}">{{ __('logout') }}  <i style="margin-left: 5px" class="fa fa-btn fa-sign-out"></i></a>
       </div>
@@ -117,7 +115,7 @@
 </div>
 <div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" id="modal2" role="document">
-      <div class="modal-content">
+        <div class="modal-content" style="position: relative;top: 3px;">
        <a class="dropdown-item" href="{{url('account'.Auth::user()->id)}}">{{__('account')}}</a>
         <a class="dropdown-item" href="{{ url('logoutpage') }}">{{ __('logout') }}  <i style="margin-left: 5px" class="fa fa-btn fa-sign-out"></i></a>
       </div>
@@ -126,89 +124,6 @@
 @endif
 <style>
 
-    .form-search {
-        position: relative;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        transition: all 1s;
-        width: 31px;
-        height: 30px;
-        background: white;
-        box-sizing: border-box;
-        border-radius: 25px;
-        border: 4px solid white;
-        padding: 5px;
-    }
-    
-    .search {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 25px;
-        line-height: 30px;
-        outline: 0;
-        border: 0;
-        display: none;
-        font-size: 1em;
-        border-radius: 20px;
-        padding: 0;
-    }
-    
-    .form-search .fa {
-        box-sizing: border-box;
-        padding: 10px;
-        width: 32.5px;
-        height: 33px;
-        position: absolute;
-           top: -31%;
-    right: -18%;
-        border-radius: 20px;
-        color: #07051a;
-        text-align: center;
-        font-size: 1em;
-        transition: all 1s;
-    }
-    
-    .form-search:hover {
-        width: 200px;
-        cursor: pointer;
-    }
-    
-    .form-search:hover .search {
-        display: block;
-        height: 25px;
-    }
-    
-    .form-search:hover .fa {
-        background: #07051a;
-        color: white;
-        position: absolute;
-        widows: 25px;
-        height: 33px;
-        right: -5%;
-    }
-    .modal-content{
-        max-width: 180px;
-    }
-    .modal-dialog{
-    position: relative;
-    right: -43%;
-    top: 0%;
-    }
-    #modal2{
-    position: relative;
-    right: -48%;
-    top: 0%;
-    }
-    .social-media .mb-0  a {
-        color: rgba(255, 255, 255, 0.6);
-    }
-    .social-media .mb-0  span {
-        color: rgba(255, 255, 255, 0.6);
-    }
-    
 </style>
 <script>
     function view(){

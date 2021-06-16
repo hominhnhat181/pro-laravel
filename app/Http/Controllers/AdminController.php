@@ -20,7 +20,7 @@ class AdminController extends Controller
     protected $userRepository;
 
     public function __construct(UserInterface $adminRepository){
-        $this->middleware(['auth','verified']);
+        $this->middleware(['auth','admin']);
         $this->adminRepository = $adminRepository;
         $this->adminRepository->sidebar();
 

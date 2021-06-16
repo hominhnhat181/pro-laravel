@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-use DB;
+use App\User;
 use App\Type;
 use App\Category;
 use App\Http\Requests\PageRequest;
@@ -62,13 +62,13 @@ class PageController extends Controller
     }
 
     public function accountSetting($authId){
-        $auth = db::table('users')->where('id',$authId)->get();
+        $auth = User::where('id',$authId)->get();
         return view('auth.authSetting',compact('auth'));
     }
 
     public function authUpdate($auth_id, PageRequest $request)
     {
-        $password = db::table('users')->where('id',$auth_id)->value('password');
+        $password = User::where('id',$auth_id)->value('password');
         $attributes = $request->except('_token','_method','new_password');
 
         if ($attributes['password'] == null) {

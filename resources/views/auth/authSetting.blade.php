@@ -5,90 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-    <title>account-settings</title>
+    <link rel="stylesheet" href="{{asset('layout/css/auth.css')}}">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <title>@yield('title','Account Settings')</title>
 </head>
-<style>
-body{margin-top:20px;
-color: #bcd0f7;
-    background: #1A233A;
-}
-.account-settings .user-profile {
-    margin: 0 0 1rem 0;
-    padding-bottom: 1rem;
-    text-align: center;
-}
-.account-settings .user-profile .user-avatar {
-    margin: 0 0 1rem 0;
-}
-.account-settings .user-profile .user-avatar img {
-    width: 90px;
-    height: 90px;
-    -webkit-border-radius: 100px;
-    -moz-border-radius: 100px;
-    border-radius: 100px;
-}
-.account-settings .user-profile h5.user-name {
-    margin: 0 0 0.5rem 0;
-}
-.account-settings .user-profile h6.user-email {
-    margin: 0;
-    font-size: 0.8rem;
-    font-weight: 400;
-}
-.account-settings .about {
-    margin: 1rem 0 0 0;
-    font-size: 0.8rem;
-    text-align: center;
-}
-.card {
-    background: #272E48;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    border-radius: 5px;
-    border: 0;
-    margin-bottom: 1rem;
-}
-.form-control {
-    border: 1px solid #596280;
-    -webkit-border-radius: 2px;
-    -moz-border-radius: 2px;
-    border-radius: 2px;
-    font-size: .825rem;
-    background: #1A233A;
-    color: #bcd0f7;
-}
-#imageUpload
-{
-    display: none;
-}
 
-#profileImage
-{
-    cursor: pointer;
-}
-
-#profile-container {
-    margin: 0 auto !important;
-    width: 150px;
-    height: 150px;
-    overflow: hidden;
-    -webkit-border-radius: 50%;
-    -moz-border-radius: 50%;
-    -ms-border-radius: 50%;
-    -o-border-radius: 50%;
-    border-radius: 50%;
-}
-
-#profile-container img {
-    width: 150px;
-    height: 150px;
-}
-</style>
 <body>
-    
+
+
     @foreach ($auth as $user)
         
 
@@ -252,26 +178,9 @@ color: #bcd0f7;
     </div>
     @endforeach
 </body>
-@foreach ($auth as $user)
-<script>
-    $("#profileImage").click(function(e) {
-    $("#imageUpload").click();
-});
-
-function fasterPreview( uploader ) {
-    if ( uploader.files && uploader.files[0] ){
-          $('#profileImage').attr('src', 
-             window.URL.createObjectURL(uploader.files[0]) );
-    }
-}
-
-$("#imageUpload").change(function(){
-    fasterPreview( this );
-});
-</script>
-@endforeach
-
 </html>
 
+
+<script src="{{url('layout/js/auth.js')}}" type="text/javascript"></script>
 
    
