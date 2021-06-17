@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\User;
 use App\Type;
 use App\Category;
+use Auth;
 use App\Http\Requests\PageRequest;
 use Hash;
 use Illuminate\Support\Collection;
@@ -73,20 +74,29 @@ class PageController extends Controller
         $password = User::where('id',$auth_id)->value('password');
         $attributes = $request->except('_token','_method','new_password','avatar_origin');
 
+
+        // k cập nhật mk
         if ($attributes['password'] == null) {
             $attributes['password'] = $password;
-        }
-        else{
+        }else{
+            // nếu nhập mk đúng thì cho tạo mk mới
             if(Hash::check($attributes['password'],$password)) {
                 $attributes['password'] = bcrypt($request->new_password);
-            }
-            else{
+            }else{
                 return redirect('account'.$auth_id)->with('failed_password', 'Wrong password, Update failed');
             }
         }
+
+        // k cập nhật ảnh
         if($request->avatar == null){
             $attributes['avatar'] = $request->avatar_origin;
+        }else{
+            // provider == 1 thì là ảnh từ social 
+            if(Auth::user()->provider == 1){
+                $attributes['provider'] = 2;
+            }
         }
+
         $this->pageRepository->update($auth_id, $attributes);
         return redirect('account'.$auth_id)->with('update', 'Update success');
     }
