@@ -30,12 +30,15 @@
                     </p>
                     @else 
                         @if((Auth::user()->lever) < 1) 
-
-                    <a data-toggle="modal" data-target="#exampleModal" class="master" style="margin-right: 10px; color: rgba(255, 255, 255, 0.6)"  href="">{{{ isset(Auth::user()->name) ? Auth::user()->name : Auth::user()->email }}}</a>
+                    
+                        <img style="max-height: 24px; border-radius: 20px; margin-right:3px" src="layout/images/{{Auth::user()->avatar}}">
+                    <a data-toggle="modal" data-target="#exampleModal" class="master" style="margin-right: 10px; color: rgba(255, 255, 255, 0.6);position: relative;top: 1.25px;"  href="">{{{ isset(Auth::user()->name) ? Auth::user()->name : Auth::user()->email }}}</a>
                    
                         @else
+                        
+                        <img style="max-height: 24px; border-radius: 20px; margin-right:3px" src="{{Auth::user()->avatar}}">
 
-                    <a data-toggle="modal" data-target="#exampleModal1" class="master" style="margin-right: 10px; color: rgba(255, 255, 255, 0.6)"  href="">{{{ isset(Auth::user()->name) ? Auth::user()->name : Auth::user()->email }}}</a>
+                    <a  data-toggle="modal" data-target="#exampleModal1" class="master" style="margin-right: 10px; color: rgba(255, 255, 255, 0.6);position: relative;top: 1.25px;"  href="">{{{ isset(Auth::user()->name) ? Auth::user()->name : Auth::user()->email }}}</a>
 
                         @endif
                     @endif
@@ -115,7 +118,7 @@
 </div>
 <div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" id="modal2" role="document">
-        <div class="modal-content" style="position: relative;top: 3px;">
+        <div class="modal-content" style="position: relative;top: 3px; right: 8%">
        <a class="dropdown-item" href="{{url('account'.Auth::user()->id)}}">{{__('account')}}</a>
         <a class="dropdown-item" href="{{ url('logoutpage') }}">{{ __('logout') }}  <i style="margin-left: 5px" class="fa fa-btn fa-sign-out"></i></a>
       </div>

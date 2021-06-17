@@ -10,6 +10,12 @@
                 <div class="card-body">
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
+
+
+                        
+
+
+
                         <div class="form-group row">
                             <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
                             <div class="col-md-6">
@@ -49,6 +55,7 @@
                             </div>
                         </div>
 
+
                         <div class="form-group row mb-0">
                             <div class="col-md-8 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
@@ -61,14 +68,17 @@
                                     </a>
                                 @endif
                             </div>
-                            <div class="form-group row mb-0">
-                                <div class="col-md-8 offset-md-4">
-                                    <a href="{{ url('getInfo-facebook/facebook') }}" class="btn btn-primary"><i class="fa fa-facebook"></i> Facebook</a>
-                                </div>
+                            
+                        </div>
+                        
+                        <hr>
+                        <div class="form-group row">
+                            <div class="col-md-6 offset-md-3">
+                                <a href="{{ route('login.google') }}" class="btn btn-danger btn-block">Login with Google</a>
+                                <a href="{{ route('login.facebook') }}" class="btn btn-primary btn-block">Login with Facebook</a>
+                                <a href="{{ route('login.github') }}" class="btn btn-dark btn-block">Login with Github</a>
                             </div>
                         </div>
-                        <hr>
-                        
                     </form>
                 </div>
             </div>
