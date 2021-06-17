@@ -38,6 +38,10 @@
             "dont-discover": []
         }
     },
+    "post-install-cmd": [
+        "php artisan clear-compiled",
+        "chmod -R 777 public/"
+    ],
     "autoload": {
         "files": [
             "app/Helpers/Helper.php"
