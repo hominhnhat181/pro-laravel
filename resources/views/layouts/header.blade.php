@@ -59,12 +59,6 @@
         </div>
     </div>
 </div>
-                            {{-- @if((Auth::user()->avatar) == null)
-                                <a data-toggle="modal" data-target="#exampleModal1" class="master" style="margin-right: 10px; color: rgba(255, 255, 255, 0.6);position: relative;top: 1.25px;"  href="">{{{ isset(Auth::user()->name) ? Auth::user()->name : Auth::user()->email }}}</a>
-                            @else
-                                <img style="max-height: 24px; border-radius: 20px; margin-right:3px" src="layout/images/{{Auth::user()->avatar}}">
-                                <a data-toggle="modal" data-target="#exampleModal1" class="master" style="margin-right: 10px; color: rgba(255, 255, 255, 0.6);position: relative;top: 1.25px;"  href="">{{{ isset(Auth::user()->name) ? Auth::user()->name : Auth::user()->email }}}</a>
-                            @endif --}}
 </div>
 <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
     <div class="container">

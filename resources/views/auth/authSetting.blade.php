@@ -50,11 +50,27 @@
                                 <div class="user-avatar">
                                     
                                     @if(Auth::user()->avatar)
-                                        <div id="profile-container">
-                                            <image id="profileImage" src="layout/images/{{$user->avatar}}" />
-                                        </div>
-                                        <input id="imageUpload" type="file" name="avatar" value="{{$user->avatar}}" >
-                                        <input type="hidden" name="avatar_origin" value="{{$user->avatar}}">
+                                        @if (Auth::user()->provider_id)
+                                            @if (Auth::user()->provider == 1)
+                                                <div id="profile-container">
+                                                    <image id="profileImage" src="{{$user->avatar}}" />
+                                                </div>
+                                                <input id="imageUpload" type="file" name="avatar" value="{{$user->avatar}}" >
+                                                <input type="hidden" name="avatar_origin" value="{{$user->avatar}}">   
+                                            @else
+                                                <div id="profile-container">
+                                                    <image id="profileImage" src="layout/images/{{$user->avatar}}" />
+                                                </div>
+                                                <input id="imageUpload" type="file" name="avatar" value="{{$user->avatar}}" >
+                                                <input type="hidden" name="avatar_origin" value="{{$user->avatar}}">
+                                            @endif
+                                        @else
+                                            <div id="profile-container">
+                                                <image id="profileImage" src="layout/images/{{$user->avatar}}" />
+                                            </div>
+                                            <input id="imageUpload" type="file" name="avatar" value="{{$user->avatar}}" >
+                                            <input type="hidden" name="avatar_origin" value="{{$user->avatar}}">
+                                        @endif
                                      @else
                                         <div id="profile-container">
                                             <image id="profileImage" src="layout/images/{{$user->avatar}}" />
