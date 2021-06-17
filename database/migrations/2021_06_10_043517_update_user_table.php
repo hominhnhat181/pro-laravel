@@ -15,11 +15,12 @@ class UpdateUserTable extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
            
-            $table->string('avatar')->nullable();
-            $table->string('phone')->nullable();
-            $table->string('street')->nullable();
-            $table->string('city')->nullable();
-
+            // $table->string('avatar')->nullable();
+            // $table->string('phone')->nullable();
+            // $table->string('street')->nullable();
+            // $table->string('city')->nullable();
+            $table->string('provider')->nullable();
+            $table->string('provider_id')->nullable();
         });
     }
 

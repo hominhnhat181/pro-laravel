@@ -106,3 +106,5 @@ Route::delete('delete-apps/{object_id}','AppController@delete');
 
 // TEST
 
+Route::get('/getInfo-facebook/{social}', 'SocialController@redirect');
+  Route::get('/checkInfo-facebook/{social}', 'SocialController@callback');
