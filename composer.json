@@ -27,10 +27,7 @@
         "nunomaduro/collision": "^4.3",
         "phpunit/phpunit": "^8.5.8|^9.3.3"
     },
-    "post-install-cmd": [
-        "php artisan clear-compiled",
-        "chmod -R 775 app/storage"
-    ],
+    
     "config": {
         "optimize-autoloader": true,
         "preferred-install": "dist",
