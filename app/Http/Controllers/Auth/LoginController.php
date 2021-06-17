@@ -100,6 +100,7 @@ class LoginController extends Controller
                 $user->email = $data->email;
                 $user->lever = 1;
                 $user->password = rand(1, 100);
+                $user->provider = 1;
                 $user->provider_id = $data->id;
                 $user->avatar = $data->avatar;
                 $user->save();

@@ -50,20 +50,16 @@
                                 <div class="user-avatar">
                                     
                                     @if(Auth::user()->avatar)
-
                                         <div id="profile-container">
-                                            
                                             <image id="profileImage" src="layout/images/{{$user->avatar}}" />
                                         </div>
-                                        <input id="imageUpload" type="file" value="{{$user->avatar}}" >
-                                         
+                                        <input id="imageUpload" type="file" name="avatar" value="{{$user->avatar}}" >
+                                        <input type="hidden" name="avatar_origin" value="{{$user->avatar}}">
                                      @else
                                         <div id="profile-container">
-                                            
                                             <image id="profileImage" src="layout/images/{{$user->avatar}}" />
                                         </div>
                                         <input id="imageUpload" type="file" value="{{$user->avatar}}" name="avatar" placeholder="Photo"  capture>
-
                                      @endif
 
                                 </div>

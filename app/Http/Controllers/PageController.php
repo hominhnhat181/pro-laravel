@@ -66,10 +66,12 @@ class PageController extends Controller
         return view('auth.authSetting',compact('auth'));
     }
 
+
+    // điên đầu nữa ngày :()
     public function authUpdate($auth_id, PageRequest $request)
     {
         $password = User::where('id',$auth_id)->value('password');
-        $attributes = $request->except('_token','_method','new_password');
+        $attributes = $request->except('_token','_method','new_password','avatar_origin');
 
         if ($attributes['password'] == null) {
             $attributes['password'] = $password;
@@ -82,11 +84,10 @@ class PageController extends Controller
                 return redirect('account'.$auth_id)->with('failed_password', 'Wrong password, Update failed');
             }
         }
+        if($request->avatar == null){
+            $attributes['avatar'] = $request->avatar_origin;
+        }
         $this->pageRepository->update($auth_id, $attributes);
         return redirect('account'.$auth_id)->with('update', 'Update success');
     }
 }
-
-
-   
-     
