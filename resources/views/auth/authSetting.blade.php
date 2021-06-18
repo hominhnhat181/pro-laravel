@@ -108,78 +108,151 @@
             <div class="col-xl-9 col-lg-9 col-md-12 col-sm-12 col-12">
                 <div class="card h-100">
                     <div class="card-body">
-                       
-                        <div class="row gutters">
-                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                                <h6 class="mb-3 text-primary">Personal Details</h6>
-                            </div>
-                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                                <div class="form-group">
-                                    <label for="fullName">Full Name</label>
-                                    <input type="text" class="form-control" name="name" id="fullName" value="{{$user->name}}" placeholder="Enter full name">
+                        
+                        @if (Auth::user()->password != 'nothing')
+                            <div class="row gutters">
+                                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                                    <h6 class="mb-3 text-primary">Personal Details</h6>
+                                </div>
+                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                    <div class="form-group">
+                                        <label for="fullName">Full Name</label>
+                                        <input type="text" class="form-control" name="name" id="fullName" value="{{$user->name}}" placeholder="Enter full name">
+                                    </div>
+                                </div>
+                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                    <div class="form-group">
+                                        <label for="eMail">Old Password</label>
+                                        <input type="password" name="password" class="form-control"    placeholder="Enter old Password">
+                                        @if (session('origin_password'))
+                                                {{ session('origin_password') }}
+                                        @endif
+                                    </div>
+                                </div>
+                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                    <div class="form-group">
+                                        <label for="phone">Phone</label>
+                                        <input type="text" class="form-control" name="phone" id="phone" value="{{$user->phone}}" placeholder="Enter phone number">
+                                    </div>
+                                </div>
+                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                    <div class="form-group">
+                                        <label for="website">New Password</label>
+                                        <input type="password" name="new_password" class="form-control" id="website" placeholder="Enter new Password">
+                                    </div>
+                                </div>
+                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                    <div class="form-group">
+                                        <label for="eMail">Email</label>
+                                        <input type="email" class="form-control" name="email" id="eMail" value="{{$user->email}}" placeholder="Enter email ID">
+                                    </div>
+                                </div>
+                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                    <div class="form-group">
+                                        <label for="website">Confirm Password</label>
+                                        <input type="password" name="confirm_password" class="form-control" id="website" placeholder="Enter new Password">
+                                        @if (session('config_password_false'))
+                                                {{ session('config_password_false') }}
+                                        @endif
+                                    </div>
                                 </div>
                             </div>
-                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                                <div class="form-group">
-                                    
-                                    <label for="eMail">Old Password</label>
-                                    <input type="password" name="password" class="form-control"    placeholder="Enter old Password">
-                                    @if (session('failed_password'))
-                                            {{ session('failed_password') }}
-                                    @endif
+                            <div class="row gutters">
+                                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                                    <h6 class="mb-3 text-primary">Address</h6>
+                                </div>
+                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                    <div class="form-group">
+                                        <label for="Street">Street</label>
+                                        <input type="name" class="form-control" name="street" value="{{$user->street}}" id="Street" placeholder="Enter Street">
+                                    </div>
+                                </div>
+                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                    <div class="form-group">
+                                        <label for="ciTy">City</label>
+                                        <input type="name" class="form-control" name="city" id="ciTy" value="{{$user->city}}" placeholder="Enter City">
+                                    </div>
+                                </div>
+                                
+                            </div>
+                            <div class="row gutters">
+                                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                                    <div class="text-right">
+                                        <a type="button" href="{{url('luis')}}" class="btn btn-secondary">Cancel</a>
+                                        <input class="btn btn-secondary" style="background-color: rgb(158, 216, 153)"  type="submit" value="Update" />
+                                    </div>
                                 </div>
                             </div>
-                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                                <div class="form-group">
-                                    <label for="phone">Phone</label>
-                                    <input type="text" class="form-control" name="phone" id="phone" value="{{$user->phone}}" placeholder="Enter phone number">
+                        @else
+                            <div class="row gutters">
+                                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                                    <h6 class="mb-3 text-primary">Personal Details</h6>
+                                </div>
+                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                    <div class="form-group">
+                                        <label for="fullName">Full Name</label>
+                                        <input type="text" class="form-control" name="name" id="fullName" value="{{$user->name}}" placeholder="Enter full name">
+                                    </div>
+                                </div>
+                                
+                               
+                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                    <div class="form-group">
+                                        <label for="website">New Password</label>
+                                        <input type="password" name="password" class="form-control" id="website" placeholder="Enter new Password">
+                                    </div>
+                                </div>
+                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                    <div class="form-group">
+                                        <label for="phone">Phone</label>
+                                        <input type="text" class="form-control" name="phone" id="phone" value="{{$user->phone}}" placeholder="Enter phone number">
+                                    </div>
+                                </div>
+                                
+                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                    <div class="form-group">
+                                        <label for="website">Confirm Password</label>
+                                        <input type="password" name="confirm_password" class="form-control" id="website" placeholder="Enter new Password">
+                                        @if (session('config_password_false'))
+                                                {{ session('config_password_false') }}
+                                        @endif
+                                    </div>
+                                </div>
+                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                    <div class="form-group">
+                                        <label for="eMail">Email</label>
+                                        <input type="email" class="form-control" name="email" id="eMail" value="{{$user->email}}" placeholder="Enter email ID">
+                                    </div>
                                 </div>
                             </div>
-                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                                <div class="form-group">
-                                    <label for="website">New Password</label>
-                                    <input type="password" name="new_password" class="form-control" id="website" placeholder="Enter new Password">
+                            <div class="row gutters">
+                                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                                    <h6 class="mb-3 text-primary">Address</h6>
+                                </div>
+                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                    <div class="form-group">
+                                        <label for="Street">Street</label>
+                                        <input type="name" class="form-control" name="street" value="{{$user->street}}" id="Street" placeholder="Enter Street">
+                                    </div>
+                                </div>
+                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                    <div class="form-group">
+                                        <label for="ciTy">City</label>
+                                        <input type="name" class="form-control" name="city" id="ciTy" value="{{$user->city}}" placeholder="Enter City">
+                                    </div>
+                                </div>
+                                
+                            </div>
+                            <div class="row gutters">
+                                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                                    <div class="text-right">
+                                        <a type="button" href="{{url('luis')}}" class="btn btn-secondary">Cancel</a>
+                                        <input class="btn btn-secondary" style="background-color: rgb(158, 216, 153)"  type="submit" value="Update" />
+                                    </div>
                                 </div>
                             </div>
-                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                                <div class="form-group">
-                                    <label for="eMail">Email</label>
-                                    <input type="email" class="form-control" name="email" id="eMail" value="{{$user->email}}" placeholder="Enter email ID">
-                                </div>
-                            </div>
-                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                                <div class="form-group">
-                                    <label for="website">Confirm Password</label>
-                                    <input type="password" class="form-control" id="website" placeholder="Enter new Password">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row gutters">
-                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                                <h6 class="mb-3 text-primary">Address</h6>
-                            </div>
-                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                                <div class="form-group">
-                                    <label for="Street">Street</label>
-                                    <input type="name" class="form-control" name="street" value="{{$user->street}}" id="Street" placeholder="Enter Street">
-                                </div>
-                            </div>
-                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                                <div class="form-group">
-                                    <label for="ciTy">City</label>
-                                    <input type="name" class="form-control" name="city" id="ciTy" value="{{$user->city}}" placeholder="Enter City">
-                                </div>
-                            </div>
-                            
-                        </div>
-                        <div class="row gutters">
-                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                                <div class="text-right">
-                                    <a type="button" href="{{url('luis')}}" class="btn btn-secondary">Cancel</a>
-                                    <input class="btn btn-secondary" style="background-color: rgb(158, 216, 153)"  type="submit" value="Update" />
-                                </div>
-                            </div>
-                        </div>
+                        @endif
+                        
                        
                     </div>
                 </div>

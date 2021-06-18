@@ -33,7 +33,7 @@
                             @if((Auth::user()->avatar) == null)
                                 <a data-toggle="modal" data-target="#exampleModal" class="master" style="margin-right: 10px; color: rgba(255, 255, 255, 0.6);position: relative;top: 1.25px;"  href="">{{{ isset(Auth::user()->name) ? Auth::user()->name : Auth::user()->email }}}</a>
                             @else
-                                <img style="max-height: 24px; border-radius: 20px; margin-right:3px" src="layout/images/{{Auth::user()->avatar}}">
+                                <img style="height: 24px;width: 24px; border-radius: 20px; margin-right:3px" src="layout/images/{{Auth::user()->avatar}}">
                                 <a data-toggle="modal" data-target="#exampleModal" class="master" style="margin-right: 10px; color: rgba(255, 255, 255, 0.6);position: relative;top: 1.25px;"  href="">{{{ isset(Auth::user()->name) ? Auth::user()->name : Auth::user()->email }}}</a>
                             @endif
                         @else
@@ -41,14 +41,20 @@
                                 @if((Auth::user()->avatar) == null)
                                     <a data-toggle="modal" data-target="#exampleModal1" class="master" style="margin-right: 10px; color: rgba(255, 255, 255, 0.6);position: relative;top: 1.25px;"  href="">{{{ isset(Auth::user()->name) ? Auth::user()->name : Auth::user()->email }}}</a>
                                 @else
-                                    <img style="max-height: 24px; border-radius: 20px; margin-right:3px" src="{{Auth::user()->avatar}}">
-                                    <a data-toggle="modal" data-target="#exampleModal1" class="master" style="margin-right: 10px; color: rgba(255, 255, 255, 0.6);position: relative;top: 1.25px;"  href="">{{{ isset(Auth::user()->name) ? Auth::user()->name : Auth::user()->email }}}</a>
+                                    @if((Auth::user()->provider) == 1)
+                                        <img style="height: 24px;width: 24px; border-radius: 20px; margin-right:3px" src="{{Auth::user()->avatar}}">
+                                        <a data-toggle="modal" data-target="#exampleModal1" class="master" style="margin-right: 10px; color: rgba(255, 255, 255, 0.6);position: relative;top: 1.25px;"  href="">{{{ isset(Auth::user()->name) ? Auth::user()->name : Auth::user()->email }}}</a>
+                                    @else
+                                        <img style="height: 24px;width: 24px; border-radius: 20px; margin-right:3px" src="layout/images/{{Auth::user()->avatar}}">
+                                        <a data-toggle="modal" data-target="#exampleModal1" class="master" style="margin-right: 10px; color: rgba(255, 255, 255, 0.6);position: relative;top: 1.25px;"  href="">{{{ isset(Auth::user()->name) ? Auth::user()->name : Auth::user()->email }}}</a>
+                                        
+                                    @endif
                                 @endif
                             @else
                                 @if((Auth::user()->avatar) == null)
                                     <a data-toggle="modal" data-target="#exampleModal1" class="master" style="margin-right: 10px; color: rgba(255, 255, 255, 0.6);position: relative;top: 1.25px;"  href="">{{{ isset(Auth::user()->name) ? Auth::user()->name : Auth::user()->email }}}</a>
                                 @else
-                                    <img style="max-height: 24px; border-radius: 20px; margin-right:3px" src="layout/images/{{Auth::user()->avatar}}">
+                                    <img style="height: 24px;width: 24px; border-radius: 20px; margin-right:3px" src="layout/images/{{Auth::user()->avatar}}">
                                     <a data-toggle="modal" data-target="#exampleModal1" class="master" style="margin-right: 10px; color: rgba(255, 255, 255, 0.6);position: relative;top: 1.25px;"  href="">{{{ isset(Auth::user()->name) ? Auth::user()->name : Auth::user()->email }}}</a>
                                 @endif
                             @endif
