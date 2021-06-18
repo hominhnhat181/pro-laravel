@@ -73,7 +73,6 @@
         </div>
         <div class="collapse navbar-collapse" id="ftco-nav">
             <ul class="navbar-nav ml-auto">
-
                 <li style="margin-right: 4px">
                     <form class="form-search" action="{{URL('search')}}">
                         <input class="search" type="search" placeholder="Search?" name="search" required>
@@ -83,24 +82,22 @@
                 <li class="nav-item active" id="menu__home"><a class="nav-link" href="{{URL('luis')}}" class="nav-link">{{__('home')}}</a></li>
 
                 @foreach ($cat as $cat)
+                    <li class="nav-item dropdown" id="{{$cat->catName.$cat->id}}">
+                        <a class="nav-link dropdown-toggle" href="{{URL(strtolower($cat->catName.'-'.$cat->id))}}" id="dropdown04" data-toggle="" aria-haspopup="true" aria-expanded="false">{{$cat->catName}}</a>
+                        <div class="dropdown-menu">
+                            
+                            @foreach ($typ as $ty)
 
-                <li class="nav-item dropdown" id="{{$cat->catName.$cat->id}}">
-                    <a class="nav-link dropdown-toggle" href="{{URL(strtolower($cat->catName.'-'.$cat->id))}}" id="dropdown04" data-toggle="" aria-haspopup="true" aria-expanded="false">{{$cat->catName}}</a>
-                    <div class="dropdown-menu">
-                        
-                        @foreach ($typ as $ty)
+                                @if ($cat->id == $ty->categories_id)
 
-                            @if ($cat->id == $ty->categories_id)
+                                    <a class="dropdown-item" href="{{URL('types-'.$ty->categories_id.'-'.$ty->id)}}">{{__($ty->typeName)}}</a> 
 
-                                <a class="dropdown-item" href="{{URL('types-'.$ty->categories_id.'-'.$ty->id)}}">{{$ty->typeName}}</a> 
+                                @endif
 
-                            @endif
+                            @endforeach
 
-                        @endforeach
-
-                    </div>
-                </li>
-
+                        </div>
+                    </li>
                 @endforeach
 
                 <li class="nav-item" id="menu__contact"><a class="nav-link" href="{{URL('contact')}}" class="nav-link">{{__('contact')}}</a></li>
@@ -109,7 +106,6 @@
     </div>
 </nav>
 <!-- END nav -->
-
 <div class="hero-wrap" style="background-image: url('layout/images/game0.jpg'); " data-stellar-background-ratio="0.5">
     <div class="container">
         <div id="header__content" class="row no-gutters slider-text align-items-center justify-content-center">
@@ -142,9 +138,7 @@
     </div>
 </div>
 @endif
-<style>
 
-</style>
 <script>
     function view(){
         window.scrollTo(0, 800);

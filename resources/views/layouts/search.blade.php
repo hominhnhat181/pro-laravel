@@ -7,40 +7,35 @@
     <div class="row">
         <h3 style="padding: 20px 10px">Kết quả tìm kiếm:</h3>
         <div class="search__container">
-
         </div>
     </div>
 @foreach ($allResult as $ap)
     <div class="result" >
         <div class="result__block">
             <div class="result__img--item" style=" max-width: 100%; background-size: cover">
-                <a href="{{URL('detail-'.$ap->types_id.'-'.$ap->id)}}" style="width: 100%; height: 100%;"></a>
-                <img href="{{URL('detail-'.$ap->types_id.'-'.$ap->id)}}" src="../public/layout/images/{{$ap->image}}" alt="">
+                <a href="{{URL('detail-'.$ap->types_id.'-'.$ap->id)}}" style="width: 100%; height: 100%;">
+                <img href="{{URL('detail-'.$ap->types_id.'-'.$ap->id)}}" src="../public/layout/images/{{$ap->image}}" alt=""></a>
             </div>
             <div class="result__content">
                 <div>
                 <a class="result__content--title" href="{{URL('detail-'.$ap->types_id.'-'.$ap->id)}}"><h3 class="category">{{$ap->name}}</a>
                 </div>
                 <div>
-                    <a href="{{URL('types-'.$ap->types_id)}}"><span class="sale">{{$ap->typeName}}</span></a>
+                    <a href="{{URL('types-'.$ap->types_id)}}"><span class="sale">{{__($ap->typeName)}}</span></a>
                 </div>
                 <div>
                     <p>{{ Str::limit($ap->desc, 250) }}</p>
                 </div>
-                <a class="mb-0" href="{{URL('detail-'.$ap->types_id.'-'.$ap->id)}}"> <span class="price">DETAIL</span></a>
+                <a class="mb-0" href="{{URL('detail-'.$ap->types_id.'-'.$ap->id)}}"> <span class="price">{{ __('DETAIL') }}</span></a>
             </div>
         </div>
     </div>
     @endforeach
-   
     <div class="panigate">
         {{ $allResult->links() }}
     </div>
 </div>
-
-
 </section>
-
 <style>
     .panigate{
         position: relative;

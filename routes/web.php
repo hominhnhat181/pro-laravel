@@ -12,8 +12,7 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('admin_area', ['middleware' => 'admin', function () {
-}]);
+
 // -------------------------LOGIN-------------------------
 Auth::routes(['verify' => true]);
 Route::get('logoutadmin', 'Auth\LogoutController@getLogoutAdmin');

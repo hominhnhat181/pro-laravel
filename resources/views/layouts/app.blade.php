@@ -9,14 +9,8 @@
             <div class="col-md-9">
                 <div class="row mb-4">
                     <div class="col-md-12 d-flex justify-content-between align-items-center" style="text-align: center">
-                        {{-- <h2 class="product-select" >APPS</h2> --}}
-                        {{-- <select class="selectpicker" multiple>
-                            @foreach ($appList as $ap)  <option>{{$ap->typeName}}</option>@endforeach
-                  
-                        </select> --}}
                     </div>
                 </div>
-                
                 <div class="row">
                     @foreach ($appList as $tp)
                     <div class="col-md-4 d-flex">
@@ -27,11 +21,11 @@
                             </div>
                             <div class="text text-center">
                                 <span class="sale">Hot</span>
-                                <a href="{{URL('types-'.$tp->categories_id.'-'.$tp->types_id)}}"><span class="sale">{{$tp->typeName}}</span></a>
+                                <a href="{{URL('types-'.$tp->categories_id.'-'.$tp->types_id)}}"><span class="sale">{{__($tp->typeName)}}</span></a>
 								<div class="top__name">
 									<a class="link-oj" href="{{URL('detail-'.$tp->types_id.'-'.$tp->id)}}"><span class="category">{{$tp->name}}</a>
 								</div>
-								<a class="mb-0" href="{{$tp->link}}"> <span class="price">DOWNLOAD</span></a>
+								<a class="mb-0" href="{{$tp->link}}"> <span class="price">{{__('DOWNLOAD')}}</span></a>
                             </div>
                         </div>
                     </div>
@@ -46,9 +40,9 @@
             <div class="col-md-3">
                 <div class="sidebar-box ftco-animate">
       <div class="categories">
-        <h3 style="padding-left: 40px">App Types</h3>
+        <h3 style="padding-left: 40px">{{ __('App Types') }}</h3>
         <ul class="x">
-            @foreach ($typeList as $ap)  <li><a href="{{URL('types-'.$ap->categories_id.'-'.$ap->id)}}">{{$ap->typeName}} </a></li>@endforeach
+            @foreach ($typeList as $ap)  <li><a href="{{URL('types-'.$ap->categories_id.'-'.$ap->id)}}">{{__($ap->typeName)}}</a></li>@endforeach
 
         </ul>
       </div>

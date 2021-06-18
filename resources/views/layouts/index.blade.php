@@ -52,8 +52,8 @@
 			<div class="container">
 				<div id="software-box" class="row justify-content-center pb-5">
 					<div class="col-md-7 heading-section text-center ftco-animate">
-						<h2 id="lion" >Daily Games</h2>
-						<a style="all: unset !important" href="{{URL('games-1')}}"><span class="subheading" id="wolf">Games collection</span></a>
+						<h2 id="lion" >{{ __('Daily Games') }}</h2>
+						<a style="all: unset !important" href="{{URL('games-1')}}"><span class="subheading" id="wolf">{{ __('Games collection') }}</span></a>
 					</div>
 				</div>
 				<div class="row">
@@ -65,11 +65,11 @@
 								<a href="{{URL('detail-'.$tp->types_id.'-'.$tp->id)}}" style="width: 100%; height: 100%;"></a>
 							</div>
 							<div class="text text-center">
-								<a href="{{URL('types-'.$tp->categories_id.'-'.$tp->types_id)}}"><span class="sale">{{$tp->typeName}}</span></a>
+								<a href="{{URL('types-'.$tp->categories_id.'-'.$tp->types_id)}}"><span class="sale">{{__($tp->typeName)}}</span></a>
 								<div class="top__name">
 									<a class="link-oj" href="{{URL('detail-'.$tp->types_id.'-'.$tp->id)}}"><span class="category">{{$tp->name}}</a>
 								</div>
-								<a class="mb-0" href="{{$tp->link}}"> <span class="price">DOWNLOAD</span></a>
+								<a class="mb-0" href="{{$tp->link}}"> <span class="price">{{ __('DOWNLOAD') }}</span></a>
 							</div>
 						</div>
 					</div>
@@ -79,7 +79,7 @@
 				</div>
 				<div class="row justify-content-center">
 					<div class="col-md-4">
-						<a href="{{URL('games')}}" class="btn btn-primary d-block">View All Games <span class="fa fa-long-arrow-right"></span></a>
+						<a href="{{URL('games')}}" class="btn btn-primary d-block">{{ __('View All Games') }}<span class="fa fa-long-arrow-right"></span></a>
 					</div>
 				</div>
 			</div>
@@ -90,7 +90,7 @@
       <div class="container">
         <div class="row justify-content-center mb-5">
           <div class="col-md-7 text-center heading-section heading-section-white ftco-animate">
-            <h2 class="mb-3">Summer Spirits</h2>
+            <h2 class="mb-3">{{ __('Summer Spirits') }}</h2>
           </div>
         </div>
         <div class="row ftco-animate">
@@ -110,7 +110,7 @@
                     	<a href="{{URL('detail-'.$tp->types_id.'-'.$tp->id)}}">	</a>
                     	<div class="pl-3">
 							<button class="slier">
-									<a class="slier_route" href="{{URL('detail-'.$tp->types_id.'-'.$tp->id)}}">view now</a>
+									<a class="slier_route" href="{{URL('detail-'.$tp->types_id.'-'.$tp->id)}}">{{ __('View Now') }}</a>
 							  </button>
 		                  </div>
 	                  </div>
@@ -129,8 +129,8 @@
 			<div id="software-box" class="row justify-content-center pb-5">
 	  <div class="col-md-7 heading-section text-center ftco-animate">		
 	
-		<h2 id="lion">Daily Apps</h2>
-		<a style="all: unset !important" href="{{URL('apps-2')}}"><span class="subheading" id="wolf">Apps collection</span></a>
+		<h2 id="lion">{{ __('Daily Apps') }}</h2>
+		<a style="all: unset !important" href="{{URL('apps-2')}}"><span class="subheading" id="wolf">{{ __('Apps collection') }}</span></a>
 	  </div>
 	</div>
 			<div class="row">
@@ -143,11 +143,11 @@
 							<a href="{{URL('detail-'.$tp->types_id.'-'.$tp->id)}}" style="width: 100%; height: 100%;"></a>
 						</div>
 						<div class="text text-center">
-							<a href="{{URL('types-'.$tp->categories_id.'-'.$tp->types_id)}}"><span class="sale">{{$tp->typeName}}</span></a>
+							<a href="{{URL('types-'.$tp->categories_id.'-'.$tp->types_id)}}"><span class="sale">{{__($tp->typeName)}}</span></a>
 							<div class="top__name">
 								<a class="link-oj" href="{{URL('detail-'.$tp->types_id.'-'.$tp->id)}}"><span class="category">{{$tp->name}}</a>
 							</div>
-							<a class="mb-0" href="{{$tp->link}}"> <span class="price">DOWNLOAD</span></a>
+							<a class="mb-0" href="{{$tp->link}}"> <span class="price">{{ __('DOWNLOAD') }}</span></a>
 						</div>
 					</div>
 				</div>
@@ -157,7 +157,7 @@
 			</div>
 			<div class="row justify-content-center">
 				<div class="col-md-4">
-					<a href="product.html" class="btn btn-primary d-block">View All Games <span class="fa fa-long-arrow-right"></span></a>
+					<a href="product.html" class="btn btn-primary d-block">{{__('View All Apps ') }} <span class="fa fa-long-arrow-right"></span></a>
 				</div>
 			</div>
 		</div>

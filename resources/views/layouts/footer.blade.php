@@ -4,7 +4,7 @@
           <div class="col-sm-12 col-md">
             <div class="ftco-footer-widget mb-4">
               <h2 class="ftco-heading-2 logo"><a href="#">Luis <span>tore</span></a></h2>
-              <p>Far far away, behind the word mountains, far from the countries.</p>
+              <p>{{__('quete') }}</p>
               <ul class="ftco-footer-social list-unstyled mt-2">
                 <li class="ftco-animate"><a href="#"><span class="fa fa-twitter"></span></a></li>
                 <li class="ftco-animate"><a href="#"><span class="fa fa-facebook"></span></a></li>
@@ -14,45 +14,45 @@
           </div>
           <div class="col-sm-12 col-md">
             <div class="ftco-footer-widget mb-4 ml-md-4">
-              <h2 class="ftco-heading-2">My Accounts</h2>
+              <h2 class="ftco-heading-2">{{__('My Accounts') }}</h2>
               <ul class="list-unstyled">
-                <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>My Account</a></li>
-                <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Register</a></li>
-                <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Log In</a></li>
-                <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>My Order</a></li>
+                <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>{{__('My Accounts') }}</a></li>
+                <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>{{__('Register') }}</a></li>
+                <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>{{__('login') }}</a></li>
+                <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>{{__('My Order') }}</a></li>
               </ul>
             </div>
           </div>
           <div class="col-sm-12 col-md">
             <div class="ftco-footer-widget mb-4 ml-md-4">
-              <h2 class="ftco-heading-2">Information</h2>
+              <h2 class="ftco-heading-2">{{__('Information') }}</h2>
               <ul class="list-unstyled">
-                <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>About us</a></li>
-                <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Catalog</a></li>
-                <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Contact us</a></li>
-                <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Term &amp; Conditions</a></li>
+                <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>{{__('About us') }}</a></li>
+                <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>{{__('Catalog') }}</a></li>
+                <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>{{__('Contact us') }}</a></li>
+                <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>{{__('Term & Conditions') }}</a></li>
               </ul>
             </div>
           </div>
           <div class="col-sm-12 col-md">
              <div class="ftco-footer-widget mb-4">
-              <h2 class="ftco-heading-2">Quick Link</h2>
+              <h2 class="ftco-heading-2">{{__('Quick Link') }}</h2>
               <ul class="list-unstyled">
-                <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>New User</a></li>
-                <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Help Center</a></li>
-                <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Report Spam</a></li>
-                <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Faq's</a></li>
+                <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>{{__('New User') }}</a></li>
+                <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>{{__('Help Center') }}</a></li>
+                <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>{{__('Report Spam') }}</a></li>
+                <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>{{__('Faq') }}</a></li>
               </ul>
             </div>
           </div>
           <div class="col-sm-12 col-md">
             <div class="ftco-footer-widget mb-4">
-            	<h2 class="ftco-heading-2">Have a Questions?</h2>
+            	<h2 class="ftco-heading-2">{{__('Have a Questions?') }}</h2>
             	<div class="block-23 mb-3">
 	              <ul>
-	                <li><span class="icon fa fa-map marker"></span><span class="text">203 Fake St. Mountain View, San Francisco, California, USA</span></li>
-	                <li><a href="#"><span class="icon fa fa-phone"></span><span class="text">+2 392 3929 210</span></a></li>
-	                <li><a href="#"><span class="icon fa fa-paper-plane pr-4"></span><span class="text">info@yourdomain.com</span></a></li>
+	                <li><span class="icon fa fa-map marker"></span><span class="text">{{__('Andres') }}</span></li>
+	                <li><a href="#"><span class="icon fa fa-phone"></span><span class="text">+84 0906 449 581</span></a></li>
+	                <li><a href="#"><span class="icon fa fa-paper-plane pr-4"></span><span class="text">hominhnhat181@gmail.com</span></a></li>
 	              </ul>
 	            </div>
             </div>

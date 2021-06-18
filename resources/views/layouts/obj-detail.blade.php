@@ -14,7 +14,7 @@
         </div>
         <div class="col-lg-12 product-details pl-md-5 ftco-animate fadeInUp ftco-animated">
             <h3>{{$tp->name}}</h3>
-            @foreach ($allType as $item)<a href="{{URL('types-'.$item->id)}}"><h5 class="detail-typex" >{{$item->typeName}}</h5></a>@endforeach
+            @foreach ($allType as $item)<a href="{{URL('types-'.$item->id)}}"><h5 class="detail-typex" >{{{ __($item->typeName) }}}</h5></a>@endforeach
             <div id="rating" class="rating d-flex">
                 <p class="text-left mr-4">
                     <a href="#" class="mr-2">5.0</a>
@@ -39,11 +39,11 @@
     <div class="bottom__content row mt-5">
         <div class="bottom__button  nav-link-wrap">
             <div class="nav nav-pills d-flex text-center" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-                <a class="nav-link ftco-animate active mr-lg-1 fadeInUp ftco-animated" id="v-pills-1-tab" data-toggle="pill" href="#v-pills-1" role="tab" aria-controls="v-pills-1" aria-selected="true">Cấu hình </a>
+                <a class="nav-link ftco-animate active mr-lg-1 fadeInUp ftco-animated" id="v-pills-1-tab" data-toggle="pill" href="#v-pills-1" role="tab" aria-controls="v-pills-1" aria-selected="true">{{ __('Configuration') }}</a>
 
-                <a class="nav-link ftco-animate mr-lg-1 fadeInUp ftco-animated" id="v-pills-2-tab" data-toggle="pill" href="#v-pills-2" role="tab" aria-controls="v-pills-2" aria-selected="false">Link Download</a>
+                <a class="nav-link ftco-animate mr-lg-1 fadeInUp ftco-animated" id="v-pills-2-tab" data-toggle="pill" href="#v-pills-2" role="tab" aria-controls="v-pills-2" aria-selected="false">{{ __('Link Download') }}</a>
 
-                <a class="nav-link ftco-animate fadeInUp ftco-animated" id="v-pills-3-tab" data-toggle="pill" href="#v-pills-3" role="tab" aria-controls="v-pills-3" aria-selected="false">Hướng dẫn</a>
+                <a class="nav-link ftco-animate fadeInUp ftco-animated" id="v-pills-3-tab" data-toggle="pill" href="#v-pills-3" role="tab" aria-controls="v-pills-3" aria-selected="false">{{ __('Tutorial') }}</a>
 
             </div>
         </div>

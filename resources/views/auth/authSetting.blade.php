@@ -93,7 +93,7 @@
                                 <img style="max-height: 100px; position: relative; top: -72px" src="{{url('layout/images/admintrue.png')}}" alt="Admin" title="ADMIN">
                                 @else
 
-                                <p>Menber</p>
+                                <p>Member</p>
                                 <p style="position: relative; bottom: -88px">Join Date <br> {{ date('F d, Y', strtotime($user->created_at)) }}</p>
 
                                 <img style="max-height: 100px; position: relative; top: -72px" src="{{url('layout/images/member.png')}}" alt="Member" title="MEMBER">

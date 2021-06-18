@@ -20,13 +20,13 @@
 								
                                 {{--  --}}
                                 @foreach ($typeList as $tp2) 
-                                <a href="{{URL('types-'.$tp2->categories_id.'-'.$tp2->id)}}"><span class="sale">{{$tp2->typeName}}</span></a>
+                                <a href="{{URL('types-'.$tp2->categories_id.'-'.$tp2->id)}}"><span class="sale">{{__($tp2->typeName)}}</span></a>
                                 @endforeach
                                 <div class="top__name">
 									<a class="link-oj" href="{{URL('detail-'.$tp->types_id.'-'.$tp->id)}}"><span class="category">{{$tp->name}}</a>
 								</div>
                                 
-                                <a class="mb-0" href="{{$tp->link}}"> <span class="price">DOWNLOAD</span></a>
+                                <a class="mb-0" href="{{$tp->link}}"> <span class="price">{{__('DOWNLOAD') }}</span></a>
                             </div>
                         </div>
                     </div>
@@ -43,7 +43,7 @@
       <div class="categories">
         <h3>Types</h3>
         <ul class="p-0">
-            @foreach ($alltype as $ap)  <li><a href="{{URL('types-'.$ap->categories_id.'-'.$ap->id)}}">{{$ap->typeName}} <span class="fa fa-chevron-right"></span></a></li>@endforeach
+            @foreach ($alltype as $ap)  <li><a href="{{URL('types-'.$ap->categories_id.'-'.$ap->id)}}">{{__($ap->typeName)}} <span class="fa fa-chevron-right"></span></a></li>@endforeach
 
         </ul>
       </div>
