@@ -27,7 +27,7 @@ class UserRequest extends FormRequest
      
         return [
            
-            'name' => 'Required',
+            'name' => 'Required|min:3|max:50',
             'email' => 
             [
                 'Required','email',
@@ -35,7 +35,7 @@ class UserRequest extends FormRequest
                 'bail',
             ],
 
-            'password' => 'Required'
+            'password' => 'Present|confirmed'
         ];
     }
 }

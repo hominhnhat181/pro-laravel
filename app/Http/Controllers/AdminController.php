@@ -5,7 +5,7 @@ use App\Repositories\UserRepository;
 use App\Repositories\interfaces\UserRepositoryInterface as UserInterface;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
-use DB;
+use App\User;
 use Auth;
 use App\Http\Requests\UserRequest;
 
@@ -23,7 +23,6 @@ class AdminController extends Controller
         $this->middleware(['auth','admin']);
         $this->adminRepository = $adminRepository;
         $this->adminRepository->sidebar();
-
     }
     
     // Access
@@ -65,8 +64,15 @@ class AdminController extends Controller
 
     public function update($admin_id, UserRequest $request)
     {
-        $attributes = $request->except('_token','_method');
-        $attributes['password'] = bcrypt($request->password);
+        $attributes = $request->except('_token','_method','password_confirmation');
+        $confirm_password = $request->confirm_password;
+
+        if($request->password == null){
+            $attributes['password'] = User::where('id',$admin_id)->value('password');
+        }
+        if($request->avatar == null){
+            $attributes['avatar'] = User::where('id',$admin_id)->value('avatar');
+        }
         $this->adminRepository->update($admin_id, $attributes);
         return redirect('list-admin')->with('update', 'Update User success');
     }

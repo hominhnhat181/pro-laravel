@@ -24,7 +24,7 @@
 			<thead>
 				<tr>
 					<th>ID</th>
-					<th>Admin name</th>
+					<th>Name</th>
 					<th>Email</th>
 					<th>Custom</th>
 				</tr>
@@ -39,8 +39,8 @@
 
 					@if(($admin->lever) == 0)
 
-					<td>{{'ADMIN - '.$admin->name}}</td>
-
+					<td style="display: flex;justify-content: center">
+						<h5 style="color: red; margin-top: 3.5px"> ★ </h5> {{ $admin->name}}</td>
 					@else
 
 					<td>{{$admin->name}}</td>
@@ -63,7 +63,6 @@
 				@endforeach
 			</tbody>
 		</table>
-
        </div>
     </div>
 </div>

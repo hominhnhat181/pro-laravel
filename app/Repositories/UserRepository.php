@@ -18,8 +18,6 @@ class UserRepository extends EloquentRepository implements UserRepositoryInterfa
     }
 
 
-   
-
 
 
    

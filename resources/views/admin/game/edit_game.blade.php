@@ -1,7 +1,15 @@
 @extends('admin/layouts/adMaster') 
 @section('title', 'New Games')
 @section('content')
-
+<head>
+    <link rel="stylesheet" href="{{asset('layout/css/auth.css')}}">
+</head>
+<style>
+    td{
+        color: rgb(32, 33, 34);
+        font-size: 15px;
+    }
+</style>
 <div class="grid_10">
     <div class="box round first grid">
         @foreach ($super as $key)  <h2>Edit {{$key->catName}} </h2> @endforeach
@@ -43,20 +51,12 @@
                         </td>
                     </tr>
                     <tr>
-                        <td>
-                            <label>New Images {{$key->catName}} </label>
-                        </td>
-                        <td>
-                            <input type="text" name="image" value="{{$key->image}}" placeholder="Nhập tên images Moi..." class="medium"/>
-                        </td>
-                    </tr>
-                    <tr>
                         <td >
-                            <label style="position: relative;top: -77px;">Old Images {{$key->catName}} </label>
+                            <label style="position: relative;top: -77px;">Images {{$key->catName}} </label>
                         </td>
                         <td>
-                          <img style="max-height: 185px; max-width: 300px" src="{{url('layout/images/'.$key->image)}}" class="img-fluid" alt="Colorlib Template">
-
+                            <img style="max-height: 185px; max-width: 300px" id="profileImage" src="{{url('layout/images/'.$key->image)}}" class="img-fluid" alt="Colorlib Template">
+                            <input id="imageUpload" type="file" value="{{$key->avatar}}" name="image" placeholder="Photo"  capture>
                         </td>
                     </tr>
                     <tr>
@@ -87,4 +87,5 @@
         </div>
     </div>
 </div>
+<script src="{{url('layout/js/auth.js')}}" type="text/javascript"></script>
 @endsection

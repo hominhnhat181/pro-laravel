@@ -2,6 +2,8 @@
 @section('title', 'New Games')
 
 @section('content')
+
+
 <div class="grid_10">
     <div class="box round first grid">
         <h2>New Game</h2>
@@ -23,8 +25,15 @@
                         <input type="text" name="name" placeholder="Nhập tên Game mới..." class="medium" />
                         <input type="text" name="title" placeholder="Nhập tiêu đề..." class="medium" />
                         <input type="text" name="desc" placeholder="Nhập chi tiết..." class="medium" />
-                        <input type="file" name="image" placeholder="tên image..." class="medium" />
+                        
                         <input type="text" name="link" placeholder="link download..." class="medium" />
+                        <input class="medium"  id="imageUpload" type="file" value="{{$key->avatar}}" name="image" placeholder="Photo"  capture>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td >
+                        <img  style="max-height: 150px; max-width: 300px;margin-left: 20px" id="profileImage" src="{{url('layout/images/'.$key->image)}}" class="img-fluid" alt="Colorlib Template">
                     </td>
                 </tr>
 				<tr>
@@ -47,10 +56,12 @@
     </div>
 </div>
 <style>
-    .add-game input{
+    .add-game input, img{
         margin:5px 0 5px 20px;
     }
 </style>
+<script src="{{url('layout/js/auth.js')}}" type="text/javascript"></script>
+
 @endsection
 
 

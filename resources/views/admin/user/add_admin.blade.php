@@ -25,7 +25,8 @@
                         <br>
                         <input style="margin-top:15px " type="text" name="name" placeholder="Tên quản trị viên mới..." class="medium" />
                         <input style="margin-top:15px " type="text" name="email" placeholder="Email..." class="medium" />
-                        <input style="margin-top:15px " type="text" name="password" placeholder="Nhập mật khẩu..." class="medium" />
+                        <input style="margin-top:15px " type="password" name="password" placeholder="Nhập mật khẩu..." class="medium" />
+                        <input style="margin-top:15px " type="password" name="password_confirmation" placeholder="Nhập lại mật khẩu..." class="medium" />
                     </td>
                     <td>
                         <input type="hidden"  name="lever" value="1">

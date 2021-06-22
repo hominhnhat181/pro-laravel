@@ -6,7 +6,7 @@ use App\Repositories\GameRepository;
 use App\Repositories\interfaces\GameRepositoryInterface as GameInterface; 
 use Illuminate\Http\Request;
 use Carbon\Carbon;
-use DB;
+use App\Game;
 use App\Http\Requests\GameRequest;
 
 
@@ -57,6 +57,9 @@ class GameController extends Controller
     // update
     public function update(GameRequest $request, $object_id){
         $attributes = $request->except('_token','_method');
+        if($request->image == null){
+            $attributes['image'] = Game::where('id',$object_id)->value('image');
+        }
         $this->gameRepository->update($object_id, $attributes);
         return Redirect('list-games')->with('update', 'Update Game Success');
       

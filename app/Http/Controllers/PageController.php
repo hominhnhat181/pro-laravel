@@ -68,7 +68,8 @@ class PageController extends Controller
     }
 
 
-    
+
+
     // trả về dữ liệu khác nhau từ login socialize và register(img)
     // validation (origin password, new_password-confirm_password)
     public function authUpdate($auth_id, PageRequest $request)

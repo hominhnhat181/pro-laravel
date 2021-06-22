@@ -35,7 +35,7 @@ class GameRequest extends FormRequest
 
             'title' => 'required',
             'desc' =>'required',
-            'image' => 'required',
+            'image' => 'Present',
             'link' =>'required',
             'types_id' =>'required',
         ];
