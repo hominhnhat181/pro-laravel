@@ -2,11 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Repositories\CategoryRepository;
 use App\Repositories\interfaces\CategoryRepositoryInterface as CategoryInterface;
-use Illuminate\Http\Request;
-use Carbon\Carbon;
-use DB;
 use App\Http\Requests\CategoryRequest;
 
 class CategoryController extends Controller

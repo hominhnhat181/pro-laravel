@@ -3,8 +3,7 @@
 namespace App\Repositories;
 use App\Repositories\EloquentRepository;
 use App\Repositories\Interfaces\GameRepositoryInterface;
-use DB;
-use Illuminate\Http\Request;
+
 use App\Game;
 use App\Type;
 

@@ -3,8 +3,6 @@
 namespace App\Repositories;
 use App\Repositories\EloquentRepository;
 use App\Repositories\Interfaces\AppRepositoryInterface;
-use DB;
-use Illuminate\Http\Request;
 use App\App;
 use App\Type;
 

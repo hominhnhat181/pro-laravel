@@ -3,8 +3,6 @@
 namespace App\Repositories;
 use App\Repositories\EloquentRepository;
 use App\Repositories\Interfaces\SearchRepositoryInterface;
-use Illuminate\Http\Request;
-use App\Category;
 use App\Type;
 use App\Game;
 use App\App;

@@ -2,11 +2,11 @@
 namespace App\Repositories\Interfaces;
 
 use App\Repositories\Interfaces\RepositoryInterface;
-use Illuminate\Http\Request;
 
 interface AppRepositoryInterface extends RepositoryInterface
 {
     public function fillEdit($id);
+    public function fillType();
     public function fillTypeName($id);
 
 }

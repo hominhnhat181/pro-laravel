@@ -2,11 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Repositories\AppRepository;
 use App\Repositories\interfaces\AppRepositoryInterface as AppInterface; 
-use Illuminate\Http\Request;
-use Carbon\Carbon;
-use DB;
 use App\Http\Requests\AppRequest;
 
 class AppController extends Controller

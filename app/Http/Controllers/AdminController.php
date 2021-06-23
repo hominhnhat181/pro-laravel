@@ -1,12 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Repositories\UserRepository;
 use App\Repositories\interfaces\UserRepositoryInterface as UserInterface;
-use Illuminate\Http\Request;
-use Carbon\Carbon;
 use App\User;
-use Auth;
 use App\Http\Requests\UserRequest;
 
 

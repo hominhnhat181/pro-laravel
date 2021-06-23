@@ -2,10 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Repositories\GameRepository;
 use App\Repositories\interfaces\GameRepositoryInterface as GameInterface; 
-use Illuminate\Http\Request;
-use Carbon\Carbon;
 use App\Game;
 use App\Http\Requests\GameRequest;
 

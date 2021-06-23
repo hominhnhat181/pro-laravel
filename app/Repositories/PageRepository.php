@@ -2,13 +2,9 @@
 
 namespace App\Repositories;
 
-use DB;
 use App\App;
 use App\Game;
 use App\Type;
-use App\Category;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\View;
 use App\Repositories\EloquentRepository;
 use App\Repositories\Interfaces\PageRepositoryInterface;
 

@@ -2,11 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Repositories\TypeRepository;
 use App\Repositories\interfaces\TypeRepositoryInterface as TypeInterface;; 
-use Illuminate\Http\Request;
-use Carbon\Carbon;
-use DB;
 use App\Http\Requests\TypeRequest;
 
 

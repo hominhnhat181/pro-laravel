@@ -1,14 +1,13 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\User;
-use App\Type;
-use App\Category;
-use Auth;
+
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use App\Http\Requests\PageRequest;
-use Hash;
-use Illuminate\Support\Collection;
-use App\Repositories\PageRepository;
+use App\User;
+
+
 use App\Repositories\interfaces\PageRepositoryInterface as PageInterface; 
 
 class PageController extends Controller
