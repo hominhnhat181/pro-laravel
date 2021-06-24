@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Repositories\interfaces\SearchRepositoryInterface as SearchInterface; 
 
@@ -14,11 +14,19 @@ class SearchController extends Controller
 
         $this->searchRepository = $searchRepository;
         $this->searchRepository->shareHeadFoot();
+        $this->searchRepository->sidebar();
     }
 
 
-    public function searchLogic(Request $request){
+    public function pageSearch(Request $request){
         $attributes = $request->search;
-        return $this->searchRepository->searchLogic($attributes);
+        return $this->searchRepository->pageSearch($attributes);
     }
+
+
+    public function adminSearch(Request $request){
+        $attributes = $request->search;
+        return $this->searchRepository->adminSearch($attributes);
+    }
+    
 }

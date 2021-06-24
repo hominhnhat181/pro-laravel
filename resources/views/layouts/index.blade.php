@@ -47,7 +47,7 @@
 				</div>
 			</div>
 		</section>
-
+		
 		<section class="ftco-section" id="list-start">
 			<div class="container">
 				<div id="software-box" class="row justify-content-center pb-5">

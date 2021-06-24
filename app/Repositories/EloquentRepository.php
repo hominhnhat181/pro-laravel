@@ -112,6 +112,6 @@ abstract class EloquentRepository implements RepositoryInterface
         return  View::share([
                 'cat' => $cat,
                 'typ' => $typ,
-        ]);
+            ]);
     }
 }

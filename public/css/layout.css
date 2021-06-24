@@ -120,7 +120,7 @@ h1 a {
 
 #branding {
     font-weight: normal;
-    margin-bottom: 0;
+    padding: 20px !important;
     padding: 22px 10px 3px;
     text-align: left;
 }
@@ -1623,4 +1623,7 @@ table.form select {
 
 .edit-btn:hover {
     background: black;
+}
+.grid_12 header-repeat{
+
 }

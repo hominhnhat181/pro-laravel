@@ -75,4 +75,18 @@
         </div>
     </div>
 </div>
+<style>
+    body{
+        background-image: url('layout/images/game0.jpg');
+        background-size: cover;
+        background-repeat: no-repeat;
+        
+    }
+    .card{
+        margin-top: 40px;
+    }
+    #formCss{
+        justify-content: center;
+    }
+</style>
 @endsection

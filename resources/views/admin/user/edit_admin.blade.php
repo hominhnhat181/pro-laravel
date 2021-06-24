@@ -12,7 +12,7 @@
 <div class="grid_10">
     <div class="box round first grid">
         <h2>Edit Admin</h2>
-        <div class="block" style="margin-left: 4%; margin-right: 10%">     
+        <div class="block" style="margin-left: 3%; margin-right: 10%">     
             @if ($errors->any())
                 <ul>
                     @foreach ($errors->all() as $error)

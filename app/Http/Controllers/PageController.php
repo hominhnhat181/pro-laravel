@@ -22,7 +22,6 @@ class PageController extends Controller
     public function __construct(PageInterface $pageRepository){
         // $this->middleware(['auth','verified']);
         $this->pageRepository = $pageRepository;
-        // Header & Footer for all page :D
         $this->pageRepository->shareHeadFoot();
     }
     

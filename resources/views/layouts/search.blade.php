@@ -21,7 +21,7 @@
                 <a class="result__content--title" href="{{URL('detail-'.$ap->types_id.'-'.$ap->id)}}"><h3 class="category">{{$ap->name}}</a>
                 </div>
                 <div>
-                    <a href="{{URL('types-'.$ap->types_id)}}"><span class="sale">{{__($ap->typeName)}}</span></a>
+                    <a href="{{URL('types-'.$ap->categories_id.'-'.$ap->types_id)}}"><span class="sale">{{__($ap->typeName)}}</span></a>
                 </div>
                 <div>
                     <p>{{ Str::limit($ap->desc, 250) }}</p>

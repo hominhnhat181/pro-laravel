@@ -3,7 +3,7 @@
 namespace App\Repositories;
 use App\Repositories\EloquentRepository;
 use App\Repositories\Interfaces\SearchRepositoryInterface;
-use App\Type;
+use App\User;
 use App\Game;
 use App\App;
 
@@ -16,22 +16,42 @@ class SearchRepository extends EloquentRepository implements SearchRepositoryInt
     }
 
     
-    public function searchLogic($attributes){
+    public function pageSearch($attributes){
       
-        $typ = Type::join('categories','categories.id','=','types.categories_id')->get();
-
         $resultApp = App::join('types', 'apps.types_id', '=', 'types.id')
-        ->select( 'types.typeName', 'apps.name','apps.image','apps.desc','apps.title', 'apps.link','apps.types_id', 'apps.id')
+        ->join('categories','categories.id','=','apps.categories_id')
+        ->select( 'types.typeName','categories.catName', 'apps.*')
         ->where('name','LIKE','%'.$attributes.'%')
         ->orWhere('types.typeName','LIKE','%'.$attributes.'%');
 
         $allResult = Game::join('types', 'games.types_id', '=', 'types.id')
-        ->select( 'types.typeName', 'games.name','games.image','games.desc','games.title', 'games.link','games.types_id', 'games.id')
+        ->join('categories','categories.id','=','games.categories_id')
+        ->select( 'types.typeName','categories.catName', 'games.*')
         ->where('name','LIKE','%'.$attributes.'%')
         ->orWhere('types.typeName','LIKE','%'.$attributes.'%')->union($resultApp)
         ->paginate(5);
         
-        return view('layouts.search', compact('allResult','cat','typ'));
+        return view('layouts.search', compact('allResult','typ'));
+    }
+    public function adminSearch($attributes){
+
+        $resultApp = App::join('types', 'apps.types_id', '=', 'types.id')
+        ->join('categories','categories.id','=','apps.categories_id')
+        ->select( 'types.typeName','categories.catName', 'apps.*')
+        ->where('name','LIKE','%'.$attributes.'%')
+        ->orWhere('types.typeName','LIKE','%'.$attributes.'%');
+
+        $allResult = Game::join('types', 'games.types_id', '=', 'types.id')
+        ->join('categories','categories.id','=','games.categories_id')
+        ->select( 'types.typeName','categories.catName', 'games.*')
+        ->where('name','LIKE','%'.$attributes.'%')
+        ->orWhere('types.typeName','LIKE','%'.$attributes.'%')->union($resultApp)
+        ->paginate(8);
+        
+        return view('admin.layouts.searchAdmin', compact('allResult'));
     }
 }
 
+        // $resultuser = User::select('users.name')->where('name','LIKE','%'.$attributes.'%')
+        // ->orWhere('email','LIKE','%'.$attributes.'%')
+        // ->orWhere('phone','LIKE','%'.$attributes.'%')->union($resultApp);

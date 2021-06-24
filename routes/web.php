@@ -29,8 +29,7 @@ Route::get('luis', 'PageController@getIndex');
 Route::get('luis', 'PageController@menu');
 Route::get('luis', 'PageController@getObject');
 
-Route::get('search', 'SearchController@search');
-Route::get('search', 'SearchController@searchLogic');
+Route::get('search', 'SearchController@pageSearch');
 Route::get('contact','PageController@getContact');
 Route::get('games-{cats_id}', 'PageController@getGame');
 Route::get('apps-{cats_id}', 'PageController@getApp');
@@ -59,6 +58,9 @@ Route::get('setLocale/{locale}', function ($locale) {
 // -------------------------ADMIN-------------------------
 
 Route::get('admin', 'adminController@index');
+Route::get('admin', 'adminController@OverView');
+Route::get('admin-search', 'SearchController@adminSearch');
+
 Route::get('list-admin','adminController@listAdmin');
 Route::get('add-admin','adminController@addAdmin');
 Route::post('save-admin','adminController@store');
@@ -116,5 +118,5 @@ Route::get('login/facebook', 'Auth\LoginController@redirectToFacebook')->name('l
 Route::get('login/facebook/callback', 'Auth\LoginController@handleFacebookCallback');
 
 // Github login
-Route::get('login/github', [App\Http\Controllers\Auth\LoginController::class, 'redirectToGithub'])->name('login.github');
-Route::get('login/github/callback', [App\Http\Controllers\Auth\LoginController::class, 'handleGithubCallback']);
+Route::get('login/github', 'Auth\LoginController@redirectToGithub')->name('login.github');
+Route::get('login/github/callback', 'Auth\LoginController@handleGithubCallback');

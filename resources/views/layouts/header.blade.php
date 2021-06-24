@@ -6,9 +6,7 @@
                 <p class="mb-0 phone pl-md-2">
                     <a href="#" class="mr-2"><span class="fa fa-phone mr-1"></span> 0906 449 581</a>
                     <a href="#"><span class="fa fa-paper-plane mr-1"></span> Bluenight@gmail.com</a>
-
                     <a style="margin: 10px"> {{ __('Welcome') }}</a>
-
                 </p>
             </div>
             <div class="col-md-6 d-flex justify-content-md-end">
@@ -76,7 +74,7 @@
                 <li style="margin-right: 4px">
                     <form class="form-search" action="{{URL('search')}}">
                         <input class="search" type="search" placeholder="Search?" name="search" required>
-                        <i class="fa fa-search"></i>
+                        <i  class="fa fa-search"></i>
                     </form>
                 </li>
                 <li class="nav-item active" id="menu__home"><a class="nav-link" href="{{URL('luis')}}" class="nav-link">{{__('home')}}</a></li>

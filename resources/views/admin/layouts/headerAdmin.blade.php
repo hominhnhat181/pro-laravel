@@ -14,9 +14,14 @@
 				<div class="floatleft middle">
 					<h1>BLUE-NIGHT</h1>
 					<p>Nothing Is Absolute, Nothing Is Forever, Nothing From Nothing</p>
-				</div>
-                <div class="floatright">
-
+                </div>
+                <div class="floatright" style="display: flex">
+                    <form style="position: relative;top: -5px; right: 18px;" class="form-search" action="{{URL('admin-search')}}">
+                        <div class="input-group rounded">
+                            <input type="search" class="form-control rounded" name="search" placeholder="Search" aria-label="Search"
+                              aria-describedby="search-addon" />
+                        </div>
+                      </form>
                     <div class="floatleft marginleft10">
                         <ul class="inline-ul floatleft">
                             <!-- get user name -->
@@ -29,6 +34,7 @@
                             @endif
                         </ul>
                     </div>
+                   
                 </div>
                 <div class="clear">
                 </div>
@@ -36,11 +42,7 @@
         </div>
         <div class="clear">
         </div>
-        <div class="grid_12">
-            <ul class="nav main">
-                <li class="ic-dashboard"><a href="admin"><span></span></a> </li>
-            </ul>
-        </div>
+        
         <div class="clear">
         </div>
     
