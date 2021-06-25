@@ -106,103 +106,16 @@
     </div>
     @endforeach
     </div>
-
 </section>
+{{-- comment --}}
 <section class="content-item" id="comments">
     <div class="container">   
     	<div class="row">
-            <div class="col-sm-12">   
-                <form>
-                	<h3 class="pull-left">New Comment</h3>
-                	
-                    <fieldset>
-                        <div class="row">
-                            <div class="col-sm-3 col-lg-2 hidden-xs">
-                            	<img class="img-responsive" src="layout/images/nhat.jpg">
-                            </div>
-                            <div class="form-group col-xs-12 col-sm-9 col-lg-10">
-                                <textarea class="form-control" id="message" placeholder="Your message" required=""></textarea>
-                                <button type="submit" class="btn btn-normal pull-right">Submit</button>
-                            </div>
-                            
-                        </div>  	
-                    </fieldset>
-                </form>
-                
-                <h3>4 Comments</h3>
-                
-                <!-- COMMENT 1 - START -->
-                <div class="media">
-                    <a class="pull-left" href="#"><img class="media-object" src="https://bootdey.com/img/Content/avatar/avatar1.png" alt=""></a>
-                    <div class="media-body">
-                        <h4 class="media-heading">Thầy Bình</h4>
-                        <p>Ờ Mây Zing, Gút Chóp Em  {•-<} </p>
-                        <ul class="list-unstyled list-inline media-detail pull-left">
-                            <li><i class="fa fa-calendar"></i>27/02/2014</li>
-                            <li><i class="fa fa-thumbs-up"></i>13</li>
-                        </ul>
-                        <ul class="list-unstyled list-inline media-detail pull-right">
-                            <li class=""><a href="">Like</a></li>
-                            <li class=""><a href="">Reply</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <!-- COMMENT 1 - END -->
-                
-                <!-- COMMENT 2 - START -->
-                <div class="media">
-                    <a class="pull-left" href="#"><img class="media-object" src="https://bootdey.com/img/Content/avatar/avatar2.png" alt=""></a>
-                    <div class="media-body">
-                        <h4 class="media-heading">Anh Hiếu PC</h4>
-                        <p>Game chi mà chi lạ rứa, chơi răng mà hắn không nghe chi hết rứaaa </p>
-                        <ul class="list-unstyled list-inline media-detail pull-left">
-                            <li><i class="fa fa-calendar"></i>27/02/2021</li>
-                            <li><i class="fa fa-thumbs-up"></i>13</li>
-                        </ul>
-                        <ul class="list-unstyled list-inline media-detail pull-right">
-                            <li class=""><a href="">Like</a></li>
-                            <li class=""><a href="">Reply</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <!-- COMMENT 2 - END -->
-                
-                <!-- COMMENT 3 - START -->
-                <div class="media">
-                    <a class="pull-left" href="#"><img class="media-object" src="https://bootdey.com/img/Content/avatar/avatar3.png" alt=""></a>
-                    <div class="media-body">
-                        <h4 class="media-heading">Crush</h4>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                        <ul class="list-unstyled list-inline media-detail pull-left">
-                            <li><i class="fa fa-calendar"></i>27/02/2014</li>
-                            <li><i class="fa fa-thumbs-up"></i>13</li>
-                        </ul>
-                        <ul class="list-unstyled list-inline media-detail pull-right">
-                            <li class=""><a href="">Like</a></li>
-                            <li class=""><a href="">Reply</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <!-- COMMENT 3 - END -->
-                
-                <!-- COMMENT 4 - START -->
-                <div class="media">
-                    <a class="pull-left" href="#"><img class="media-object" src="https://bootdey.com/img/Content/avatar/avatar4.png" alt=""></a>
-                    <div class="media-body">
-                        <h4 class="media-heading">John Doe</h4>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                        <ul class="list-unstyled list-inline media-detail pull-left">
-                            <li><i class="fa fa-calendar"></i>27/02/2014</li>
-                            <li><i class="fa fa-thumbs-up"></i>13</li>
-                        </ul>
-                        <ul class="list-unstyled list-inline media-detail pull-right">
-                            <li class=""><a href="">Like</a></li>
-                            <li class=""><a href="">Reply</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <!-- COMMENT 4 - END -->
-            
+            <div class="col-sm-7">   
+                <div class="fb-comments" data-href="https://www.facebook.com/Corozon.II" data-width="" data-numposts="5"></div>
+            </div>
+            <div class="col-sm-5">   
+                <img style="width: 100%; max-width: 100%;" src="{{ url('layout/images/ex.png') }}" alt="">
             </div>
         </div>
     </div>

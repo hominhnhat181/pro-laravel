@@ -17,27 +17,17 @@ use Illuminate\Support\Facades\Session;
 |
 */
 
+
+
 // -------------------------LOGIN-------------------------
+
 Auth::routes(['verify' => true]);
 Route::get('logoutadmin', 'Auth\LogoutController@getLogoutAdmin');
 Route::get('logoutpage', 'Auth\LogoutController@getLogoutPage');
 
 
 
-// -----------------------Layout-------------------------
-Route::get('luis', 'PageController@getIndex');
-Route::get('luis', 'PageController@menu');
-Route::get('luis', 'PageController@getObject');
-
-Route::get('search', 'SearchController@pageSearch');
-Route::get('contact','PageController@getContact');
-Route::get('games-{cats_id}', 'PageController@getGame');
-Route::get('apps-{cats_id}', 'PageController@getApp');
-Route::get('types-{cats_id}-{id}', 'PageController@getType');
-Route::get('detail-{types_id}-{id}', 'PageController@getDetail');
-
-
-// -------------------------Auth-------------------------
+// -------------------------Auth-Setting-------------------------
 
 Route::get('account{id}', 'PageController@accountSetting');
 Route::put('AuthSetting/{auth_id}','PageController@authUpdate');
@@ -53,6 +43,18 @@ Route::get('setLocale/{locale}', function ($locale) {
 })->name('app.setLocale');
 
 
+// -----------------------Layout-------------------------
+
+Route::get('luis', 'PageController@getIndex');
+Route::get('luis', 'PageController@menu');
+Route::get('luis', 'PageController@getObject');
+
+Route::get('search', 'SearchController@pageSearch');
+Route::get('contact','PageController@getContact');
+Route::get('games-{cats_id}', 'PageController@getGame');
+Route::get('apps-{cats_id}', 'PageController@getApp');
+Route::get('types-{cats_id}-{id}', 'PageController@getType');
+Route::get('detail-{types_id}-{id}', 'PageController@getDetail');
 
 
 // -------------------------ADMIN-------------------------
