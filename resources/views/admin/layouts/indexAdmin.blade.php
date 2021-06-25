@@ -13,11 +13,7 @@
       </div>
       @endif
     </div>
-    {{-- <div style="text-align: center">
-
-      <h1>{{ app\Helpers\Helper::helper() }}</h1>
-
-    </div> --}}
+   
     <!-- Pills navs -->
     <ul class="nav nav-pills mb-3" id="ex1" role="tablist">
       <li class="nav-item" role="presentation">
@@ -37,7 +33,9 @@
       <div class="tab-pane fade show active" id="ex1-pills-1" role="tabpanel" aria-labelledby="ex1-tab-1">
         <section>
           <div class="row" style="max-width: 88%; margin:0 auto">
-
+            <div style="text-align: center">
+              <h1>{{ app\Helpers\Helper::hiADmin() }}</h1>
+            </div>
             <div class="col-xl-4 col-sm-6 col-12 mb-4">
               <div class="card">
                 <div class="card-body">
@@ -48,7 +46,7 @@
                     </div>
                     <div class="align-self-center">
                   
-                      <i class="fas fa-user-shield text-warning fa-3x"></i>
+                     <a href="{{ url('list-admin') }}"> <i class="fas fa-user-shield text-warning fa-3x"></i></a>
                     </div>
                   </div>
                 </div>
@@ -63,7 +61,7 @@
                       <p class="mb-0">Categories</p>
                     </div>
                     <div class="align-self-center">
-                      <i class="fas fa-book-open text-info fa-3x"></i>
+                      <a href="{{ url('list-category') }}"><i class="fas fa-book-open text-info fa-3x"></i></a>
                     </div>
                   </div>
                 </div>
@@ -78,7 +76,7 @@
                       <p class="mb-0">Types</p>
                     </div>
                     <div class="align-self-center">
-                      <i class="fas fa-chart-pie text-warning fa-3x"></i>
+                      <a href="{{ url('list-type') }}"> <i class="fas fa-chart-pie text-warning fa-3x"></i></a>
                     </div>
                   </div>
                 </div>
@@ -93,7 +91,7 @@
                       <p class="mb-0">Total User</p>
                     </div>
                     <div class="align-self-center">
-                      <i class="far fa-user text-success fa-3x"></i>
+                      <a href="{{ url('list-admin') }}"><i class="far fa-user text-success fa-3x"></i></a>
                     </div>
                   </div>
                 </div>
@@ -108,7 +106,7 @@
                       <p class="mb-0">Total Game</p>
                     </div>
                     <div class="align-self-center">
-                      <i class="fas fa-rocket text-danger fa-3x"></i>
+                      <a href="{{ url('list-games') }}"><i class="fas fa-rocket text-danger fa-3x"></i></a>
                     </div>
                   </div>
                 </div>
@@ -123,24 +121,19 @@
                       <p class="mb-0">Total App</p>
                     </div>
                     <div class="align-self-center">
-                      <i class="far fa-life-ring text-info fa-3x"></i>
+                      <a href="{{ url('list-apps') }}"><i class="far fa-life-ring text-info fa-3x"></i></a>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-
-
         </section>
       </div>
-
       <div class="tab-pane fade" id="ex1-pills-2" role="tabpanel" aria-labelledby="ex1-tab-2">
-
         <ul class="nav nav-pills mb-3" id="ex1" role="tablist">
           <li class="nav-item" role="presentation">
             <a class="nav-link lv2" id="ex2-tab-1" data-mdb-toggle="pill" href="#ex2-pills-1" role="tab"
               aria-controls="ex2-pills-1" aria-selected="true">Users</a>
-    
           </li>
           <li class="nav-item" role="presentation">
             <a class="nav-link lv2" id="ex2-tab-2" data-mdb-toggle="pill" href="#ex2-pills-2" role="tab"
@@ -158,6 +151,7 @@
                 <tr>
                   <th scope="col">ID</th>
                   <th scope="col">Name</th>
+                  <th scope="col">Email</th>
                   <th scope="col">Regency</th>
                   <th scope="col">Created At</th>
                 </tr>
@@ -167,6 +161,7 @@
                 <tr>
                   <th scope="row">{{ $user->id }}</th>
                   <td>{{ $user->name }}</td>
+                  <td>{{ $user->email }}</td>
                   @if($user->lever < 1)
                   <td>Admin</td>
                   @else
@@ -230,7 +225,6 @@
       </div>
     </div>
     <!-- Pills content -->
-
   </div>
 </div>
 

@@ -26,8 +26,7 @@ Route::get('logoutadmin', 'Auth\LogoutController@getLogoutAdmin');
 Route::get('logoutpage', 'Auth\LogoutController@getLogoutPage');
 
 
-
-// -------------------------Auth-Setting-------------------------
+// -------------------Auth-Setting-------------------------
 
 Route::get('account{id}', 'PageController@accountSetting');
 Route::put('AuthSetting/{auth_id}','PageController@authUpdate');

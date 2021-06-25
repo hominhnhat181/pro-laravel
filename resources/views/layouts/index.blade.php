@@ -79,7 +79,7 @@
 				</div>
 				<div class="row justify-content-center">
 					<div class="col-md-4">
-						<a href="{{URL('games')}}" class="btn btn-primary d-block">{{ __('View All Games') }}<span class="fa fa-long-arrow-right"></span></a>
+						<a href="{{URL('games-1')}}" class="btn btn-primary d-block">{{ __('View All Games') }}<span class="fa fa-long-arrow-right"></span></a>
 					</div>
 				</div>
 			</div>
@@ -157,7 +157,7 @@
 			</div>
 			<div class="row justify-content-center">
 				<div class="col-md-4">
-					<a href="product.html" class="btn btn-primary d-block">{{__('View All Apps ') }} <span class="fa fa-long-arrow-right"></span></a>
+					<a href="{{ url('apps-2') }}" class="btn btn-primary d-block">{{__('View All Apps ') }} <span class="fa fa-long-arrow-right"></span></a>
 				</div>
 			</div>
 		</div>
