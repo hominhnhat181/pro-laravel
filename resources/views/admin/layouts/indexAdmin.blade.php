@@ -29,10 +29,6 @@
         <a class="nav-link" id="ex1-tab-2" data-mdb-toggle="pill" href="#ex1-pills-2" role="tab"
           aria-controls="ex1-pills-2" aria-selected="false"> New Upload</a>
       </li>
-      <li class="nav-item" role="presentation">
-        <a class="nav-link" id="ex1-tab-3" data-mdb-toggle="pill" href="#ex1-pills-3" role="tab"
-          aria-controls="ex1-pills-3" aria-selected="false">Search</a>
-      </li>
     </ul>
     <!-- Pills navs -->
 
@@ -231,10 +227,6 @@
             </table>
           </div>
         </div>
-      </div>
-
-      <div class="tab-pane fade" id="ex1-pills-3" role="tabpanel" aria-labelledby="ex1-tab-3">
-        
       </div>
     </div>
     <!-- Pills content -->
