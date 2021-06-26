@@ -23,6 +23,7 @@ class PageRepository extends EloquentRepository implements PageRepositoryInterfa
 
         $gameRing = Game::join('types', 'games.types_id', '=', 'types.id')
         ->select( 'types.typeName', 'games.name','games.image', 'games.link','games.title', 'games.types_id','games.id')
+        ->orderByRaw('games.created_at Desc')
         ->limit(6)
         ->get();
 

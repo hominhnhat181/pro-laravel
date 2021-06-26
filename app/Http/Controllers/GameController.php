@@ -68,5 +68,4 @@ class GameController extends Controller
         $this->gameRepository->delete($object_id);
         return Redirect('list-games')->with('delete', 'Delete Game Success');
     }
-
 }

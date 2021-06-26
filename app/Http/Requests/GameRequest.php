@@ -32,7 +32,6 @@ class GameRequest extends FormRequest
                 Rule::unique('games','name')->ignore($this->object_id),
                 'bail'
             ],
-
             'title' => 'required',
             'desc' =>'required',
             'image' => 'Present',
