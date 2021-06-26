@@ -28,8 +28,7 @@ class PageRepository extends EloquentRepository implements PageRepositoryInterfa
 
         $bestGame = Game::join('types', 'games.types_id', '=', 'types.id')
         ->select( 'games.desc', 'games.name','games.image','games.types_id','games.id')
-        ->where('games.id', rand(1,1))
-        ->get();
+        ->orderByRaw('games.created_at Desc')->limit(1)->get();
 
         $gameList = Game::join('types', 'games.types_id', '=', 'types.id')
         ->select( 'types.typeName', 'games.*')

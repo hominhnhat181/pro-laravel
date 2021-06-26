@@ -52,6 +52,4 @@ class SearchRepository extends EloquentRepository implements SearchRepositoryInt
     }
 }
 
-        // $resultuser = User::select('users.name')->where('name','LIKE','%'.$attributes.'%')
-        // ->orWhere('email','LIKE','%'.$attributes.'%')
-        // ->orWhere('phone','LIKE','%'.$attributes.'%')->union($resultApp);
+      

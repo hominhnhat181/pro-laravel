@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Middleware;
-use Auth;
+use Illuminate\Support\Facades\Auth;
 use Closure;
 
 class IsAdmin
@@ -18,7 +18,6 @@ class IsAdmin
         if (Auth::user() &&  Auth::user()->lever == 0) {
                 return $next($request);
         }
-
         return redirect('luis');
     }
 }

@@ -91,7 +91,7 @@
 
                 <div class="tab-pane fade" id="v-pills-2" role="tabpanel" aria-labelledby="v-pills-day-2-tab">
                     <div class="p-4">
-                        <button class="link__download"><a href="">Google Driver</a></button>
+                        <button class="link__download"><a href="{{ $tp->link }}">Google Driver</a></button>
                         <button class="link__download"><a href="">FShare</a></button>
                         <button class="link__download"><a href="">MEGA</a></button>
                     </div>
