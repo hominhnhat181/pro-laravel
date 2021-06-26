@@ -59,7 +59,7 @@ Route::get('detail-{types_id}-{id}', 'PageController@getDetail');
 // -------------------------ADMIN-------------------------
 
 Route::get('admin', 'adminController@index');
-Route::get('admin', 'adminController@OverView');
+Route::get('admin', 'adminController@overView');
 Route::get('admin-search', 'SearchController@adminSearch');
 
 Route::get('list-admin','adminController@listAdmin');

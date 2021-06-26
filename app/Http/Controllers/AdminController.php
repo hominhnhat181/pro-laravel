@@ -82,26 +82,11 @@ class AdminController extends Controller
         $this->adminRepository->delete($id);
         return redirect('list-admin')->with('delete', 'Delete User success');
     }
-    // 100%
-    // Custom admin
-    public function OverView(){
-     $user = User::count('id');
-     $admin = User::where('lever',0)->count('id');
-     $category = Category::count('id');
-     $type = Type::count('id');
-     $game = Game::count('id');
-     $app = App::count('id');
 
-     $newGame = Game::join('types', 'games.types_id', '=', 'types.id')->
-     join('categories','games.categories_id', '=','categories.id')->
-     select('games.*','types.typeName','categories.catName')->
-     orderByRaw('games.created_at Desc')->limit(5)->get();
-     $newApp = App::join('types', 'apps.types_id', '=', 'types.id')->
-     join('categories','apps.categories_id', '=','categories.id')->
-     select('apps.*','types.typeName','categories.catName')->
-     orderByRaw('created_at Desc')->limit(5)->get();
-     $newUser = User::orderByRaw('created_at Desc')->limit(5)->get();
-    return view('admin/layouts/indexAdmin',\compact('user','admin','category','type','game','app','newGame','newApp','newUser'));
+    // 100%
+
+    public function overView(){
+        return $this->adminRepository->overView();
     }
 
 }
